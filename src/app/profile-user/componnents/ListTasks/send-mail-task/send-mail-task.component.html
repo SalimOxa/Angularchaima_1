@@ -1,0 +1,84 @@
+<div *ngIf="task">
+
+
+
+
+
+
+  <div class="p-d-flex p-jc-center">
+    <div class="p-d-flex p-flex-column p-jc-center"style="width: 80%" >
+
+
+        <div class="p-grid" >
+          <div class="p-col-12 p-md-12 p-lg-12 p-sm-12">
+            <div class="p-d-flex p-flex-column ">
+              <div><h1 >Send mail </h1></div>
+              <div class="p-mt-0">
+
+                <div class="p-mb-2 p-mr-2">
+                  <input
+                    type="text"
+                    pinputtext=""
+                    placeholder="Email"
+                    class="contact-input p-mb-3 p-inputtext p-component"
+                    [style]="{ width: '100%' }"
+                    [(ngModel)]="contactForm.email"
+
+                  />
+
+                </div>
+                <div class="p-mb-2 p-mr-2">
+                  <input
+                    type="text"
+                    pinputtext=""
+                    placeholder="Subject"
+                    class="contact-input p-mb-3 p-inputtext p-component"
+                    [style]="{ width: '100%' }"
+                    [(ngModel)]="contactForm.subject"
+
+                  />
+
+                </div>
+
+
+
+
+                <div class="p-mb-2 p-mr-2">
+              <textarea
+                rows="8"
+                pinputtextarea=""
+                placeholder="message"
+                class="
+                  contact-input contact-message
+                 p-mb-3 p-inputtextarea p-inputtext p-component
+                "
+                spellcheck="false"
+                [style]="{ width: '100%' }"
+                [(ngModel)]="contactForm.message"
+
+
+              ></textarea>
+                </div>
+                <div class=" p-mr-2 p-d-flex p-jc-end ">
+                  <button
+                    pButton
+                    type="button"
+                    label="Send"
+                    class="p-button-Primary"
+                    (click)="sendmail()"
+                  ></button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+    </div>
+
+
+

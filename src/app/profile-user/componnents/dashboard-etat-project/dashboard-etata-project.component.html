@@ -1,0 +1,210 @@
+<p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
+
+<p-panel class="p-d-flex p-mt-4 p-jc-center project-name" header="Project Name: {{currentProject.name}} "
+         infiniteScroll
+         [infiniteScrollDistance]="2"
+         [infiniteScrollDisabled]="busyGettingData"
+         [infiniteScrollThrottle]="50"
+         (scrolled)="onScrollDown($event)"
+         (scrolledUp)="onScrollUp($event)">
+  <div class="p-d-flex  p-jc-center" *ngIf="tasks && tasks.length===0">
+    <h1> You have no task for the moment</h1>
+
+  </div>
+  <div class="p-d-flex p-mt-4 p-mr-6 p-ml-6">
+
+    <p-timeline *ngIf="tasks" [value]="tasks" align="alternate" styleClass="customized-timeline">
+      <ng-template pTemplate="marker">
+			<span class="custom-marker">
+   <img class="icon-task" src="../../../../assets/images/state/task.png">      </span>
+      </ng-template>
+
+      <ng-template pTemplate="content" let-task>
+
+        <p-card *ngIf="task.name && task.state==='IN_PROGRESS' || task.state==='DONE' ">
+
+          <img class="imgBx p-d-flex p-jc-sm-start" *ngIf="task.state==='IN_PROGRESS'"
+               src="assets/images/state/inProgress-img.png">
+          <img class="imgBx p-d-flex p-jc-sm-start" *ngIf="task.state==='BLOCKED'"
+               src="assets/images/state/blocked-img.png">
+          <img class="imgBx p-d-flex p-jc-sm-start" *ngIf="task.state==='DONE'"
+               src="assets/images/state/success-img.png">
+          <h3>{{task.name}}</h3>
+          <h4>Job : {{task.type}}</h4>
+          <p class="demo-container">{{task.description}}</p>
+          <span class=" date p-d-flex p-jc-start"> {{task.creationDate | date:'yyyy-MM-dd'}}</span>
+          <span class="link-text">
+         <a class="text-1">View Information <svg viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd"
+      d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z"
+      fill="#753BBD"/>
+</svg></a>
+         <a *ngIf="task.state==='IN_PROGRESS'" class="text-2" (click)="doJob(task)">Do Job    <svg viewBox="0 0 25 16"
+                                                                                                   fill="none"
+                                                                                                   xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd"
+      d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z"
+      fill="#753BBD"/>
+</svg></a>
+<a *ngIf="task.state==='DONE'" class="text-2" (click)="  showJob(task)">View job    <svg viewBox="0 0 25 16" fill="none"
+                                                                                         xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd"
+      d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z"
+      fill="#753BBD"/>
+</svg></a>
+    </span>
+
+
+        </p-card>
+
+      </ng-template>
+
+
+    </p-timeline>
+  </div>
+
+  <div class="p-d-flex p-jc-center  " *ngIf="showSpinner">
+
+    <div class="loadingspinner"></div>
+  </div>
+
+</p-panel>
+
+<p-dialog header={{passedTask.name}} [(visible)]="display">
+
+  <div class="card">
+    <app-send-mail-task (refrechListTask)="refrechListTask($event)" *ngIf="passedTask.type==='Send Mail'"
+                        [task]="passedTask"></app-send-mail-task>
+    <app-upload-file-task (refrechListTask)="refrechListTask($event)" *ngIf="passedTask.type==='Upload'"
+                          [task]="passedTask"></app-upload-file-task>
+    <app-add-comment-task (refrechListTask)="refrechListTask($event)" *ngIf="passedTask.type==='Add Comment'"
+                          [task]="passedTask"></app-add-comment-task>
+    <app-pay-tranch-task (refrechListTask)="refrechListTask($event)" *ngIf="passedTask.type==='payTranche'"
+                         [task]="passedTask"></app-pay-tranch-task>
+    <app-downoald-statement-task (refrechListTask)="refrechListTask($event)"
+                                 *ngIf="passedTask.type==='downloadStatement'"
+                                 [task]="passedTask"></app-downoald-statement-task>
+
+  </div>
+
+</p-dialog>
+
+
+<p-dialog header={{task.name}} [(visible)]="displayJob" [closable]="true" (onHide)="closeDialog()">
+  <div class="p-mt-6">
+    <div *ngIf="task.type==='Add Comment'">
+
+      <h1><strong style="color: #5b2178">Task Type : </strong>Reponse</h1>
+
+      <div *ngIf="listCommentTask">
+
+        <p-table [value]="listCommentTask"
+                 tableStyleClass="red-bottom-border" styleClass="p-datatable-gridlines">
+          <ng-template pTemplate="header">
+            <tr>
+              <th style="width: 40%">Question</th>
+              <th style="width: 40%">Response</th>
+              <th style="width:25%">Response Date</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-comment>
+            <tr>
+              <td style="width: 40%">{{ comment.question }}</td>
+              <td style="width: 40%">{{ comment.comment }}</td>
+              <td style="width:20%">{{ comment.creationDate | date: 'M/d/yy, h:mm a'}}</td>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+    <div *ngIf="task.type==='Send Mail'">
+
+      <h1><strong style="color: #5b2178">Task Type : </strong>Mail Content</h1>
+
+      <div *ngIf="mailContent">
+
+
+        <table>
+
+          <th style="width: 30% "><a class="title-tab">Subject</a></th>
+          <th style="width: 50%">Message</th>
+          <th style="width:20%">Creation Date</th>
+
+
+          <tr>
+            <td style="width: 30%">{{mailContent.subject}}</td>
+            <td style="width: 60%"> {{mailContent.message}}</td>
+            <td> {{mailContent.creationDate | date: 'M/d/yy, h:mm a'}}</td>
+
+          </tr>
+        </table>
+
+      </div>
+    </div>
+    <div *ngIf="task.type==='Upload'">
+      <h1>
+        <strong style="color: #5b2178">Task Type : </strong> Downoald File
+      </h1>
+
+      <div (click)="redFile()" class="p-d-flex p-jc-center pointer">
+        <div class="p-mr-2 p-mt-2">
+          <i class="fas fa-download "></i>
+        </div>
+        <div class="p-mr-2 p-mt-2"><h3>Downoald</h3></div>
+
+      </div>
+
+
+    </div>
+
+
+    <div *ngIf="task.type==='payTranche'">
+      <div class="p-d-flex p-flex-column">
+        <div class="p-mb-2">
+          <h1 class="p-d-flex p-jc-center" style="font-size: 30px">
+            <strong style="color: red">DateLine
+              : </strong>   {{this.task.tranchePayment?.deadline | date: 'dd/MM/yyyy'}}
+          </h1>
+        </div>
+        <div class="p-mb-2">
+          <h1 class="p-d-flex p-jc-center" style="font-size: 30px">
+            <strong style="color: green">Succefull Payment :</strong> Pay on :  {{paymentDate | date: 'dd/MM/yyyy'}}
+          </h1>
+        </div>
+        <div class="p-mb-2">
+
+          <div (click)="DownaldFacturePayment()" class="p-d-flex p-jc-center pointer">
+            <div class="p-mr-2 p-mt-2">
+              <i class="fas fa-download "></i>
+            </div>
+            <div class="p-mr-2 p-mt-2 "><h3>Downoald Statement</h3></div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+
+
+    <div *ngIf="task.type==='downloadStatement'">
+      <h1>
+        <strong style="color: #5b2178">Task Type : </strong> Downoald Statement
+      </h1>
+
+      <div (click)="DownaldFacturePayment()" class="p-d-flex p-jc-center pointer">
+        <div class="p-mr-2 p-mt-2">
+          <i class="fas fa-download "></i>
+        </div>
+        <div class="p-mr-2 p-mt-2"><h3>Downoald</h3></div>
+
+      </div>
+
+
+    </div>
+  </div>
+</p-dialog>
+
+
+<app-message-chat [idProjectFromParent]="param" class="box"></app-message-chat>
+

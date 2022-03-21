@@ -1,0 +1,117 @@
+<div class="p-grid background">
+  <div class="p-d-flex p-jc-center container   "[class.container-arab]="selectLang==='AR'">
+    <div class="p-d-flex  p-flex-column p-jc-center div_card" >
+      <p-card class="p-shadow-6 ">
+        <div class="p-fluid">
+          <header>
+            <i class="fas fa-mobile-alt p-d-flex p-jc-center  " ></i>
+            <h2  class="p-d-flex p-jc-center p-mb-2 title-1">{{ 'CONFIRM-BY-PHONE.TITLE1' | translate }}</h2>
+          </header>
+
+          <div class="p-d-flex p-jc-center ">
+            <h3 >{{ 'CONFIRM-BY-PHONE.TEXT1' | translate }}</h3>
+          </div>
+
+          <div class="p-d-flex p-jc-center p-mb-2" *ngIf="isNotValidNumber">
+            <p-message severity="error" text="{{ 'CONFIRM-BY-PHONE.VALID_NUMBER' | translate }}"></p-message>
+
+          </div>
+          <div class="p-d-flex p-jc-center">
+
+            <input type="text"
+                   ng2TelInput
+                   pInputText
+                   [(ngModel)]="telephoneNumber"
+                   [ng2TelInputOptions]="{initialCountry: 'qa'}"
+                   (hasError)="hasError($event)"
+                   (ng2TelOutput)="getNumber($event)"
+                   (intlTelInputObject)="telInputObject($event)"
+                   (countryChange)="onCountryChange($event)"
+            />
+
+          </div>
+          <div class="p-d-flex p-jc-center" *ngIf="isSendPhoneNumber" >
+            <div class="p-inputgroup p-shadow-6 p-mb-3 p-mt-3 " [style]="{width: '36%'}">
+      <span class="p-inputgroup-addon "><i class="fas fa-qrcode"></i>
+         </span>
+              <input type="text" pInputText placeholder="Confirmation Code" [style]="{width: '100%'}" [(ngModel)]="code">
+            </div>
+
+
+          </div>
+          <div class="p-d-flex p-jc-center" *ngIf="isSendPhoneNumber">
+            <p-button label="send" icon="fas fa-paper-plane" iconPos="left" (click)="testValidCode()"></p-button>
+
+          </div>
+
+
+          <div class="p-d-flex p-jc-center" *ngIf="displayButtonGo">
+            <button
+              pButton
+              type="submit"
+
+              class="p-button-rounded p-button p-button-raised p-button-info p-mt-3 p-mb-3  p-button-info"
+              [style]="{width: '30%'}"
+              (click)="sendSms()"
+            >
+              <label class="p-d-flex p-jc-center" >{{ 'CONFIRM-BY-PHONE.BUTTON' | translate }}</label>
+            </button>
+          </div>
+          <div class="p-d-flex p-jc-center">
+      <span class="text-confirmation">
+     {{ 'CONFIRM-BY-PHONE.TEXT2' | translate }}
+      <a class="text-confirmation-phone"
+
+        class="p-text-bold"
+        [routerLink]="['']"
+      >
+        &nbsp;{{ 'CONFIRM-BY-PHONE.LINK' | translate }}</a
+      >
+    </span>
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div>
+
+</div>
+
+
+<p-dialog header="Success" [(visible)]="displaySuccess">
+  <div>
+    <i class="fas fa-unlock-alt p-d-flex p-jc-center  " style="font-size:6em"></i>
+    <h2 style="color: chartreuse;" class="p-d-flex p-jc-center p-mb-2">{{ 'CONFIRM-BY-PHONE.COMPTE_UNLOCK' | translate }}🥳</h2>
+    <h3 class="p-d-flex p-jc-center p-mb-2">{{'CONFIRM-BY-PHONE.PRESSING_BUTTON' | translate}}</h3>
+    <div class="p-d-flex p-jc-center">
+      <button
+        pButton
+        type="submit"
+
+        class="p-button-rounded p-button p-button-raised p-button-info p-mt-3 p-mb-3  p-button-info"
+        [style]="{width: '50%'}"
+        [routerLink]="['']"
+
+      >
+        <label class="p-d-flex p-jc-center" >{{'HEADER.LOGIN'| translate }}</label>
+      </button>
+    </div>
+  </div>
+</p-dialog>
+<p-dialog header="Error" [(visible)]="displayError">
+  <div>
+    <i class="fas fa-lock p-d-flex p-jc-center  " style="font-size:6em"></i>
+    <h2 style="color: red;" class="p-d-flex p-jc-center p-mb-2">{{ 'CONFIRM-BY-PHONE.COMPTE_LOCK' | translate }}</h2>
+    <h3 class="p-d-flex p-jc-center p-mb-2">{{ 'CONFIRM-BY-PHONE.CONFIRMATION_CODE' | translate }}</h3>
+    <div class="p-d-flex p-jc-center">
+      <button
+        pButton
+        type="submit"
+        class="p-button-rounded p-button p-button-raised p-button-info p-mt-3 p-mb-3  p-button-info"
+        [style]="{width: '50%'}"
+        (click)="displayError= false"
+      >
+        <label class="p-d-flex p-jc-center" >{{ 'CONFIRM-BY-PHONE.CLOSE'| translate }}</label>
+      </button>
+    </div>
+  </div>
+</p-dialog>

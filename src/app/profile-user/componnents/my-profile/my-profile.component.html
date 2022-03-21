@@ -1,0 +1,199 @@
+<p-toast [breakpoints]="{'920px': {width: '100%', right: '0', left: '0'}}" key="toast"></p-toast>
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true"><p
+  style="color: white"> Loading... </p></ngx-spinner>
+<div class="p-d-flex p-mb-4">
+  <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
+
+
+</div>
+
+<p-panel class="profile" header="PROFILE" [toggleable]="true">
+
+  <ng-template pTemplate="icons">
+
+  </ng-template>
+
+
+  <div *ngIf="user && !chargement">
+    <div class="p-d-flex p-flex-column p-mt-4">
+      <div class=" p-d-flex p-mb-2 userName">
+        <div class="p-mr-2 ">
+          <img class="image-profile" src="assets/images/icon-backoffice/profile/userName.png">
+        </div>
+        <div class="p-mr-2 p-mt-2">
+          <label class="profile">UserName :</label>
+        </div>
+        <div class="p-mr-4 p-mt-2">
+          <label> {{userDto.username}}</label>
+          <div class="spinner" *ngIf="!userDto.username">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+          </div>
+        </div>
+        <div class="p-mr-2 p-mt-2 " (click)="edit('username',userDto.username)">
+          <i class="fas fa-user-edit editUserName"></i>
+        </div>
+
+      </div>
+      <div class=" p-d-flex p-mb-2 userName">
+        <div class="p-mr-2 ">
+          <img class="image-profile" src="assets/images/icon-backoffice/profile/firstName.png">
+        </div>
+        <div class="p-mr-2 p-mt-2">
+          <label class="profile">First Name :</label>
+        </div>
+        <div class="p-mr-4 p-mt-2">
+          <label> {{userDto.firstName}}</label>
+          <div class="spinner" *ngIf="!userDto.firstName">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+          </div>
+
+        </div>
+        <div class="p-mr-2 p-mt-2 " (click)="edit('firstName',userDto.firstName)">
+          <i class="fas fa-user-edit editUserName"></i>
+        </div>
+
+      </div>
+      <div class=" p-d-flex p-mb-2 userName">
+        <div class="p-mr-2 ">
+          <img class="image-profile" src="assets/images/icon-backoffice/profile/email.png ">
+        </div>
+        <div class="p-mr-2 p-mt-2">
+          <label class="profile">Email:</label>
+        </div>
+        <div class="p-mr-4 p-mt-2">
+          <div class="email"> {{userDto.email}}</div>
+          <div class="spinner" *ngIf="!userDto.email">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+          </div>
+        </div>
+        <div class=" p-mt-2 " (click)="edit('email',userDto.email)">
+          <i class="fas fa-user-edit editUserName"></i>
+        </div>
+
+      </div>
+      <div class=" p-d-flex p-mb-2 userName">
+        <div class="p-mr-2 ">
+          <img class="image-profile" src="assets/images/icon-backoffice/profile/phoneNumber.png ">
+        </div>
+        <div class="p-mr-2 p-mt-2">
+          <label class="profile">Phone Number :</label>
+        </div>
+        <div class="p-mr-4 p-mt-2">
+          <label> {{userDto.phoneNumber}}</label>
+          <div class="spinner" *ngIf="!userDto.phoneNumber">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+          </div>
+
+        </div>
+        <div class="p-mr-2 p-mt-2 " (click)="edit('phoneNumber',userDto.phoneNumber)">
+          <i class="fas fa-user-edit editUserName"></i>
+        </div>
+
+      </div>
+      <div class=" p-d-flex p-mb-2 userName">
+        <div class="p-mr-2 ">
+          <img class="image-profile" src="assets/images/icon-backoffice/profile/company.png">
+        </div>
+        <div class="p-mr-2 p-mt-2">
+          <label class="profile">Company:</label>
+        </div>
+        <div class="p-mr-4 p-mt-2">
+          <label> {{userDto.company}} </label>
+          <div class="spinner" *ngIf="!userDto.company">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+          </div>
+
+        </div>
+        <div class="p-mr-2 p-mt-2 editUserName" (click)="edit('company',userDto.company)">
+          <i class="fas fa-user-edit editUserName"></i>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+  <div *ngIf="!chargement" class="p-d-flex p-mb-2 p-jc-end">
+    <button class="btn-change-password" (click)="showDialogEditUser()"></button>
+
+  </div>
+</p-panel>
+
+<app-list-documents></app-list-documents>
+
+
+<p-dialog (onHide)="resetPoupap()" header="Change Password" [(visible)]="displayEditPasswordPoupup">
+  <div class="p-d-flex p-mt-6 p-jc-center ">
+    <div class="p-inputgroup p-shadow-6 p-mb-3 " [style]="{width: '100%'}">
+      <span class="p-inputgroup-addon "><i class="fas fa-lock"></i></span>
+      <input type="password" pInputText placeholder="Create New Password" [(ngModel)]="newPassword"
+             [style]="{width: '100%'}">
+    </div>
+  </div>
+  <div class="p-d-flex p-mt-2 p-jc-center ">
+    <div class="p-inputgroup p-shadow-6 p-mb-3 " [style]="{width: '100%'}">
+      <span class="p-inputgroup-addon "><i class="fas fa-lock"></i></span>
+      <input type="password" pInputText placeholder="Retype New Password" [(ngModel)]="retypePassword"
+             [style]="{width: '100%'}">
+    </div>
+  </div>
+  <p-message class="p-d-flex p-mt-3 p-jc-center " severity="error" *ngIf="!validateEdit"
+             text="retype the same new Password"></p-message>
+
+
+  <div class="p-d-flex p-mb-2 p-mt-4 p-jc-end">
+    <button (click)="editPassword()" pButton type="button" label="Edit"></button>
+  </div>
+
+
+</p-dialog>
+
+
+<p-dialog header="Verfication Profile" [(visible)]="displayPasswordPoupup">
+  <h2>Please enter your Password</h2>
+  <p-message class="p-d-flex p-mt-3 p-jc-center " severity="error" *ngIf="validPassword"
+             text="Incorrect Password"></p-message>
+
+
+  <div class="p-d-flex p-mt-3 p-jc-center ">
+    <div class="p-inputgroup p-shadow-6 p-mb-3 " [style]="{width: '100%'}">
+      <span class="p-inputgroup-addon "><i class="fas fa-lock"></i></span>
+      <input
+        type="password" pInputText placeholder="Current Password" [(ngModel)]="PasswordToValidate"
+        [style]="{width: '100%'}">
+    </div>
+  </div>
+  <div class="p-d-flex p-jc-center ">
+    <button (click)="validatePassword()" pButton type="button" class="p-button-info"> Check</button>
+  </div>
+</p-dialog>
+
+
+<p-dialog header="Edit Profile" [(visible)]="displayEditFild">
+  <div class="p-d-flex  p-flex-column p-jc-center p-mt-4 ">
+    <div class="p-mb-3  ">
+      <label>{{nameEdit}}</label>
+
+    </div>
+    <div class="p-inputgroup p-shadow-6 p-mb-3 " [style]="{width: '100%'}">
+
+      <span class="p-inputgroup-addon "><i class="fas fa-user-edit"></i></span>
+      <input type="text" pInputText [(ngModel)]="textEdit" [style]="{width: '100%'}"
+             maxlength="50">
+    </div>
+  </div>
+  <div class="p-d-flex p-jc-center ">
+    <button (click)="updateFild(nameEdit,textEdit)" pButton type="button" class="p-button-info">Edit</button>
+  </div>
+</p-dialog>

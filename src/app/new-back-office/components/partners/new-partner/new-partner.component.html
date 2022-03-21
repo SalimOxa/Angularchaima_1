@@ -1,0 +1,178 @@
+<p-toast key="toast"></p-toast>
+<div class="p-d-flex p-jc-center container" xmlns="http://www.w3.org/1999/html">
+  <div class="p-d-flex p-flex-column p-jc-center" style="min-width: 90%">
+    <div class="p-shadow-6 p-mb-6">
+      <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
+
+
+    </div>
+
+    <p-panel header="New Partner" [toggleable]="true">
+      <div class="p-grid">
+        <div class="p-col-12 p-md-12 p-lg-12">
+          <div class="p-d-flex p-flex-column p-ml-6">
+            <div><h2 class="animated bounce">Add New Partner</h2></div>
+            <form [formGroup]="formNewPartner">
+            <p-card class="p-shadow-3 p-mb-4" header="English">
+              <div class="p-mb-1 p-mr-2">
+                <input
+                  type="text"
+                  pinputtext=""
+                  placeholder="Name"
+                  class="contact-input p-mb-3 p-inputtext p-component"
+                  formControlName="englishPartnerName"
+                  [style]="{ width: '90%' }"
+                  [(ngModel)]="partner.englishName"
+                />
+              <div *ngIf="f.englishPartnerName.touched && f.englishPartnerName.invalid" class=" p-d-flex p-jc-center p-mt-2 ">
+                  <p-message [styleClass]="'fill-parent'" severity="error"*ngIf="f.englishPartnerName.errors?.required"text="invalid"></p-message>
+                </div>
+
+              </div>
+
+              <div class="p-mb-0 p-mr-2">
+              <textarea
+                rows="8"
+                pinputtextarea=""
+                placeholder="Description"
+                class="
+                  contact-input contact-message
+                  p-mb-4 p-inputtextarea p-inputtext p-component
+                "
+                spellcheck="false"
+                formControlName="englishDescription"
+                [style]="{ width: '90%' }"
+                [(ngModel)]="partner.englishDescription"
+              ></textarea>
+
+                <div *ngIf="f.englishDescription.touched && f.englishDescription.invalid" class=" p-d-flex p-jc-center p-mt-2 ">
+                  <p-message [styleClass]="'fill-parent'" severity="error"*ngIf="f.englishDescription.errors?.required"text="invalid"></p-message>
+                </div>
+
+              </div>
+            </p-card>
+              <p-card class="p-shadow-3 p-mb-4" header="French">
+              <div class="p-mb-1 p-mr-2">
+                <input
+                  type="text"
+                  pinputtext=""
+                  placeholder="Name"
+                  class="contact-input p-mb-3 p-inputtext p-component"
+                  formControlName="frenchPartnerName"
+                  [style]="{ width: '90%' }"
+                  [(ngModel)]="partner.frenchName"
+                />
+                <div *ngIf="f.frenchPartnerName.touched && f.frenchPartnerName.invalid" class=" p-d-flex p-jc-center p-mt-2 ">
+                  <p-message [styleClass]="'fill-parent'" severity="error"*ngIf="f.frenchPartnerName.errors?.required"text="invalid"></p-message>
+                </div>
+
+              </div>
+
+              <div class="p-mb-0 p-mr-2">
+              <textarea
+                rows="8"
+                pinputtextarea=""
+                placeholder="Description"
+                class="
+                  contact-input contact-message
+                  p-mb-4 p-inputtextarea p-inputtext p-component
+                "
+                spellcheck="false"
+                formControlName="frenchDescription"
+                [style]="{ width: '90%' }"
+                [(ngModel)]="partner.frenchDescription"
+              ></textarea>
+
+                <div *ngIf="f.frenchDescription.touched && f.frenchDescription.invalid" class=" p-d-flex p-jc-center p-mt-2 ">
+                  <p-message [styleClass]="'fill-parent'" severity="error"*ngIf="f.frenchDescription.errors?.required"text="invalid"></p-message>
+                </div>
+
+              </div>
+              </p-card>
+              <p-card class="p-shadow-3 p-mb-4" header="Arabic">
+              <div class="p-mb-1 p-mr-2">
+                <input
+                  type="text"
+                  pinputtext=""
+                  placeholder="Name"
+                  class="contact-input p-mb-3 p-inputtext p-component"
+                  formControlName="arabicPartnerName"
+                  [style]="{ width: '90%' }"
+                  [(ngModel)]="partner.arabicName"
+                />
+                <div *ngIf="f.arabicPartnerName.touched && f.arabicPartnerName.invalid" class=" p-d-flex p-jc-center p-mt-2 ">
+                  <p-message [styleClass]="'fill-parent'" severity="error"*ngIf="f.arabicPartnerName.errors?.required"text="invalid"></p-message>
+                </div>
+
+              </div>
+
+              <div class="p-mb-0 p-mr-2">
+              <textarea
+                rows="8"
+                pinputtextarea=""
+                placeholder="Description"
+                class="
+                  contact-input contact-message
+                  p-mb-4 p-inputtextarea p-inputtext p-component
+                "
+                spellcheck="false"
+                formControlName="arabicDescription"
+                [style]="{ width: '90%' }"
+                [(ngModel)]="partner.arabicDescription"
+              ></textarea>
+
+                <div *ngIf="f.arabicDescription.touched && f.arabicDescription.invalid" class=" p-d-flex p-jc-center p-mt-2 ">
+                  <p-message [styleClass]="'fill-parent'" severity="error"*ngIf="f.arabicDescription.errors?.required"text="invalid"></p-message>
+                </div>
+
+              </div>
+              </p-card>
+              <p-card class="p-shadow-3 p-mb-4" >
+              <div class="p-grid">
+                <div class="p-col-6">
+                  <p-panel header="Add Partner Logo">
+
+                    <div >
+                      <img
+                        height="120"
+                        src="../../../../assets/images/backOffice/services.png"
+                        alt=""
+                      />
+
+                      <div class="p-d-flex p-mt-4">
+                        <label pButton for="file1" class="label-file p-mr-3 " label="Choose Logo"><i  class="pi pi-plus p-mr-2"></i></label>
+                        <input id="file1" class="input-file" type="file" formControlName="logo" (change)="onSelectedPhoto($event)"/>
+                        <div *ngIf="partner.photoName">
+                          <div >{{partner.photoName}}</div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </p-panel>
+                </div>
+
+                <div class=" p-field p-col-6">
+                  <p-calendar formControlName="calendar"[(ngModel)]="partner.partnershipDate" [showIcon]="true" placeholder="Start Date"
+                              [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030"></p-calendar>
+                  <div *ngIf="f.calendar.touched && f.calendar.invalid" class=" p-d-flex p-jc-center p-mt-2 ">
+                    <p-message [styleClass]="'fill-parent'" severity="error"*ngIf="f.calendar.errors?.required"text="invalid"></p-message>
+                  </div>
+
+                </div>
+              </div>
+              </p-card>
+            </form>
+          </div>
+        </div>
+      </div>
+      <ng-template pTemplate="footer">
+      <div class=" p-d-flex p-jc-end">
+        <div class="p-mt-6 p-md-2" >
+          <button  pButton type="button"  [disabled]="!isDisabledSavePartner" label="Save Partner" (click)="savePartner()"></button>
+        </div>
+      </div>
+      </ng-template>
+
+    </p-panel>
+  </div>
+</div>

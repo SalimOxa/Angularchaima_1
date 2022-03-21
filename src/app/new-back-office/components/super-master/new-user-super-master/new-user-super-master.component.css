@@ -1,0 +1,27 @@
+
+a{
+  cursor: pointer;
+}
+::placeholder {
+  padding-left:1%;
+}
+
+.password{
+  width: 100%;
+}
+@media  screen and (max-width: 1000px) {
+  .container {
+    margin-top:25%;
+  }
+}@media  screen and (max-width: 600px) {
+  .container {
+    margin-top:10%;
+  }
+}
+
+.breadcump{
+  width: 100%;
+}
+
+
+

@@ -1,0 +1,189 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true"><p
+  style="color: white"> Loading... </p></ngx-spinner>
+
+<div class="p-grid" *ngIf="!successPayment">
+  <div class="p-col-12">
+    <p-fieldset legend=" NAME TRANCHE :{{tranche.name}}">
+
+      <div class="p-d-flex">
+        <div class="p-mr-2">
+          <h1 class="title">Payement Tranche Total:<strong
+            style="color: green"> {{price}} {{tranche.currencyCode}}   </strong></h1>
+
+        </div>
+
+      </div>
+    </p-fieldset>
+  </div>
+</div>
+
+
+<div class="p-shadow-6 p-mt-2">
+  <p-panel header="Payment Method" [toggleable]="true">
+    <p-dropdown [options]="modePyment" [(ngModel)]="selectedMode" (onChange)="changeModePayement()"></p-dropdown>
+
+    <div class="p-grid p-d-flex p-mt-4">
+      <div class="p-col-2 p-lg-2 p-md-2 p-sm-0 "></div>
+      <div class="p-col-8 p-lg-8 p-md-8 p-sm-12" *ngIf="!successPayment">
+        <div class="p-d-flex p-jc-center">
+          <div class="spinner-square" *ngIf="chargementPaypal">
+            <div class="square-1 square"></div>
+            <div class="square-2 square"></div>
+            <div class="square-3 square"></div>
+          </div>
+
+        </div>
+
+        <ngx-paypal [config]="payPalConfig " *ngIf="onlinePayment"></ngx-paypal>
+
+        <div *ngIf="paymentByBankTransfer" class="border">
+          <p>
+            Virement bancaire depuis votre banque / Versement bancaire depuis n'importe quelle agence STB.<br>
+            <br>
+            Voici nos coordonnées :<br><br>
+            <strong style="color: darkgreen">Banque 1 :</strong> AMEN BANK<br>
+            (Domiciliation : Agence Cité les Pins Lac II)<br>
+            RIB : 07 078 0136101102048 89<br>
+            Titulaire du compte : RACINE GCC<br>
+            <br><br>
+
+            <strong style="color: darkgreen">Banque 2 :</strong> STB<br>
+            (Domiciliation : Agence Ennasr)<br>
+            RIB : 10 028 1420003639788 85<br>
+            Titulaire du compte : RACINE GCC<br>
+            <br><br>
+            Frais du virement : à la charge du client.
+          </p>
+        </div>
+        <div *ngIf="paymentByCheck" class="border">
+          <p>
+            Vous avez la possibilité de payer en espèces ou par chèque à une de nos agences en appelant 70 168 620 pour
+            prendre un<br>
+            rendez-vous :<br>
+            <br>
+            <strong style="color: darkgreen"> AGENCE TUNIS - ENNASR II:</strong><br>
+            <br>
+            13 Rue Sleim Ammar Ennasr II, 2037, Tunisie<br>
+            De Lundi au Vendredi, de 9H à 17H.<br>
+            <br>
+            <strong style="color: darkgreen"> AGENCE SOUSSE - SAHLOUL :</strong><br>
+            <br>
+            N°303, Imm. Mehdi, Avenue de Yasser Arafat, Sahloul, Sousse<br>
+            De Lundi au Vendredi, de 9H à 17H.<br>
+            Référence pour le paiement: 37536<br>
+          </p>
+        </div>
+
+
+      </div>
+
+      <div class="p-col-12 p-lg-12 p-md-12 p-sm-12" *ngIf="successPayment">
+        <div class="p-d-flex p-flex-column">
+          <div class="p-d-flex p-jc-center p-mb-4">
+            <img style="width: 200px; height: 200px" src="../../../../assets/images/state/success.png">
+          </div>
+          <div class="p-d-flex p-jc-center">
+            <h1 style="color: #bed62f">SUCCESS</h1>
+          </div>
+          <div class="p-d-flex p-jc-center">
+            <h2 style="color: #673ab7">Your Payment Has Been Made !!</h2>
+
+          </div>
+          <div class="p-d-flex p-jc-center">
+            <button (click)="showListPayment()" class="p-button" pButton type="button"
+                    label="Show List payment"></button>
+
+          </div>
+
+
+        </div>
+
+      </div>
+      <div class="p-col-2 p-lg-2 p-md-2 p-sm-0"></div>
+
+    </div>
+
+
+  </p-panel>
+</div>
+
+
+<div class="p-grid" style="border: 2px ">
+
+  <div class="p-col-12" id="content" #content>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <title>Example 1</title>
+    </head>
+    <body>
+    <header class="clearfix">
+      <div id="logo">
+        <img src="../../../../assets/images/logo/racineGcc.png">
+      </div>
+      <h1 class="title">REF:{{codeInvoice}}</h1>
+      <div id="company" class="clearfix">
+        <div>Racine Gcc</div>
+        <div>Complexe commercial <br/>Almuntazah Bloc 2</div>
+        <div>+97450315815</div>
+        <div><a href="contact@racinegcc.com">contact@racinegcc.com</a></div>
+      </div>
+      <div id="project">
+        <div><span>PROJECT</span> {{project.name}}</div>
+        <div><span>CLIENT</span> {{project.nameCustomer}}</div>
+        <div><span>ADDRESS</span> 796 Silver Harbour, TX 79273, US</div>
+        <div><span>EMAIL</span> {{email}}</div>
+        <div><span>DATE</span> {{payement_date | date:'fullDate' }}</div>
+        <div><span>DUE DATE</span> {{tranche.deadline | date:'fullDate'}}</div>
+      </div>
+    </header>
+    <main>
+      <table>
+        <thead>
+        <tr>
+
+          <th>Part Payment N°</th>
+          <th>Payment Method</th>
+          <th>Price Project</th>
+          <th>Payment Amount</th>
+          <th>Remaining Amount</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="service">{{tranche.numTranche}}</td>
+          <td class="desc">{{payment_way}}</td>
+          <td class="unit">{{project.totalPayment}} {{tranche.currencyCode}}</td>
+          <td class="qty">{{tranche.price}} {{tranche.currencyCode}}</td>
+          <td class="total">{{project.restPayment}} {{tranche.currencyCode}}</td>
+        </tr>
+        <tr>
+          <td colspan="4">SUBTOTAL</td>
+          <td class="total">$5,200.00</td>
+        </tr>
+        <tr>
+          <td colspan="4">TAX 25%</td>
+          <td class="total">$1,300.00</td>
+        </tr>
+        <tr>
+          <td colspan="4" class="grand total">GRAND TOTAL</td>
+          <td class="grand total">$6,500.00</td>
+        </tr>
+        </tbody>
+      </table>
+      <div id="notices">
+        <div>NOTICE:</div>
+        <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+      </div>
+    </main>
+    <footer>
+      Invoice was created on a computer and is valid without the signature and seal.
+    </footer>
+    </body>
+    </html>
+
+  </div>
+</div>
+
+

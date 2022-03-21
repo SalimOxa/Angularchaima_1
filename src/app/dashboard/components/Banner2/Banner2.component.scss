@@ -1,0 +1,101 @@
+@font-face {
+  font-family: tommy;
+  src: url("../../../../assets/fonts/MADE TOMMY Bold_PERSONAL USE.otf");
+}
+
+
+#facts_and_figures {
+  background: url('../../../../assets/images/home/midle.jpg');
+
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 450px;
+
+}
+
+
+.title2 {
+  margin-top: -5%;
+  text-align: center;
+  font-size: 6.5em;
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.1);
+  font-family: tommy;
+
+}
+
+
+.title1 {
+  color: #FFFFFF;
+  margin-top: 6%;
+  font-size: 5em;
+  text-align: center;
+  font-family: tommy;
+
+}
+
+@font-face {
+  font-family: GE_SS;
+  src: url("../../../../assets/fonts/GE_SS_Two_Bold.otf");
+}
+
+.title-arab {
+  font-family: GE_SS;
+  direction: rtl;
+
+
+}
+
+
+@media screen and (max-width: 1140px) {
+
+  #facts_and_figures {
+
+    height: 350px;
+  }
+  .title2 {
+    margin-top: -5%;
+    font-size: 4em;
+  }
+
+
+  .title1 {
+    margin-top: 7%;
+    font-size: 3em;
+
+  }
+
+
+}
+
+@media screen and (max-width: 686px) {
+  .title2 {
+    margin-top: -3%;
+    font-size: 2em;
+  }
+
+
+  .title1 {
+    margin-top: 10%;
+    font-size: 1.5em;
+
+  }
+  #facts_and_figures {
+
+    height: 200px;
+
+
+  }
+
+
+}
+
+
+

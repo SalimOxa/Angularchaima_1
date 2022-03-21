@@ -1,0 +1,215 @@
+@font-face {
+  font-family: light;
+  src: url("../../../../assets/fonts/MADE TOMMY Light_PERSONAL USE.otf");
+}
+
+@font-face {
+  font-family: bold;
+  src: url("../../../../assets/fonts/MADE TOMMY Bold_PERSONAL USE.otf");
+}
+@font-face {
+  font-family: GE_SS;
+  src: url("../../../../assets/fonts/GE_SS_Two_Bold.otf");
+}
+
+@font-face {
+  font-family: GE_SS_LIGHT;
+  src: url("../../../../assets/fonts/GE_SS_Two_Light-1.otf");
+}
+
+@font-face {
+  font-family: GE_SS_MEDIUM;
+  src: url("../../../../assets/fonts/GE_SS_Two_Medium.otf");
+}
+
+.div_card{
+  margin-top:0%;
+  min-width:50%
+}
+h2{
+  font-family:bold ;
+  text-align: center;
+  font-size: 2vw;
+}h3{
+   font-family:bold ;
+   text-align: center;
+   font-size: 1vw;
+ }
+.title-1{color: #0071bc;
+ }
+ .fa-mobile-alt{
+   font-size:8vw;
+  color: #0071bc
+ }label{
+  font-family: light;
+  font-size: 1.5vw;
+margin-left: 20%;
+  width: 50%;
+
+   }.text-confirmation{
+font-size: 1vw;
+  font-family: light;
+}.text-confirmation-phone{
+          font-size: 1vw;
+          font-family: light;
+          color: dodgerblue;
+        }
+
+.container-arab{
+  h3{
+    font-size: 2vw;
+    font-family: GE_SS;
+  }
+  h2{
+
+    font-size: 3vw;
+    font-family: GE_SS;
+  }
+  label{
+    font-family: GE_SS_LIGHT;
+    font-size: 2.5vw;
+
+
+  }.text-confirmation{
+     font-size: 2vw;
+     font-family: GE_SS_LIGHT;
+   }.text-confirmation-phone{
+      font-size: 2vw;
+      font-family: GE_SS_LIGHT;
+
+    }
+
+}
+.background{
+  margin-bottom: -1%;
+}
+:host ::ng-deep .iti__country-list {
+  max-width:25vh;
+}
+.container{
+  width: 100%;
+  height: 100vh;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-image: url(../../../../assets/images/home/fond2.jpg);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: cover;
+}@media screen and (max-width: 992px) {
+h3{
+
+
+   font-size: 2vw;
+ }h2{
+
+
+    font-size: 3vw;
+  }
+
+.fa-mobile-alt{
+  font-size:10vw;
+
+}label{
+
+   font-size: 2.5vw;
+
+
+ }.text-confirmation{
+    font-size:2vw;
+
+  }.text-confirmation-phone{
+     font-size: 2vw;
+
+   }
+  .container-arab{
+    h3{
+      font-size: 3vw;
+
+    }
+    h2{
+
+      font-size: 4vw;
+
+    }
+    label{
+
+      font-size: 3.5vw;
+
+
+    }.text-confirmation{
+       font-size: 3vw;
+
+     }.text-confirmation-phone{
+        font-size: 3vw;
+
+
+      }
+
+  }
+}
+@media  screen and (max-width: 600px) {
+
+    .div_card {
+      border-radius: 0px;
+       min-height: 50%;
+      width: 95%;
+      padding-bottom: 0rem;
+      margin-left:0.5%;
+    }
+
+
+  h3{
+
+
+    font-size: 4vw;
+  }h2{
+
+
+     font-size: 5vw;
+   }
+
+  .fa-mobile-alt{
+    font-size:15vw;
+
+  }label{
+
+     font-size: 4.5vw;
+
+
+   }.text-confirmation{
+      font-size:4vw;
+
+    }.text-confirmation-phone{
+       font-size: 4vw;
+
+     }
+  .container-arab{
+    h3{
+      font-size: 5vw;
+
+    }
+    h2{
+
+      font-size: 6vw;
+
+    }
+    label{
+
+      font-size: 4.5vw;
+
+
+    }.text-confirmation{
+       font-size: 4vw;
+
+     }.text-confirmation-phone{
+        font-size: 4vw;
+
+
+      }
+
+  }
+}
+
+

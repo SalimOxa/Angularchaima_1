@@ -1,0 +1,420 @@
+@font-face {
+  font-family:light;
+  src: url("../../../../assets/fonts/MADE TOMMY Light_PERSONAL USE.otf");
+}@font-face {
+  font-family: americana;
+  src: url("../../../../assets/fonts/Americanatest.ttf") format('truetype');
+}
+@font-face {
+  font-family:medium;
+  src: url("../../../../assets/fonts/MADE TOMMY Medium_PERSONAL USE.otf");
+}
+.container{
+  background-position:  0px 0px;
+  background-size: cover;
+  background-image: url('../../../../assets/images/services img/bg services.jpg') ;
+  background-repeat: no-repeat;
+  width: 100%;
+  color: white;
+
+}
+
+
+.white-cross{
+  width: 5vw;
+
+}.golden-cross{
+   width: 6vh;
+ }
+
+ .cross{
+   margin-top: 30%;
+ }
+
+.circle{
+  animation-timing-function: linear;
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite;
+  animation-name: example;
+  animation-duration: 20s;
+
+
+}
+
+
+@keyframes example {
+  0%   { transform: translate(1px, 1px) rotate(0deg);}
+  25%  { transform: translate(15px, 0px) rotate(0deg);}
+  50%  { transform: translate(0px, 10px) rotate(0deg);}
+  75%  {transform: translate(-5px, 0px) rotate(0deg);}
+  90% { transform: translate(0px, -5px) rotate(0deg);}
+  100% { transform: translate(1px, 1px) rotate(0deg);}
+}
+
+.card .details .center{
+h1{
+  font-size: 1.5vw;
+  font-family:americana;
+  color: #17032d;
+  text-transform: uppercase;
+  position: relative;
+  top: -20%;
+}
+  .h1-arabic{
+    font-family:GE_SS_MEDIUM;
+    font-size: 1.3vw;
+    top: -22%;
+
+  }
+
+}
+
+.card .details .center{
+  h2{
+    position: relative;
+    font-size: 2vh;
+    text-transform: uppercase;
+    font-family: medium;
+    color: #e5c02a;
+    bottom:-10%;
+    font-family:Americana;
+    letter-spacing: 1px;
+
+  }
+  .h2-arab{
+    font-family:GE_SS_LIGHT;
+    letter-spacing: 0px;
+  }
+}
+
+
+
+
+
+.card .details .center h2:hover{
+  cursor: pointer;
+  color:#4B0082;
+}
+
+.title-service {
+  color:white ;
+  font-size: 3.7vw;
+  position: relative;
+  text-transform: uppercase;
+  font-family: americana;
+  margin-top: -0.7%;
+  letter-spacing: 0.8vw;
+  margin-left: 10%;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+
+}
+.title-service-arabic{
+  letter-spacing: 0vh;
+  margin-left: 80%;
+  font-family: GE_SS;
+
+
+}
+
+
+
+
+
+.card .image {
+  width: 95%;
+  height: 90%;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.card .image img {
+  width: 100%;
+  height: 100%;
+  transition: .5s;
+}
+.card:hover .image img {
+  transform: translateX(30%);
+}
+.card .details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 98%;
+  background: linear-gradient(to left, rgba(92, 9, 49, 0) 0,  #2e0b5a 60%, #320f5c 100%);
+  transition: .5s;
+  transform-origin: left;
+  transform: perspective(2000px) rotateY(-90deg);
+}
+.card:hover .details {
+  transform: perspective(2000px) rotateY(0deg);
+}
+.card .details .center {
+  padding: 20px;
+  text-align: center;
+  background: #e8e7e7;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 70%;
+  width: 100%;
+}
+
+
+.card .details .center{
+  p {
+    position: relative;
+    font-size: 1vw;
+    font-family: Americana;
+    margin: 0px 10px 5px 20px;
+    text-align: justify;
+    padding: 0;
+    color: #262626;
+    /* number of lines to show */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    top:7%;
+  }
+  .description-arabic{
+    direction: rtl;
+    font-family:GE_SS_LIGHT;
+  }
+}
+.content-card{
+  margin-top: 10%;
+}
+.more{
+  margin-top: -10%;
+
+}
+
+
+.p-mt-6 {
+  margin-top: 2rem!important;
+}
+
+
+@media screen and (max-width: 992px) {
+  .container{
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-image: url('../../../../assets/images/responsive-background-tablette/04.jpg') ;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size:100%100% ;
+  }
+  .card .details .center{
+    h1{
+      font-size: 2.5vw;
+      margin-top: 5%;
+    }
+    .h1-arabic{
+      font-family:GE_SS_MEDIUM;
+      font-size: 2.3vw;
+      margin-top: -7%;
+
+    }
+  }
+
+  .content-card{
+    margin-top: 0%;
+  }
+  .more{
+    margin-top: -15%;
+  }
+
+
+  .card .details .center p {
+    font-size: 1.2vw;
+    top:7%;
+  }
+  .card .details .center h2{
+    font-size: 1.3vw;
+
+
+  }
+  .white-cross{
+    width: 60px;
+    margin-left: 20%;
+  }.golden-cross{
+     width: 30px;
+     margin-left: 50%;
+   }
+
+  .card:hover,.card:active .image img {
+    transform: translateX(30%);
+  }
+  .card:hover,.card:active .details {
+    transform: perspective(2000px) rotateY(0deg);
+  }
+  .card .details .center h2:hover{
+    cursor: pointer;
+    color:#4B0082;
+  }
+  .card .details .center h2:active{
+    cursor: pointer;
+    color:#4B0082;
+  }
+
+  .title-service {
+    margin-top: -1%;
+    font-size:7vw;
+    letter-spacing: 1vw;
+    margin-left: 10%;
+
+
+  }
+  .title-service-arabic{
+    letter-spacing: 0vh;
+    margin-left: 70%;
+    font-family: GE_SS;
+
+
+  }
+
+}
+@media screen and (max-width: 767px) {
+  .container{
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-image: url('../../../../assets/images/responsive-background-phone/bg-service-2.jpg') ;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size:100%100% ;
+  }
+  .title-service {
+    font-size: 10vw;
+    margin-top: -2.5%;
+    margin-left: 5%;
+  }
+  .title-service-arabic{
+
+    margin-left: 66%;
+
+
+  }
+
+  .card .details .center{
+    h1{
+      font-size: 3vw;
+      margin-top: 0%;
+    }
+    .h1-arabic{
+      font-family:GE_SS_MEDIUM;
+      font-size: 4vw;
+      margin-top: 0%;
+    }
+    .h2-arab{
+      font-family:GE_SS_LIGHT;
+      letter-spacing: 0px;
+      margin-top: 20%;
+    }
+  }
+
+  .cross{
+    margin-top: 0%;
+  }
+  .card .details .center h1{
+    font-size: 4vw;
+  }
+  .card .details .center p {
+    font-size: 3vw;
+    top:5%;
+  }
+  .card .details .center h2{
+    font-size: 3.5vw;
+
+  }
+  .white-cross{
+   display: none;
+  }.golden-cross{
+       display: none;
+     }
+   .card {
+     margin-left: 6%;
+   }
+  .details{
+    margin-left: 6%;
+  }
+
+  .card:hover,.card:active .image img {
+    transform: translateX(50%);
+  }
+  .card:hover,.card:active .details {
+    transform: perspective(2000px) rotateY(0deg);
+  }
+  .card .details .center h2:hover{
+    cursor: pointer;
+    color:#4B0082;
+  }
+  .card .details .center h2:active{
+    cursor: pointer;
+    color:#4B0082;
+  }
+
+
+
+
+}
+@media screen and (max-width: 558px) {
+  .card .details .center{
+    h1{
+      font-size: 5vw;
+      margin-top: 0%;
+    }
+    .h1-arabic{
+      font-family:GE_SS_MEDIUM;
+      font-size: 6vw;
+      margin-top: 0%;
+    }
+  }
+
+  .cross{
+    margin-top: 0%;
+  }
+  .card .details .center h1{
+    font-size: 6vw;
+  }
+  .card .details .center p {
+    font-size: 4vw;
+    top:5%;
+  }
+  .card .details .center h2{
+    font-size: 5vw;
+
+  }
+  .white-cross{
+    display: none;
+  }.golden-cross{
+     display: none;
+   }
+  .card {
+    margin-left: 6%;
+  }
+  .details{
+    margin-left: 6%;
+  }
+
+  .card:hover,.card:active .image img {
+    transform: translateX(50%);
+  }
+  .card:hover,.card:active .details {
+    transform: perspective(2000px) rotateY(0deg);
+  }
+  .card .details .center h2:hover{
+    cursor: pointer;
+    color:#4B0082;
+  }
+  .card .details .center h2:active{
+    cursor: pointer;
+    color:#4B0082;
+  }
+
+}

@@ -1,0 +1,485 @@
+@font-face {
+  font-family: light;
+  src: url("../../../../../assets/fonts/MADE TOMMY Light_PERSONAL USE.otf");
+}
+
+@font-face {
+  font-family: medium;
+  src: url("../../../../../assets/fonts/MADE TOMMY Medium_PERSONAL USE.otf");
+}
+
+@font-face {
+  font-family: GE_SS;
+  src: url("../../../../../assets/fonts/GE_SS_Two_Bold.otf");
+}
+
+@font-face {
+  font-family: GE_SS_LIGHT;
+  src: url("../../../../../assets/fonts/GE_SS_Two_Light-1.otf");
+}
+
+@font-face {
+  font-family: GE_SS_MEDIUM;
+  src: url("../../../../../assets/fonts/GE_SS_Two_Medium.otf");
+}
+
+.container {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: linear-gradient(to top, #e8a036 0%, #e3ac23 25%, #f8de52 75%, #e5aa38 100%);
+
+}
+
+.panel-1 {
+  width: 35.5%;
+}
+
+.panel-2 {
+  width: 30%;
+}
+
+.panel-3 {
+  width: 28%;
+}
+.panel{
+  display: none;
+
+}
+.address-card {
+  position: relative;
+  top: -7%;
+  left: 4%;
+  width: 90%;
+
+}
+
+.title-adress {
+  color: black;
+  font-family: medium;
+  text-align: left;
+  letter-spacing: 1px;
+  font-size: 1vw;
+
+}
+.information:hover {
+  color: white;
+}
+
+h2 {
+  font-family: medium;
+}
+
+p {
+  font-family: light;
+}
+
+.title {
+  color: black;
+  font-family: medium;
+  text-align: left;
+  font-size: 0.8vw;
+}
+
+a {
+  color: black;
+  font-family: light;
+  font-size: 1vw;
+  text-align: left;
+}
+
+.contact {
+  margin-top: -0.5%
+}
+
+.rounded-social-buttons {
+  text-align: center;
+  width: 100%;
+  display: inline-flex;
+}
+
+.rounded-social-buttons .social-button {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  width: 1.75vw;
+  height: 1.75vw;
+  border: 0.125vw solid transparent;
+
+  text-decoration: none;
+  text-align: center;
+  color: #fefefe;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1vw;
+  border-radius: 1.6875vw;
+  transition: all 0.5s ease;
+  margin-right: 0.25vw;
+  bottom: 20%;
+  padding-top: 1%;
+
+}
+
+.rounded-social-buttons .social-button:hover, .rounded-social-buttons .social-button:focus {
+  -webkit-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.rounded-social-buttons .fa-twitter, .fa-facebook-f, .fa-linkedin, .fa-youtube, .fa-instagram {
+  font-size: 1vw;
+}
+
+.rounded-social-buttons .social-button.facebook {
+  background: #3b5998;
+}
+
+.rounded-social-buttons .social-button.facebook:hover, .rounded-social-buttons .social-button.facebook:focus {
+  color: #FFFFFF;
+  background: black;
+  border-color: #FFFFFF;
+}
+
+.rounded-social-buttons .social-button.twitter {
+  background: #55acee;
+}
+
+.rounded-social-buttons .social-button.twitter:hover, .rounded-social-buttons .social-button.twitter:focus {
+  color: #FFFFFF;
+  background: black;
+  border-color: #FFFFFF;
+}
+
+.rounded-social-buttons .social-button.linkedin {
+  background: #007bb5;
+}
+
+.rounded-social-buttons .social-button.linkedin:hover, .rounded-social-buttons .social-button.linkedin:focus {
+  color: #FFFFFF;
+  background: black;
+  border-color: #FFFFFF;
+}
+
+.rounded-social-buttons .social-button.youtube {
+  background: #bb0000;
+}
+
+.rounded-social-buttons .social-button.youtube:hover, .rounded-social-buttons .social-button.youtube:focus {
+  color: #FFFFFF;
+  background: black;
+  border-color: #FFFFFF;;
+}
+
+.rounded-social-buttons .social-button.instagram {
+  background: #125688;
+}
+
+.rounded-social-buttons .social-button.instagram:hover, .rounded-social-buttons .social-button.instagram:focus {
+  color: #FFFFFF;
+  background: black;
+  border-color: #FFFFFF;
+
+}
+
+.title-reseaux {
+  min-width:70%;
+  font-size: 1.05vw;
+}
+
+.information {
+  position: relative;
+  left: 0%;
+  right: 25%;
+  cursor: pointer;
+}
+
+.container-arab {
+  direction: rtl;
+  position: relative;
+  left: 5%;
+}.container-arab h2{
+  font-family: GE_SS_MEDIUM;
+ }
+ .container-arab .title-reseaux {
+  min-width:51%;
+
+
+}
+.container-arab .card {
+  direction: rtl;
+  letter-spacing: 0px;
+
+}
+
+.container-arab .title-adress {
+  font-family: GE_SS_MEDIUM;
+  letter-spacing: 0px;
+
+}
+
+.container-arab .title {
+  font-family: GE_SS_MEDIUM;
+  letter-spacing: 0px;
+  text-align: right;
+}
+
+.container-arab .tel {
+  font-family: GE_SS_LIGHT;
+  direction: ltr;
+
+}
+
+.container-arab .adress-text {
+  font-family: GE_SS_LIGHT;
+  text-align: right;
+  margin-right: 0.5vw;
+
+
+}
+
+.container-arab p {
+  font-family: GE_SS_LIGHT;
+
+
+}
+
+.container-arab .information {
+  position: relative;
+  left: -50%;
+}
+
+
+
+
+@media screen and (max-width: 992px) {
+  .information {
+    left: -5%;
+  }
+
+
+  .tel {
+    margin-top: -1%;
+  }
+
+  .title-adress {
+    letter-spacing: 0px;
+    font-size: 1.3vw;
+  }
+
+  h2 {
+    font-family: medium;
+    font-size: 1.5vw;
+  }
+
+  .title-reseaux {
+
+    font-size: 1.2vw;
+  }
+
+  .title {
+
+    font-size: 1.2vw;
+  }
+
+  a {
+
+    font-size: 2vw;
+
+  }
+
+  p {
+    font-size: 1.2vw;
+  }
+  .rounded-social-buttons .social-button {
+
+    width: 2.75vw;
+    height: 2.75vw;
+
+    font-size: 2vw;
+
+    line-height: 4vw;
+    border-radius: 3vw;
+
+    padding-top: 0%;
+  }
+
+  .rounded-social-buttons .fa-twitter, .fa-facebook-f, .fa-linkedin, .fa-youtube, .fa-instagram {
+    font-size: 1.5vw;
+    position: relative;
+    top: -40%;
+  }
+
+  .contact {
+
+    font-size: 1.5vw;
+  }
+  .title-reseaux{
+    font-size: 0.98vw;
+    min-width: 72%;
+  }
+  .container-arab .card {
+    position: relative;
+    left: 1%;
+  }
+  .adress-text{
+    font-size: 1.5vw;
+  }
+  .container-arab .adress-text {
+
+    margin-top: -2%;
+  }
+
+  .container-arab .title-reseaux {
+    font-size: 1vw;
+    min-width: 72%;
+  }
+
+  .container-arab .information {
+    right: 2%;
+    font-size: 1.2vw;
+
+  }
+  .container-arab .title {
+   min-width: 100%;
+  }
+}
+@media screen and (max-width: 758px) and (orientation:landscape){
+  .title-reseaux{
+    min-width: 90%;
+  }
+  .container-arab .title-reseaux {
+    font-size: 1.2vw;
+    min-width: 72%;
+  }
+  .container-arab .information {
+    right: 0%;
+    font-size:1.2vw;
+
+  }
+}
+@media screen and (max-width: 758px) {
+  .panel{
+display: block;
+  border-bottom: 0.05px solid #F5F5F5;
+    padding: 0rem;
+  }
+
+  .panel-1 {
+    position: relative;
+    left: 5%;
+    right: 5%;
+    width: 90%;
+  }
+
+  .panel-2 {
+    position: relative;
+    left: 5%;
+    right: 5%;
+    width: 90%;
+  }
+
+  .panel-3 {
+    position: relative;
+    left: 5%;
+    right: 5%;
+    width: 90%;
+  }
+
+
+  h2 {
+
+    font-size: 5vw;
+  }
+
+  p {
+    font-size: 3vw;
+  }
+
+  .title {
+
+    font-size: 3vw;
+  }
+
+  a {
+
+    font-size: 3vw;
+
+  }
+
+  .contact {
+    font-size: 4vw;
+    margin-top: -0.75%
+  }
+
+  .title-adress {
+    letter-spacing: 1px;
+    font-size: 4vw;
+  }
+
+  .rounded-social-buttons {
+    text-align: center;
+    width: 100%;
+    display: inline-flex;
+  }
+
+  .rounded-social-buttons .social-button {
+
+    width: 4.75vw;
+    height:4.75vw;
+
+    font-size: 6vw;
+
+    line-height: 6vw;
+    border-radius: 3vw;
+    bottom: -10%;
+
+  }
+
+  .rounded-social-buttons .fa-twitter, .fa-facebook-f, .fa-linkedin, .fa-youtube, .fa-instagram {
+    font-size: 3vw;
+    position: relative;
+    top: -50%;
+  }
+
+  .title-reseaux {
+    font-size: 2.7vw;
+    min-width: 65%;
+  }
+
+  .container-arab .title-reseaux {
+    font-size:4vw;
+    min-width: 71%;
+  }
+
+  .information {
+    font-size: 5vw;
+
+    left: 2%;
+  }
+
+  .adress-text {
+    font-size: 2.7vw;
+    padding-top: 0%;
+
+  }
+
+  .container-arab .information {
+    font-size: 5vw;
+
+    right: 0%;
+  }
+
+  .container-arab .adress-text {
+    font-size: 2.7vw;
+    padding-top: 2.5%;
+    margin-left: -3%;
+  }
+
+  .tel {
+    font-size: 4vw;
+    padding-top: 1%;
+  }
+}
+
+
+

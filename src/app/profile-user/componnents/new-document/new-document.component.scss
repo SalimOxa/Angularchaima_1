@@ -1,0 +1,143 @@
+@font-face {
+  font-family: tommy-medium;
+  src: url("../../../../assets/fonts/MADE TOMMY Medium_PERSONAL USE.otf");
+}
+
+
+.pass{
+  width: 100%;
+}
+.input-file {
+  display: none;
+}$page-background-color: #FFFFFF;
+$gradient-color-1:#e8a036 ;
+$gradient-color-2: #f8de52;
+
+
+
+.btn-upload{
+  width: 100%;
+  font-size: 1.5vw;
+  padding-left: 40%;
+  background-color:#5b2178;
+  color: $gradient-color-1;
+}.btn-touched{
+  margin-top: -2%;
+ }
+:host ::ng-deep.p-panel .p-panel-title {
+  font-size: 1.8vw;
+}
+:host ::ng-deep.p-panel .p-panel-header {
+  padding: 1rem;
+  background: #5b2178;
+  color: white;
+  font-family: tommy-bold ;
+  letter-spacing: 0.1vw;
+  font-size: 1.8vw;
+
+}
+:host ::ng-deep.p-panel .p-panel-content {
+  padding-top: 40px;
+}
+:host ::ng-deep.p-panel .p-panel-header .p-panel-header-icon {
+  color: white;
+}
+:host ::ng-deep.p-panel .p-panel-header .p-panel-header-icon:hover {
+  color: #4c198b;
+  background-color: white;
+}
+
+
+
+
+
+:host ::ng-deep.p-breadcrumb {
+  background: #fff;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 1rem;
+}
+:host ::ng-deep {
+  .p-breadcrumb ul {
+    color: #000000;
+    font-size: 1.2vw;
+    font-family: tommy-medium;
+  }
+
+  .p-breadcrumb ul li.p-breadcrumb-chevron {
+    margin: 0 .5rem;
+    color: #000000;
+    font-size: 1.2vw;
+  }
+
+  .p-breadcrumb ul li .p-menuitem-link .p-menuitem-icon {
+    color: #000000;
+    font-size: 1.2vw;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  :host ::ng-deep {
+    .p-breadcrumb ul {
+      color: #000000;
+      font-size: 3vw;
+      font-family: tommy-medium;
+    }
+
+    .p-breadcrumb ul li.p-breadcrumb-chevron {
+      margin: 0 .5rem;
+      color: #000000;
+      font-size: 2vw;
+    }
+
+    .p-breadcrumb ul li .p-menuitem-link .p-menuitem-icon {
+      color: #000000;
+      font-size: 3vw;
+    }
+  }
+  :host ::ng-deep.p-panel .p-panel-header {
+    font-size: 4vw;
+  }
+  :host ::ng-deep.p-panel .p-panel-title {
+    font-size:4vw;
+  }
+  .btn-upload{
+
+    font-size: 3vw;
+
+  }
+
+
+
+}
+@media screen and (max-width: 500px) {
+  :host ::ng-deep {
+    .p-breadcrumb ul {
+      color: #000000;
+      font-size: 4vw;
+      font-family: tommy-medium;
+    }
+
+    .p-breadcrumb ul li.p-breadcrumb-chevron {
+      margin: 0 .5rem;
+      color: #000000;
+      font-size: 3vw;
+    }
+
+    .p-breadcrumb ul li .p-menuitem-link .p-menuitem-icon {
+      color: #000000;
+      font-size: 4vw;
+    }
+  }
+  :host ::ng-deep.p-panel .p-panel-header {
+    font-size: 6vw;
+  }
+  :host ::ng-deep.p-panel .p-panel-title {
+    font-size:6vw;
+  }
+  .btn-upload{
+    font-size: 5vw;
+
+  }
+
+}

@@ -1,0 +1,401 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true"><p
+  style="color: white"> Loading... </p></ngx-spinner>
+
+<p-panel>
+  <ng-template pTemplate="header">
+    List Tasks :{{currentProject.name}}
+  </ng-template>
+  <div class="card" *ngIf="listTasks">
+
+    <div class="p-mb-3">
+      <p-button
+        type="button"
+        icon="pi pi-chevron-left"
+        (click)="prev()"
+        [disabled]="isFirstPage()"
+        styleClass="p-button-text"
+      ></p-button>
+      <p-button
+        type="button"
+        icon="pi pi-refresh"
+        (click)="reset()"
+        styleClass="p-button-text"
+      ></p-button>
+      <p-button
+        type="button"
+        icon="pi pi-chevron-right"
+        (click)="next()"
+        [disabled]="isLastPage()"
+        styleClass="p-button-text"
+      ></p-button>
+    </div>
+    <p-table
+      [value]="listTasks"
+      [paginator]="true"
+      [rows]="rows"
+      [showCurrentPageReport]="true"
+      [(first)]="first"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      [rowsPerPageOptions]="[5, 7, 25]"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Name Task</th>
+          <th style="width:15em">Description</th>
+          <th>Creation Date</th>
+          <th>Close Date</th>
+          <th>Type tasks</th>
+          <th>Task State</th>
+          <th>Enable To User</th>
+          <th>Delete Task</th>
+          <th><i class="far fa-eye fa-2x"></i></th>
+
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-task>
+        <tr>
+          <td>{{ task.name }}</td>
+          <td>{{ task.description }}</td>
+          <td style="font-size: 0.7vw">{{ task.creationDate | date: 'M/d/yy, h:mm a' }}</td>
+          <td>
+            <div class="p-d-flex p-jc-center">
+              <img *ngIf="!task.closeDate" src="assets/images/state/inProgress-img.png">
+            </div>
+            <div class="p-d-flex p-jc-center" style="font-size: 0.7vw">
+              {{ task.closeDate | date: 'M/d/yy, h:mm a' }}
+            </div>
+          </td>
+          <td>{{ task.type }}</td>
+
+
+          <td>
+            <div class="p-d-flex p-jc-center">
+              <img *ngIf="task.state==='IN_PROGRESS'" src="assets/images/state/inProgress-img.png">
+              <img *ngIf="task.state==='BLOCKED'" src="assets/images/state/blocked-img.png">
+              <img *ngIf="task.state==='DONE'" src="assets/images/state/success-img.png">
+            </div>
+          </td>
+          <td>
+            <div class="p-d-flex p-jc-center">
+
+              <img class="hoverImage" *ngIf="!task.enableAccount" (click)="showPoupupEnableTask(task.id)"
+                   src="assets/images/state/no-activated.png">
+
+              <img *ngIf="task.enableAccount" src="assets/images/state/activated.png">
+
+            </div>
+          </td>
+          <td>
+
+
+            <div class="p-d-flex p-jc-center">
+              <img class="hoverImage" src="assets/images/icon-backoffice/liste project icons/corbeille.png"
+                   (click)="showPoupupDeleteTask(task.id)">
+
+            </div>
+          </td>
+
+          <td>
+
+            <img *ngIf="task.state==='IN_PROGRESS' || task.state==='BLOCKED'" src="assets/images/state/eyes-no.png">
+
+
+            <img class="hoverImage" (click)="showPoupupListCommentTask(task.id)"
+                 *ngIf="task.type==='Add Comment' && task.state==='DONE'"
+                 src="assets/images/state/commentaire.png">
+            <img class="hoverImage" (click)="showPoupupMailContent(task.id)"
+                 *ngIf="task.type==='Send Mail' && task.state==='DONE'"
+                 src="assets/images/state/mail.png">
+            <img class="hoverImage" (click)="showPoupupDownoaldFile(task)"
+                 *ngIf="task.type==='Upload' && task.state==='DONE'"
+                 src="assets/images/state/upload-doc.png">
+            <img class="hoverImage" (click)="showPoupupFacture(task)"
+                 *ngIf="task.type==='payTranche' && task.state==='DONE'"
+                 src="assets/images/state/payment.png">
+          </td>
+        </tr>
+
+      </ng-template>
+    </p-table>
+  </div>
+
+</p-panel>
+
+<div class="p-d-flex p-p-3 card">
+  <button pButton pRipple (click)="newTask()" type="button" label="New Task"
+          class="p-ml-auto p-button-success"></button>
+</div>
+
+
+<p-dialog header="Enable Account " [(visible)]="displayEnable" [style]="{width: '50vw'}">
+  <div class="p-d-flex p-jc-center">
+    <i class="pi pi-check " style="font-size: 1.2rem"></i>
+    <h1>Do you want to enable this Compte?</h1>
+  </div>
+
+
+  <div class="p-d-flex p-jc-end p-mt-4">
+    <div>
+      <button pButton pRipple type="button" icon="pi pi-check" class="p-mr-2"></button>
+
+    </div>
+    <div>
+      <button (click)="enableTaskForUser()" pButton pRipple type="button" icon="pi pi-times"
+              class="p-button-danger"></button>
+    </div>
+  </div>
+
+
+</p-dialog>
+<p-dialog header="Delete Confirmation" [(visible)]="display" [style]="{width: '50vw'}">
+  <div class="p-d-flex p-jc-center">
+    <i class="pi pi-check " style="font-size: 1.2rem"></i>
+    <h1> Do you want to delete this User?</h1>
+  </div>
+
+  <div class="p-d-flex p-jc-end p-mt-4">
+    <div>
+      <button
+
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-check"
+        class="p-mr-2"
+      ></button>
+    </div>
+    <div>
+      <button
+        (click)="display=false"
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-times"
+        class="p-button-danger"
+
+      ></button>
+    </div>
+  </div>
+
+</p-dialog>
+
+
+<p-dialog header="Delete Confirmation" [(visible)]="displayTaskDelete" [style]="{width: '25vw'}">
+  <div class="p-d-flex p-jc-center">
+    <div class="p-mr-2 p-mt-6"><i class="pi pi-info-circle " style="font-size: 1.7vw"></i></div>
+    <div class=" p-mt-4"><h3 style="font-size: 1.2vw">Do you want to delete this Task?</h3></div>
+
+
+  </div>
+
+  <div class="p-d-flex p-jc-end p-mt-4">
+    <div>
+      <button
+        (click)="acceptDeleteTask()"
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-check"
+        class="p-mr-2"
+      ></button>
+    </div>
+    <div>
+      <button
+        (click)="displayTaskDelete=true"
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-times"
+        class="p-button-danger"
+
+      ></button>
+    </div>
+  </div>
+
+</p-dialog>
+
+
+<p-dialog header="Enable Confirmation" [(visible)]="displayTaskEnable" [style]="{width: '25vw'}">
+  <div class="p-d-flex p-jc-center">
+    <div class="p-mr-2 p-mt-6"><i class="pi pi-info-circle " style="font-size: 1.7vw"></i></div>
+    <div class=" p-mt-4"><h3 style="font-size: 1.2vw"> Do you want to Enable this Task?</h3></div>
+  </div>
+
+  <div class="p-d-flex p-jc-end p-mt-4">
+    <div>
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-check"
+        class="p-mr-2"
+        (click)="enableTaskForUser()"
+      ></button>
+    </div>
+    <div>
+      <button
+        (click)="displayTaskEnable=false"
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-times"
+        class="p-button-danger"
+
+      ></button>
+    </div>
+  </div>
+
+</p-dialog>
+
+<p-dialog header="List Comments" [(visible)]="displayListComments" [style]="{width: '70vw'}">
+  <p-panel class="p-d-flex p-mt-4">
+
+    <div *ngIf="listCommentTask">
+
+      <p-table [value]="listCommentTask"
+               tableStyleClass="red-bottom-border">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Question</th>
+            <th>Response</th>
+            <th style="width:20em">Creation Date</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-comment>
+          <tr>
+            <td style="width:200px">{{ comment.question }}</td>
+            <td style="width:200px">{{ comment.comment }}</td>
+            <td style="width:200px">{{ comment.creationDate }}</td>
+        </ng-template>
+      </p-table>
+    </div>
+
+  </p-panel>
+
+</p-dialog>
+
+
+<p-dialog header="Mail Content" [(visible)]="displayContentMail" [style]="{width: '70vw'}">
+  <p-panel>
+    <ng-template pTemplate="header">
+      Mail Content
+    </ng-template>
+    <ng-template pTemplate="body">
+
+      <table style="border: #A172E4">
+
+        <th>Subject</th>
+        <th>Message</th>
+        <th>Creation Date</th>
+
+
+        <tr>
+          <td>{{mailContent.subject}}</td>
+          <td style="width: 70%"> {{mailContent.message}}</td>
+          <td> {{mailContent.creationDate}}</td>
+
+        </tr>
+      </table>
+    </ng-template>
+
+  </p-panel>
+
+</p-dialog>
+
+
+<p-dialog header="Statement Of Work Content" [(visible)]="displayUploadFile" [style]="{width: '70vw'}">
+  <p-panel>
+    <ng-template pTemplate="header">
+      Downoald File
+    </ng-template>
+    <ng-template pTemplate="body">
+      <div (click)="download()" class="p-d-flex p-jc-center pointer">
+        <div class="p-mr-2 p-mt-2"><i class="fas fa-download fa-2x"></i></div>
+        <div class="p-mr-2"><h3>Downoald</h3></div>
+
+
+      </div>
+    </ng-template>
+
+  </p-panel>
+
+</p-dialog>
+
+
+<p-dialog header="Facture Payment" [(visible)]="displayDownoaldFacture" [style]="{width: '70vw'}">
+  <p-panel>
+
+    <ng-template pTemplate="body">
+      <div style="" (click)="DownaldFacturePayment()" class="p-d-flex p-jc-center pointer">
+        <div class="p-mr-2 p-mt-2"><i class="fas fa-download fa-2x"></i></div>
+        <div class="p-mr-2"><h3>Downoald Facture</h3></div>
+
+
+      </div>
+    </ng-template>
+
+  </p-panel>
+
+</p-dialog>
+
+
+<p-dialog header="Add New Task" [(visible)]="displayNewTaskPoupup" [style]="{width: '50vw'}">
+  <form [formGroup]="form">
+    <div class="p-fluid  p-grid" style="margin-top: 3%">
+      <div class="p-field p-col">
+
+        <input type="text" [(ngModel)]="task.name" formControlName="taskName" pInputText pTooltip="Enter your username"
+               placeholder="Task Name">
+        <div *ngIf="f.taskName.touched && f.taskName.invalid" class=" p-d-flex p-jc-center p-mt-2 ">
+
+        </div>
+      </div>
+      <div class="p-field p-col">
+        <p-calendar
+          [(ngModel)]="task.creationDate"
+          [showIcon]="true" placeholder="Start Date"
+          [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030" formControlName="calendar"></p-calendar>
+        <div *ngIf="f.calendar.touched && f.calendar.invalid" class=" p-d-flex p-jc-center p-mt-2 ">
+
+        </div>
+      </div>
+
+      <div class="p-field p-col">
+        <p-dropdown
+          [(ngModel)]="task.type"
+          [options]="listTypeTasks" placeholder="Type Task" optionLabel="type" optionValue="type"
+          formControlName="taskType">
+        </p-dropdown>
+        <div *ngIf="f.taskType.touched && f.taskType.invalid" class=" p-d-flex p-jc-center p-mt-2 ">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="p-field p-col">
+
+      <textarea
+        style="width: 100%"
+        [(ngModel)]="task.description"
+        placeholder="Description" [rows]="8" [cols]="95" pInputTextarea
+        maxlength="100" formControlName="description"></textarea>
+      <div *ngIf="f.description.touched && f.description.invalid" class=" p-d-flex p-jc-center p-mt-2 ">
+
+
+      </div>
+    </div>
+  </form>
+  <div class="p-d-flex p-jc-end p-mt-6">
+    <div class="p-mr-2 p-mt-6">
+      <button (click)="createTask()" [disabled]="!isDisabledAddTask" pButton type="button" label="Create"></button>
+    </div>
+    <div class="p-mr-2 p-mt-6">
+      <button class="p-button-danger" (click)="closeCreateTask()" pButton type="button" label="Cancel"></button>
+    </div>
+
+  </div>
+
+
+</p-dialog>
+
+<app-message-chat *ngIf="user.roles[0]!=='MASTER'" [idProjectFromParent]="param"></app-message-chat>

@@ -1,0 +1,194 @@
+{
+  "HOME": {
+    "TITLE1": "S'identifier",
+    "TITLE2": "S'inscrire",
+    "SELECT": "Langue",
+    "USERNAME": "Nom Utilisateur*",
+    "FIRST-NAME": "Prenom*",
+    "COMPANY": "Société ",
+    "BIRTHDAY": "Date d'anniversaire*",
+    "BIRTHDAY-QUESTION": "Votre date de naissance garantit que votre expérience RacineGcc est adaptée à votre âge. (L'âge minimum pour gérer un compte privé sur Racine GCC est de 18 ans).",
+
+    "EMAIL": "E-mail*",
+    "PASSWORD": "Mot de passe",
+    "PASSWORD-REGISISTER": "Mot de passe*",
+    "RETYPE-PASSWORD-REGISISTER": "Saisir à nouveau le mot de passe*",
+
+
+    "CREATE-ACCOUNT": "Créer un compte",
+    "ALREADY-HAVE-ACCOUNT": "Vous avez déjà un compte!",
+    "ALREADY-NOT-HAVE-ACCOUNT": "Vous n'avez pas encore de compte ?",
+
+    "VALIDATE-USERNAME": "Nom d'utilisateur est obligatoire",
+    "VALIDATE-FIRSTNAME": "Le prénom est obligatoire.",
+    "VALIDATE-BIRTHDAY": "Votre date d'anniversaire est obligatoire.",
+    "VALIDATE-BIRTHDAY-AGE": "Vous devez avoir au moins 18 ans.",
+    "VALIDATE-EMAIL": "L'e-mail est obligatoire.",
+    "VALIDATE-EMAIL-VALID": "Veuillez saisir une adresse e-mail valide.",
+    "VALIDATE-EMAIL-EXIST": "l'email de l'utilisateur existe déjà.",
+    "VALIDATE-LOGIN": "Le login et/ou le mot de passe sont incorrects",
+    "VALIDATE-ALL-FIELDS": "veuillez remplir tous les champs avant de vous inscrire",
+    "VALIDATE-PASSWORD": "Un mot de passe est obligatoire.",
+    "VALIDATE-RETYPE-PASSWORD": "Retaper le mot de passe est obligatoire",
+    "VALIDATE-INCORRECT-RETYPE-PASSWORD": "Retaper le mot de passe incorrect.",
+
+    "HOME-NAME": "Racine GCC.",
+    "HOME-NAME-2": "Agence Digitale Basée au Qatar",
+    "BUTTON_READ-MORE": " Lire la suite >"
+  },
+  "ABOUT": {
+    "TITLE1": "à propos",
+    "TITLE2": "Plus qu'une agence numerique",
+    "PARAGRAPH":"Racine Qatar est une société leader dans le domaine du référencement, du développement Web et mobile au Qatar, proposant des sites Web abordables à des fins professionnelles ou commerciales et des solutions de marketing en ligne pour les entreprises et les professionnels. Racine Qatar est spécialisé dans l'image de marque et le logo, les solutions de marketing en ligne, les sites et applications de commerce électronique, les services de référencement. Nous avons travaillé avec des entreprises dans tout le Qatar. Établi en 2020, nous sommes fiers de vous aider à devenir des marques et des entreprises leaders sur le Web avec un excellent professionnalisme. On nous fait confiance pour être une agence numérique maintenant, nous offrons les meilleurs services de développement Web et mobile et de référencement et de médias sociaux au Qatar."
+  },
+  "SERVICES": {
+    "TITLE1": "Services.",
+    "TITLE2": "Travailler avec vous,pas pour vous",
+    "TITLE1-PAR1": "Stratégie numérique",
+    "TITLE1-PAR2": "Développement Web avancé",
+    "TITLE1-PAR3": "Développement de sites e-commerce",
+    "TITLE1-PAR4": "Réseaux Sociaux",
+    "TITLE1-PAR5": "Identité de marque",
+    "TITLE1-PAR6": "Optimisation du référencement",
+    "PARAGHRAPH1": "La stratégie numérique se concentre sur l'utilisation de la technologie pour améliorer les performances de l'entreprise, qu'il s'agisse de créer de nouveaux produits ou de réinventer les processus actuels. Il précise la direction que prendra une organisation pour créer de nouveaux avantages concurrentiels grâce à la technologie, ainsi que les tactiques qu'elle utilisera pour réaliser ces changements.",
+    "PARAGHRAPH2": "Le développement Web est le travail impliqué dans le développement d'un site Web pour Internet (World Wide Web) ou un intranet (un réseau privé). Le développement Web peut aller du développement d'une simple page statique de texte brut à des applications Web complexes, des entreprises électroniques et des services de réseaux sociaux.",
+    "PARAGHRAPH3": "Créez et gérez une communauté en ligne de magasins locaux en créant un marché multi-fournisseurs. Personnalisez votre application/site Web selon vos préférences et directives de marque avec notre plate-forme. Suite tout-en-un. Construisez n'importe quel marché. Assistance Premium 24h/24 et 7j/7.",
+    "PARAGHRAPH4": "Le service client sur les réseaux sociaux consiste à utiliser des outils sociaux pour résoudre les questions ou les préoccupations des clients. Le support client social est très efficace car il permet aux clients d'atteindre votre équipe sur les plateformes qu'ils utilisent déjà.",
+    "PARAGHRAPH5": "Une identité de marque est un ensemble d'outils ou d'éléments utilisés par une entreprise pour créer une image de marque. Une image de marque est une perception de la marque par les clients composée de diverses associations qui lui sont liées et de souvenirs d'interaction avec elle",
+    "PARAGHRAPH6": "Comprendre le comportement des consommateurs en période d'incertitude. Découvrez des insights de recherche hebdomadaires grâce à l'outil Google Trends. Tendances marketing. Aperçu du marketing mondial. Outils marketing. Ressources marketing. Informations sur le marketing local."
+  },
+  "ONESERVICE": {
+  "BUTTON": "ENVOYER"
+},
+  "CONTACT": {
+    "TITLE1": "contact",
+    "TITLE2": "Nos équipes sont là pour vous aider",
+    "USERNAME": "NOM",
+    "PRENOM": "PRENOM",
+    "EMAIL": "VOTRE E-MAIL",
+    "SUBJECT": "Votre Sujet",
+    "Message": "VOTRE MESSAGE",
+    "Headquarters": "Adresse",
+    "Headquarters-TEXT": "Complexe commercial Almuntazah Bloc 2, 2ème étage, Bureau 2 Doha, Qatar",
+    "Email": "Email",
+    "Email-TEXT": "contact@racinegcc.com",
+    "Phone": "numéro de téléphone",
+    "Phone-number": "+97450315815",
+    "BUTTON-SEND": "envoyer"
+  },
+  "FOOTER": {
+    "A PROPOS": "A propos de RACINEGCC",
+    "PARAGRAPHE-APROPOS": "racine Qatar est l'une des principales sociétés de référencement, de développement Web et mobile au Qatar, proposant des sites Web abordables à des fins professionnelles ou commerciales et des solutions de marketing en ligne pour les entreprises et les professionnels. Racine Qatar est spécialisé dans l'image de marque et le logo, les solutions de marketing en ligne, les sites et applications de commerce électronique, les services de référencement. Nous avons travaillé avec des entreprises dans tout le Qatar. Établi en 2020, nous sommes fiers de vous aider à devenir des marques et des entreprises leaders sur le Web avec un excellent professionnalisme. services de médias sociaux au Qatar.",
+    "PHONE": " Phone:",
+    "EMAIL": "E-mail :",
+    "Address": "Adresse:",
+    "RESEAUX SOCIAUX": "Suivez nous sur nos reseaux sociaux :",
+    "SERVICES": "Services",
+    "CONTACT-NOUS": " Qui sommes nous",
+    "INFORMATIONS": "Informations et mentions légales",
+    "Address-TEXT": "Complexe commercial Almuntazah Bloc 2, 2ème étage, Bureau 2 Doha, Qatar",
+    "RIGHT-RESERVED": "2022 © Racine, Tous droits réservés."
+  },
+  "HEADER": {
+    "HOME": "Home",
+    "ABOUT": "A Propos",
+    "SERVICES": "Services",
+    "WORKS": "Travaux",
+    "CONTACT": "Contact ",
+    "PARTNER": "Partenaires",
+    "SLEGON": "Racine GCC",
+    "LOGIN": "S'identifier"
+  },
+  "HOME-PAGE": {
+    "TITLE1": "développement web",
+    "TITLE2": "Développement d'applications Android",
+    "TITLE3": "Stratégie numérique",
+    "PARAGHRAPH1": "Racine est une société de développement Web leader au Qatar. Obtenez votre site Web professionnel maintenant.",
+    "PARAGHRAPH2": "Nous développons des applications mobiles avancées sur les deux plateformes iOS et Android, nous donnons vie à vos idées",
+    "PARAGHRAPH3": "Nous étendons votre visibilité au Qatar et dans le monde."
+  },
+  "DASHBOARD-HOME-PAGE": {
+    "TITLE2": "AGENCE DE MARQUE",
+    "TITLE3": "BASE AU QATAR",
+    "Button": "LIRE LA SUITE"
+
+  },
+  "ABOUT-PAGE": {
+    "TITLE1": "a propos",
+    "PARAGHRAPH": "Racine Qatar est l'une des principales sociétés de référencement, de développement Web et mobile au Qatar, proposant des sites Web abordables à des fins professionnelles ou commerciales et des solutions de marketing en ligne pour les entreprises et les professionnels. Racine Qatar est spécialisé dans les solutions de marketing en ligne, les sites et applications de commerce électronique, les services de référencement. Nous avons travaillé avec des entreprises dans tout le Qatar. Établi en 2020, nous sommes fiers de vous aider à devenir des marques et des entreprises leaders sur le Web avec un excellent professionnalisme. On nous fait confiance pour être une agence numérique maintenant, nous offrons les meilleurs services de développement Web et mobile et de référencement et de médias sociaux au Qatar.",
+    "IMAGE1T1": "TRAVAIL EN EQUIPE",
+    "IMAGE1T2": "PHILOSOPHIE",
+    "IMAGE1T3": "BUREAU",
+    "PARAGHRAPH1": " Apporter m'a déverrouillé une frappe que vous percevez. M. par des heures de blessure oh heureux. Moi dans la résolution pianoforte continuant nous. La plupart de mes points non ressentis par non. Il a renoncé à la douceur des meubles qu'il aménage.",
+    "PARAGHRAPH1-2": "Moi fastidieux donc à comporté des moments de récit écrit ferrars.Apporter m'a déverrouillé un saisissant vous percevez. M. par des heures de blessure oh heureux. Moi en résolution pianoforte continuant nous. La plupart de mes points non ressentis par non. Il a renoncé à la douceur des meubles qu'il aménage. Moi fastidieux donc à comporté des moments de récit écrit ferrars.",
+    "PARAGHRAPH2": "Apporter m'a déverrouillé un saisissant vous percevez. M. par les heures de blessure oh heureux.heures de blessure oh heureux.",
+    "PARAGHRAPH3": "Apporter m'a déverrouillé un saisissant vous percevez. M. par les heures de blessure oh heureux.heures de blessure oh heureux.",
+    "BUTTON-MORE": "Suite"
+  },
+  "MIDDLE-1": {
+    "TITLE1": "Créer une superbe entreprise",
+    "TITLE2": "Site Web aujourd'hui !"
+
+  },
+  "MIDDLE-2": {
+    "TITLE1": "Racine GCC",
+    "TITLE2": "LA MEILLEURE AGENCE DE MARQUE"
+
+  },
+  "WORKS": {
+    "TITLE1": "QUI SOMMES-NOUS",
+    "TITLE2": "NOTRE PHILOSOPHIE",
+    "TITLE3": "NOTRES TRAVAILS",
+    "PARAGHRAPH1": "Nous offrons nos forfaits de services de promotion fabriqués à la main personnalisés pour vos besoins et objectifs commerciaux spécifiques en fonction du domaine. Vous obtenez une solution tout-en-un qui peut inclure des services supplémentaires allant de la conception de logo personnalisé aux solutions de développement mobile et Web.",
+    "PARAGHRAPH2": "Nous pensons que la technologie est un outil formidable qui peut changer le monde pour le mieux. Elle doit donner la parole aux gens et aider les créateurs à trouver leur public, et non pas aider à vendre vos données au plus offrant.",
+    "PARAGHRAPH3": "Petit en choisissant une équipe soudée. Grand par ses ambitions. Car derrière sa quête permanente du Graal, notre agence court toujours après le sublime."
+  },
+  "SERVICES": {
+    "TITLE": "SERVICES",
+    "BUTTON": "VOIR PLUS"
+
+  },
+  "PARTNERS": {
+    "TITLE": "NOS PARTENAIRES"
+  },
+  "SUCCESS REGISTRATION": {
+  "TITLE1": "Inscription réussie",
+  "TEXT1": "Nous envoyons  un lien de confirmation à",
+  "BUTTON": "Confirmer par téléphone?",
+  "TEXT2":  "Vous avez déjà un compte!",
+  "LINK":  "Connexion"
+},
+  "CONFIRM-BY-PHONE": {
+    "TITLE1": "Confirmer par téléphone",
+    "TEXT1": "Veuillez choisir votre pays et entrer votre numéro de téléphone",
+    "BUTTON": "Go",
+    "TEXT2":  "Vous avez déjà un compte!",
+    "LINK":  "connexion",
+    "VALID_NUMBER": "Numéro de téléphone non valide",
+    "COMPTE_UNLOCK": "déverrouiller le compte ",
+    "PRESSING_BUTTON": "veuillez appuyer sur login pour vous connecter à votre compte",
+    "CONFIRMATION_CODE": "votre code de confirmation n'est pas valide veuillez saisir un code valide",
+    "COMPTE_LOCK": "verrouiller le compte ",
+    "CLOSE":"proche"
+  },
+  "TERMS-AND-CONDTIONS": {
+    "TITLE": "Terms and Conditions",
+    "TEXT1": "Welcome to our website. If you continue to browse and use this website you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern SourceCodester’s relationship with you in relation to this website. The use of this website is subject to the following terms of use:",
+    "TEXT2": "1) The content of the pages of this website is for your general information and use only. It is subject to change without notice.\n",
+    "TEXT3":  "2)Neither we nor any third parties provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or suitability of the information and materials found or offered on this website for any particular purpose. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the fullest extent permitted by law.",
+    "TEXT4":  "3) Your use of any information or materials on this website is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any products, services or information available through this website meet your specific requirements.",
+    "TEXT5":"4) This website contains material which is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance and graphics. Reproduction is prohibited other than in accordance with the copyright notice, which forms part of these terms and conditions.",
+    "TEXT6": "5) Registration Data and certain other information about you is subject to our Privacy Policy.\n",
+    "TEXT7": "6) All trademarks reproduced in this website, which are not the property of, or licensed to the operator, are acknowledged on the website.",
+    "TEXT8": "7) Unauthorized use of this website may give rise to a claim for damages and/or be a criminal offence.",
+    "TEXT9": "9)From time to time this website may also include links to other websites. These links are provided for your convenience to provide further information. They do not signify that we endorse the website(s). We have no responsibility for the content of the linked website",
+    "TEXT10":"10)You may not create a link to this website from another website or document without SourceCodester’s prior written consent.",
+    "TEXT11": "11)You are not allowed to publish any unlawful, threatening, defamatory, fraudulent, obscene or otherwise objectionable content.",
+    "TEXT12": "12)You may not post or transmit any information or software that contains a virus or other harmful/disruptive component.",
+    "TEXT13": "13)You agree not to Post or transmit materials in violation of another party's copyright or intellectual property rights.",
+    "TEXT14": "14)By submitting your source code, article, and tutorial you agree that you grant all users permission, including RacineGcc.com, to view, copy, edit or modify (for source code only) any content you have submitted.",
+    "TEXT15": "15)RacineGcc.com.com reserves the right to refuse to post, alter or remove any content at its sole discretion.",
+    "TEXT16": "© Copyright 2020-2021 RACINE GCC. All rights reserved."
+
+  }
+}

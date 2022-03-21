@@ -1,0 +1,165 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true"><p
+  style="color: white"> Loading... </p></ngx-spinner>
+<p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
+<div class="p-shadow-3  p-mt-4">
+  <p-fieldset legend=" NAME PROJECT :{{project.name}}">
+
+
+    <div *ngIf="project.totalPayment">
+
+      <div class="p-grid">
+
+
+        <div class="c-dashboardInfo  p-col-12 p-md-6 p-lg-3 p-sm-6">
+          <div class="wrap">
+            <h4 class="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">Project Price
+              <i class="fas fa-info-circle hoverImage" (click)="op1.toggle($event)"></i>
+            </h4><span
+            class="hind-font caption-12 c-dashboardInfo__count">{{project.totalPayment}} {{project.currencyCode}}</span>
+
+          </div>
+        </div>
+        <div class="c-dashboardInfo p-col-12 p-md-6 p-lg-3 p-sm-6 ">
+          <div class="wrap">
+            <h4 class="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">Rest Payment
+              <i class="fas fa-info-circle hoverImage" (click)="op2.toggle($event)"></i>
+            </h4>
+            <span
+              class="hind-font caption-12 c-dashboardInfo__count">{{project.restPayment}} {{project.currencyCode}}</span>
+          </div>
+        </div>
+        <div class="c-dashboardInfo p-col-12 p-md-6 p-lg-3 p-sm-6">
+          <div class="wrap">
+            <h4 class="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">N°Installments
+              <i class="fas fa-info-circle hoverImage" (click)="op3.toggle($event)"></i>
+            </h4>
+            <span class="hind-font caption-12 c-dashboardInfo__count">{{nbrInvoices}}</span>
+          </div>
+        </div>
+        <div class="c-dashboardInfo p-col-12 p-md-6 p-lg-3 p-sm-6 ">
+          <div class="wrap">
+            <h4 class="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">Total Payment
+              <i class="fas fa-info-circle hoverImage" (click)="op4.toggle($event)"></i>
+            </h4><span class="hind-font caption-12 c-dashboardInfo__count">{{totalPayment}}%</span>
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </p-fieldset>
+
+  <p-panel class="p-d-flex p-mt-4" [toggleable]="true">
+    <ng-template pTemplate="header">
+      LIST TRANCHES
+    </ng-template>
+
+
+    <div class="card" *ngIf="listTranches">
+      <p-table [columns]="cols" [value]="listTranches" styleClass="p-datatable-responsive-demo">
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th>NAME</th>
+            <th>DEADLINE</th>
+            <th>DESCRIPTION TRANCHE</th>
+            <th>Price</th>
+            <th>Etat Payment</th>
+            <th>Pay/Show</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-tranche let-columns="columns">
+          <tr>
+            <td><span class="p-column-title">Name :</span><h5 class="desc-tab">{{tranche.name}}</h5></td>
+            <td><span class="p-column-title">Deadline :</span>
+              <div class="desc-tab ">{{tranche.deadline | date: 'dd/MM/yyyy'}} </div>
+            </td>
+
+            <td><span class="p-column-title">Description :</span>
+              <div class="desc-tab ">{{tranche.description}} </div>
+            </td>
+
+            <td><span class="p-column-title">Price :</span>
+              <div class="desc-tab ">{{tranche.price}} {{tranche.currencyCode}} </div>
+            </td>
+
+            <td><span class="p-column-title">Etat Pay</span>
+              <div class="desc-tab ">
+                <img *ngIf="tranche.etatPayement" src="assets/images/state/success-img.png " class="icon-tab">
+                <img *ngIf="!tranche.etatPayement" src="assets/images/state/inProgress-img.png " class="icon-tab">
+
+              </div>
+            </td>
+
+
+            <td><span class="p-column-title">pay/show :</span>
+              <div class="desc-tab ">
+
+                <img *ngIf="tranche.etatPayement" src="assets/images/icon-backoffice/liste project icons/oeil.png "
+                     (click)=" showBasicDialog(tranche.id ,tranche.name)" class="icon-tab hoverImage">
+                <img *ngIf="!tranche.etatPayement" src="assets/images/state/inProgress-img.png "
+                     class="icon-tab">
+
+                <p-dialog header={{currentName}} [(visible)]="displayBasic" [resizable]="true"
+                          [style]="{width: '800px',height:'100%'}">
+
+
+                  <pdf-viewer [src]="host+'/downloadFileOfTranchePayment/'+currentId"
+
+                              [style]="{width: '100%', height: '800px',display:'block'}"
+
+                  >
+
+                  </pdf-viewer>
+
+                  <ng-template pTemplate="footer">
+                    <button class="p-field p-col  p-mt-2"
+                            (click)="  downloadFacture(currentId,tranche.appStatementOfWork?.fileName)" pButton
+                            type="button" label="Download"></button>
+                    >
+                  </ng-template>
+                </p-dialog>
+              </div>
+            </td>
+
+
+          </tr>
+        </ng-template>
+      </p-table>
+
+      <div class="p-d-flex  p-jc-center" style="width: 100%" *ngIf="listTranches.length===0">
+        <h1> You have no Tranche To Pay for the moment</h1>
+      </div>
+
+    </div>
+
+
+  </p-panel>
+
+</div>
+
+
+<p-overlayPanel #op1>
+  <ng-template pTemplate>
+    The total sum of money set out in the Agreement that is<br>
+    to be paid to the Contractor for completing all Work
+  </ng-template>
+</p-overlayPanel>
+<p-overlayPanel #op2>
+  <ng-template pTemplate>
+    An amount of money that you pay at the time that <br>you buy something but is only a part of the total cost of that
+    thing
+  </ng-template>
+</p-overlayPanel>
+<p-overlayPanel #op3>
+  <ng-template pTemplate>
+    A sum of money due as one of several equal payments for<br> something, spread over an agreed period of time.
+  </ng-template>
+</p-overlayPanel>
+<p-overlayPanel #op4>
+  <ng-template pTemplate>
+    Total payment definition: A payment is an amount of <br>money that is paid to someone, or the act of paying this
+    money
+  </ng-template>
+</p-overlayPanel>

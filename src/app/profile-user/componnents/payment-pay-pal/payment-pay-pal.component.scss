@@ -1,0 +1,363 @@
+@font-face {
+  font-family: tommy-medium;
+  src: url("../../../../assets/fonts/MADE TOMMY Medium_PERSONAL USE.otf");
+}
+
+:host ::ng-deep.p-panel .p-panel-title {
+  font-size: 1.8vw;
+}
+
+:host ::ng-deep.p-panel .p-panel-header {
+  padding: 1rem;
+  background: #5b2178;
+  color: white;
+  font-family: tommy-bold;
+  letter-spacing: 0.1vw;
+  font-size: 1.8vw;
+
+}
+
+:host ::ng-deep.p-panel .p-panel-content {
+  padding-top: 40px;
+}
+
+:host ::ng-deep.p-panel .p-panel-header .p-panel-header-icon {
+  color: white;
+}
+
+:host ::ng-deep.p-panel .p-panel-header .p-panel-header-icon:hover {
+  color: #4c198b;
+  background-color: white;
+}
+
+:host ::ng-deep.p-fieldset .p-fieldset-legend {
+  font-size: 1.5vw;
+  color: white;
+  background-color: #4B0082;
+  border: 2px solid #4B0082;
+  font-family: tommy-bold;
+  letter-spacing: 0.1vw;
+  font-size: 1.8vw;
+}
+
+:host ::ng-deep.p-fieldset, .p-fieldset .p-fieldset-legend {
+  border: 2px solid #4B0082;
+  background-color: rgba(244, 244, 242, 0.18);
+}
+
+#para1 {
+  width: 80%;
+  height: 5%;
+  background: rgba(147, 147, 147, 0.12);
+  text-align: center;
+  font-size: 24px;
+  text-decoration-color: black;
+  margin-left: 3%;
+  margin-top: 10px;
+}
+
+#mylogo {
+
+  float: right;
+  margin-right: 10%;
+  margin-top: -1%;
+}
+
+.logo {
+
+  height: 100px;
+  width: 100%;
+}
+
+hr {
+
+  width: 85%;
+}
+
+.invoice-title h2, .invoice-title h3 {
+  display: inline-block;
+}
+
+th {
+  font-family: tommy-medium;
+  font-size: 1vw;
+  letter-spacing: 0.05vw;
+  color: #000000de;
+  background: rgba(147, 147, 147, 0.12);
+  padding-bottom: 1%;
+  padding-top: 1%;
+}
+
+
+#content {
+  display: none;
+  border: black 1px solid;
+  padding: 10px;
+
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+a {
+  color: #5D6975;
+  text-decoration: underline;
+}
+
+body {
+  width: 21cm;
+  height: 29.7cm;
+  color: #001028;
+  background: #FFFFFF;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-family: Arial;
+}
+
+header {
+  padding: 10px 0;
+  margin-bottom: 30px;
+}
+
+#logo {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#logo img {
+  width: 90px;
+}
+
+.title {
+  border-top: 1px solid #5D6975;
+  border-bottom: 1px solid #5D6975;
+  color: #5D6975;
+  font-size: 2.4em;
+  line-height: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  margin: 0 0 20px 0;
+  background: url('../../../../assets/images/dimension.png');
+}
+
+#project {
+  float: left;
+}
+
+#project span {
+  color: #5D6975;
+  text-align: right;
+  width: 52px;
+  margin-right: 10px;
+  display: inline-block;
+  font-size: 0.8em;
+}
+
+#company {
+  float: right;
+  text-align: right;
+}
+
+#project div,
+#company div {
+  white-space: nowrap;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: 20px;
+}
+
+table tr:nth-child(2n-1) td {
+  background: #F5F5F5;
+}
+
+table th,
+table td {
+  text-align: center;
+}
+
+table th {
+  padding: 5px 20px;
+  color: #5D6975;
+  border-bottom: 1px solid #C1CED9;
+  white-space: nowrap;
+  font-weight: normal;
+  font-size: 15px;
+}
+
+table .service,
+table .desc {
+  text-align: left;
+}
+
+table td {
+  padding: 20px;
+  text-align: right;
+}
+
+table td.service,
+table td.desc {
+  vertical-align: top;
+}
+
+table td.unit,
+table td.qty,
+table td.total {
+  font-size: 1.2em;
+}
+
+table td.grand {
+  border-top: 1px solid #5D6975;;
+}
+
+#notices .notice {
+  color: #5D6975;
+  font-size: 1.2em;
+}
+
+footer {
+  color: #5D6975;
+  width: 100%;
+  height: 30px;
+  bottom: 0;
+  border-top: 1px solid #C1CED9;
+  padding: 8px 0;
+  text-align: center;
+  margin-top: 60%;
+}
+
+p {
+  color: #000000;
+  font-size: 1.2vw;
+  font-family: tommy-medium;
+}
+
+.border {
+  border: solid 2px black;
+  padding: 1vw;
+}
+
+@media screen and (max-width: 992px) {
+  :host ::ng-deep.p-breadcrumb ul {
+    font-size: 2vw;
+  }
+  :host ::ng-deep.p-breadcrumb ul li.p-breadcrumb-chevron {
+    margin: 0 .5rem;
+    font-size: 2vw;
+  }
+  :host ::ng-deep.p-breadcrumb ul li .p-menuitem-link .p-menuitem-icon {
+    font-size: 2vw;
+  }
+  label {
+    font-size: 3vw;
+  }
+  .profile {
+    font-size: 4vw;
+  }
+  i {
+    font-size: 4vw;
+  }
+  :host ::ng-deep.p-panel .p-panel-header {
+    font-size: 4vw;
+  }
+  :host ::ng-deep.p-panel .p-panel-title {
+    font-size: 4vw;
+  }
+
+  h2 {
+    font-size: 2.5vw;
+  }
+  :host ::ng-deep.p-fieldset .p-fieldset-legend {
+
+    font-size: 3vw;
+  }
+  p {
+    font-size: 3vw;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+  :host ::ng-deep.p-fieldset .p-fieldset-legend {
+
+    font-size: 5vw;
+  }
+  :host ::ng-deep.p-panel .p-panel-title {
+    font-size: 5vw;
+  }
+  .title {
+    border-top: 1px solid #5D6975;
+    border-bottom: 1px solid #5D6975;
+    color: #5D6975;
+    font-size: 7vw;
+    line-height: 1.4em;
+    font-weight: normal;
+    text-align: center;
+    margin: 0 0 20px 0;
+    background: url('../../../../assets/images/dimension.png');
+  }
+  p {
+    font-size: 4vw;
+  }
+
+}
+
+// Just to show spinner bar in center of body
+// DELETE body css before using
+
+
+.spinner-square {
+  display: flex;
+  flex-direction: row;
+  width: 90px;
+  height: 120px;
+}
+
+.spinner-square > .square {
+  width: 17px;
+  height: 80px;
+  margin: auto auto;
+  border-radius: 4px;
+}
+
+.square-1 {
+  animation: square-anim 1200ms cubic-bezier(0.445, 0.05, 0.55, 0.95) 0s infinite;
+}
+
+.square-2 {
+  animation: square-anim 1200ms cubic-bezier(0.445, 0.05, 0.55, 0.95) 200ms infinite;
+}
+
+.square-3 {
+  animation: square-anim 1200ms cubic-bezier(0.445, 0.05, 0.55, 0.95) 400ms infinite;
+}
+
+@keyframes square-anim {
+  0% {
+    height: 80px;
+    background-color: rgb(111, 163, 240);
+  }
+  20% {
+    height: 80px;
+  }
+  40% {
+    height: 120px;
+    background-color: rgb(111, 200, 240);
+  }
+  80% {
+    height: 80px;
+  }
+  100% {
+    height: 80px;
+    background-color: rgb(111, 163, 240);
+  }
+}
+
+
+//

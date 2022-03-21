@@ -1,0 +1,67 @@
+@font-face {
+  font-family: Americana;
+  src: url("../../../../assets/fonts/Americanatest.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: light;
+  src: url("../../../../assets/fonts/MADE TOMMY Light_PERSONAL USE.otf");}
+@font-face {
+  font-family: tommy-medium;
+  src: url("../../../../assets/fonts/MADE TOMMY Medium_PERSONAL USE.otf");}
+.input-file {
+  display: none;
+}
+
+:host ::ng-deep.p-panel .p-panel-header .p-panel-header-icon:enabled:hover {
+  color: #4c198b;
+  background-color: white;}
+:host ::ng-deep.p-panel .p-panel-header .p-panel-header-icon {
+
+  color: white;
+}
+:host ::ng-deep.p-panel .p-panel-title {
+  font-size: 1.8vw;
+}
+:host ::ng-deep.p-panel .p-panel-header {
+  padding: 0.4rem;
+  padding-left: 1.5rem;
+  background: #5b2178;
+  color: white;
+  font-family: tommy-bold ;
+  letter-spacing: 0.1vw;
+  font-size: 0.8vw;
+
+}
+:host ::ng-deep.p-panel .p-panel-content {
+  padding-top: 20px;
+}
+
+
+
+
+
+:host ::ng-deep.p-breadcrumb {
+  background: #fff;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 1rem;
+}
+:host ::ng-deep {
+.p-breadcrumb ul {
+  color: #000000;
+  font-size: 1.2vw;
+  font-family: tommy-medium;
+}
+
+.p-breadcrumb ul li.p-breadcrumb-chevron {
+  margin: 0 .5rem;
+  color: #000000;
+  font-size: 1.2vw;
+}
+
+.p-breadcrumb ul li .p-menuitem-link .p-menuitem-icon {
+  color: #000000;
+  font-size: 1.2vw;
+}
+}

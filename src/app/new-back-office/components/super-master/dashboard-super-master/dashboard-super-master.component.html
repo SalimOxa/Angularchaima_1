@@ -1,0 +1,23 @@
+<div class="p-grid">
+  <div class="p-col-12">
+    <app-header-back-office ></app-header-back-office>
+
+  </div>
+
+  <div class="p-col-2 p-shadow-3">
+    <p-panelMenu  [model]="items" [style]="{ width: '100%' }">
+
+
+    </p-panelMenu>
+  </div>
+  <div class="p-col-9">
+    <router-outlet  ></router-outlet>
+
+  </div>
+  <div class="p-col-12">
+
+  </div>
+
+</div>
+
+

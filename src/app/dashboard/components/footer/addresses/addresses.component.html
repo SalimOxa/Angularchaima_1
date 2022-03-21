@@ -1,0 +1,55 @@
+
+<div class="container  ">
+  <div class="p-d-flex p-flex-column p-flex-md-row address-card" [class.container-arab]="selectLang==='AR'" >
+
+
+
+      <div class="p-col-12 p-md-4 p-lg-4 panel-1 p-sm-12 "  >
+
+        <h2 class =" p-d-flex p-jc-left p-mb-2 p-ml-lg-4 p-ml-md-4 p-mr-lg-4 p-mr-md-4 p-mr-sm-6 p-mt-lg-1"> {{ 'FOOTER.A PROPOS' | translate }}</h2>
+        <p class =" p-d-flex p-jc-left p-ml-lg-4 p-ml-md-4 p-mr-lg-4 p-mr-md-4 p-mr-sm-6" > {{ 'FOOTER.PARAGRAPHE-APROPOS' | translate }}</p>
+        <div class =" p-d-flex p-jc-left p-ml-lg-4 p-ml-md-4 title p-mb-3 p-mr-lg-4 p-mr-md-4 p-mr-sm-6"><label class="title-reseaux">{{ 'FOOTER.RESEAUX SOCIAUX' | translate }}</label><div class="rounded-social-buttons p-jc-left  ">
+          <a class="social-button facebook  " href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f "></i></a>
+          <a class="social-button twitter" href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter  p-mt-1 "></i></a>
+          <a class="social-button linkedin" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin  p-mt-1 "></i></a>
+          <a class="social-button youtube" href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube  p-mt-1 "></i></a>
+        </div></div>
+        <div class ="  p-d-flex p-jc-left  title   p-ml-lg-4 p-ml-md-4 p-mr-lg-4 p-mr-md-4 p-mr-sm-6"> {{ 'FOOTER.EMAIL' | translate }} <a class ="p-ml-2 p-mr-2 contact"> contact@racinegcc.com</a></div>
+
+      </div>
+    <div class="p-col-12 p-md-1 p-lg-1 p-sm-12 panel p-mt-3 p-mb-2 " >    </div
+     >
+      <div class="p-col-12 p-md-4 p-lg-4 p-sm-12 p-ml-lg-6 p-ml-md-3 panel-2  p-mr-lg-6 p-mr-md-3 " >
+
+        <div class =" p-d-flex p-jc-left title-adress p-ml-lg-6 p-ml-md-3 p-mt-2 p-mr-lg-6 p-mr-md-3 p-mr-sm-6"> {{ 'FOOTER.PHONE' | translate }}   <a class ="p-ml-3 p-mr-2 tel">  +97450315815</a></div>
+
+
+
+        <div class =" p-d-flex  title-adress p-ml-lg-6 p-ml-md-3 p-mt-2 p-mr-lg-6 p-mr-md-3 p-mr-sm-6">{{ 'FOOTER.Address' | translate }} <a class ="p-ml-3 p-mr-2  adress-text ">{{ 'FOOTER.Address-TEXT' | translate }}</a></div>
+
+
+
+
+
+      </div>
+
+
+    <div class="p-col-12 p-md-1 p-lg-1 p-sm-12 panel p-mt-3 p-mb-2 " ></div>
+  <div class="p-col-12 p-md-4 p-lg-4 p-ml-lg-6 p-sm-12 p-ml-md-6 panel-2"  >
+
+    <div class =" p-d-flex p-jc-left title-adress  information p-ml-lg-6 p-mt-2 p-ml-md-3 p-mr-sm-6"(click)="toAbout()" routerLink="about"> {{ 'HEADER.ABOUT' | translate }}</div>
+
+
+
+    <div class =" p-d-flex p-jc-left  title-adress information p-ml-lg-6 p-mb-2 p-mt-2 p-ml-md-3 p-mr-sm-6" (click)="toService()">{{ 'FOOTER.SERVICES' | translate }}</div>
+
+    <div class =" p-d-flex p-jc-left  title-adress information p-ml-lg-6 p-mb-2 p-mt-2 p-ml-md-3 p-mr-sm-6" (click)="toWorks()"> {{ 'HEADER.WORKS' | translate }}</div>
+
+    <div class =" p-d-flex p-jc-left  title-adress information p-ml-lg-6 p-mb-2 p-mt-2 p-ml-md-3 p-mr-sm-6 "(click)="toContact()">{{ 'HEADER.CONTACT' | translate }}</div>
+    <div class =" p-d-flex p-jc-left  title-adress information p-ml-lg-6 p-mb-2 p-mt-2 p-ml-md-3 p-mr-sm-6" (click)="gotTemesAndCondition()">{{ 'FOOTER.INFORMATIONS' | translate }}</div>
+
+  </div>
+</div>
+
+
+</div>

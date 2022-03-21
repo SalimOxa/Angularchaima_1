@@ -1,0 +1,59 @@
+
+<div class="contentComponnent">
+
+
+<div class="p-grid">
+
+<div class="wrapper p-col-12 " style="width: 100%">
+  <div class="sct" *ngIf="service.id">
+
+    <img [src]="host+'/photoService/'+service.id"/>
+
+  </div>
+  <div *ngIf="service" class="sct1 ">
+    <div class="p-d-flex p-flex-column p-ml-4 ">
+      <h1 *ngIf="lang==='EN'"> {{  service.name }}</h1>
+      <h1  class="arabic" *ngIf="lang==='AR'"> {{  service.nameArabic }}</h1>
+      <h1 *ngIf="lang==='FR'"> {{  service.nameFrensh }}</h1>
+
+      <div class="p-mb-2 p-mr-4 margin-title">
+        <p   *ngIf="lang==='EN'">{{ service.description }}</p>
+        <p class="arabic"  *ngIf="lang==='AR'">{{ service.descriptionArabic }}</p>
+        <p *ngIf="lang==='FR'">{{ service.descriptionFrensh }}</p>
+
+      </div>
+      <div class="p-mb-4" *ngIf="iframeUrl">
+        <iframe  [src]="iframeUrl" title="YouTube video player" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+      </div>
+
+
+      <div *ngIf="lang!=='AR'" class="send-request p-d-flex p-jc-end p-mr-6">
+        <div class="link">{{'ONESERVICE.BUTTON' | translate }}
+          <i class='fas fa-caret-right '></i>
+          <i class='fas fa-caret-right'></i></div>
+
+      </div>
+
+
+      <div *ngIf="lang==='AR'" class="send-request p-d-flex p-jc-start p-mr-6">
+        <div class="link">
+          <i class='fas fa-caret-left '></i>
+          <i class='fas fa-caret-left'></i>
+          {{'ONESERVICE.BUTTON' | translate }}</div>
+
+
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+</div>
+
+  <div>
+    <app-addresses class ="p-grid "></app-addresses>
+    <app-rights-reserved class ="p-grid "></app-rights-reserved>
+  </div>
+
+</div>

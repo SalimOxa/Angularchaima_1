@@ -1,0 +1,290 @@
+<p-toast key="toast"></p-toast>
+<div class="p-grid p-d-flex p-mb-4   ">
+  <div  class="p-col-12">
+    <div class="p-shadow-3 ">
+      <p-breadcrumb   [model]="items" [home]="home"></p-breadcrumb>
+
+    </div>
+
+  </div>
+
+</div>
+<div  class="p-shadow-3">
+  <p-panel  >
+    <ng-template pTemplate="header" >
+      NEW USER
+    </ng-template>
+
+    <div class="p-fluid">
+      <header>
+        <div class="p-d-flex p-jc-center p-mb-2">
+          <p-message
+            [styleClass]="'fill-parent'"
+            severity="error"
+            text="{{ errorMessages }}"
+            *ngIf="errorMessages"
+            [style]="{ width: '100%' }"
+          ></p-message>
+        </div>
+      </header>
+      <form [formGroup]="form">
+        <div class="p-d-flex p-jc-center">
+          <div class="p-inputgroup p-shadow-6 p-mb-3" [style]="{ width: '80%' }">
+          <span class="p-inputgroup-addon"
+          ><i class="fas fa-user-edit"></i
+          ></span>
+            <input
+              type="text"
+              pInputText
+              placeholder="User Name"
+              [style]="{ width: '100%' }"
+              [(ngModel)]="userDto.username"
+              formControlName="username"
+              maxlength="15"
+            />
+          </div>
+        </div>
+        <div
+          *ngIf="f.username.touched && f.username.invalid"
+          class="p-d-flex p-jc-center p-mb-2"
+        >
+          <p-message
+            [styleClass]="'fill-parent'"
+            severity="error"
+            *ngIf="f.username.errors?.required"
+            text="Username is required."
+          ></p-message>
+        </div>
+
+        <div class="p-d-flex p-jc-center">
+          <div class="p-inputgroup p-shadow-6 p-mb-3" [style]="{ width: '80%' }">
+          <span class="p-inputgroup-addon"
+          ><i class="fas fa-user-check"></i
+          ></span>
+            <input
+              pInputText
+              placeholder="First Name"
+              [style]="{ width: '100%' }"
+              [(ngModel)]="userDto.firstName"
+              formControlName="firstname"
+              maxlength="10"
+            />
+          </div>
+        </div>
+        <div
+          *ngIf="f.firstname.touched && f.firstname.invalid"
+          class="ng-dirty ng-invalid p-d-flex p-jc-center p-mb-2"
+        >
+          <p-message
+            [styleClass]="'fill-parent'"
+            severity="error"
+            *ngIf="f.firstname.errors?.required"
+            text="Firstname is required."
+          ></p-message>
+        </div>
+
+        <div class="p-d-flex p-jc-center">
+          <div class="p-inputgroup p-shadow-6 p-mb-3" [style]="{ width: '80%' }">
+          <span class="p-inputgroup-addon"
+          ><i class="fas fa-birthday-cake"></i
+          ></span>
+            <p-calendar
+              [showIcon]="true"
+              placeholder="BIRTHDAY"
+              [style]="{ width: '100%' }"
+              [(ngModel)]="userDto.birthday"
+              class="password"
+              formControlName="birthday"
+              [monthNavigator]="true"
+              [yearNavigator]="true"
+              yearRange="1900:2030"
+            ></p-calendar>
+          </div>
+        </div>
+        <div
+          *ngIf="f.birthday.touched && f.birthday.invalid"
+          class="p-d-flex p-jc-center p-mb-2"
+        >
+          <p-message
+            [styleClass]="'fill-parent'"
+            severity="error"
+            *ngIf="f.birthday.errors?.required"
+            text="Birthday is required."
+          ></p-message>
+        </div>
+        <div class="p-d-flex p-jc-center">
+          <div class="p-inputgroup p-shadow-6 p-mb-3" [style]="{ width: '80%' }">
+            <span class="p-inputgroup-addon"><i class="fas fa-at"></i></span>
+            <input
+              type="text"
+              pInputText
+              placeholder="E-mail"
+              [style]="{ width: '100%' }"
+              [(ngModel)]="userDto.email"
+              formControlName="email"
+            />
+          </div>
+        </div>
+        <div
+          *ngIf="f.email.touched && f.email.invalid"
+          class="ng-dirty p-d-flex p-jc-center p-mb-2"
+        >
+          <p-message
+            [styleClass]="'fill-parent'"
+            severity="error"
+            *ngIf="f.email.errors?.required"
+            text="Email is required."
+          ></p-message>
+          <div *ngIf="f.email.errors?.email">
+            <p-message
+              [styleClass]="'fill-parent'"
+              severity="error"
+
+              text=" Please, enter valid email address."
+            ></p-message>
+
+          </div>
+        </div>
+        <div class="p-d-flex p-jc-center">
+          <div class="p-inputgroup p-shadow-6 p-mb-3" [style]="{ width: '80%' }">
+            <span class="p-inputgroup-addon"><i class="fas fa-phone"></i></span>
+          <input type="text"
+                 ng2TelInput
+                 pInputText
+                 [(ngModel)]="telephoneNumber"
+                 [ng2TelInputOptions]="{initialCountry: 'qa'}"
+                 (hasError)="hasError($event)"
+                 (ng2TelOutput)="getNumber($event)"
+                 (intlTelInputObject)="telInputObject($event)"
+                 (countryChange)="onCountryChange($event)"
+                 formControlName="phone"
+                 [style]="{ width: '488%' }"
+          />
+          </div>
+        </div>
+
+        <div class="p-d-flex p-jc-center">
+          <div class="p-inputgroup p-shadow-6 p-mb-3" [style]="{ width: '80%' }">
+            <span class="p-inputgroup-addon"><i class="fas fa-lock"></i></span>
+            <p-password
+              placeholder="Password"
+              [toggleMask]="true"
+              [(ngModel)]="userDto.password"
+              formControlName="password"
+              class="password"
+            >
+            </p-password>
+          </div>
+        </div>
+
+
+
+
+        <div class="p-grid">
+
+          <div *ngIf="user.roles[0]=='MASTER'" class="p-col">
+            <div class="p-d-flex p-jc-center">
+
+              <div   class="p-mr-2 p-mt-3"> <div class="p-field-radiobutton">
+                <p-radioButton name="role" value="ADMIN" [(ngModel)]=" roleDto.roleName"  formControlName="role"></p-radioButton>
+                <label >Is Admin</label>
+              </div>
+              </div>
+
+            </div>
+            <div
+              *ngIf="f.password.touched && f.password.invalid"
+              class="ng-dirty p-d-flex p-jc-center p-mb-2"
+            >
+              <p-message
+                [styleClass]="'fill-parent'"
+                severity="error"
+                *ngIf="f.password.errors?.required"
+                text="Password is required."
+              ></p-message>
+            </div></div>
+          <div *ngIf="user.roles[0]=='MASTER'" class="p-col">  <div class="p-d-flex p-jc-center">
+            <div class="p-mr-2 p-mt-3"> <div class="p-field-radiobutton">
+              <p-radioButton name="role" value="CUSTOMER" [(ngModel)]=" roleDto.roleName"  formControlName="role"></p-radioButton>
+              <label >Is Customer</label>
+            </div>
+            </div>
+
+          </div>
+            <div
+              *ngIf="f.password.touched && f.password.invalid"
+              class="ng-dirty p-d-flex p-jc-center p-mb-2"
+            >
+              <p-message
+                [styleClass]="'fill-parent'"
+                severity="error"
+                *ngIf="f.password.errors?.required"
+                text="Password is required."
+              ></p-message>
+            </div></div>
+        </div>
+
+
+
+
+
+
+        <div class="p-d-flex p-jc-center">
+          <button
+            pButton
+            type="submit"
+            label="Create"
+            class="
+            p-button-rounded
+            p-button
+            p-button-raised
+            p-mt-3
+            p-mb-3
+          "
+            [style]="{ width: '80%' }"
+            (click)="showDialog()"
+          ></button>
+        </div>
+      </form>
+    </div>
+  </p-panel>
+</div>
+
+<p-dialog header="Add User Confirmation" [(visible)]="displayBasic">
+  <i class="pi pi-info-circle " style="font-size: 1.2rem"></i>
+  are you  sure to add this user ?
+  <div class="p-d-flex p-jc-end p-mt-4">
+    <div>
+      <button
+        (click)="register()"
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-check"
+        class="p-mr-2"
+      ></button>
+    </div>
+    <div>
+      <button
+        (click)="displayBasic=false"
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-times"
+        class="p-button-danger"
+
+      ></button>
+    </div>
+  </div>
+
+</p-dialog>
+
+
+
+
+
+
+
+
+
+

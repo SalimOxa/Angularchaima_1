@@ -1,0 +1,27 @@
+<div class="p-grid">
+  <div class="p-col-2">
+
+
+  </div>
+  <div class="p-col-8">
+    <div class="p-d-flex p-flex-column">
+      <div class="p-d-flex p-jc-center ">
+        <h2>{{description}} </h2>
+      </div>
+      <div class="p-d-flex p-jc-center p-mb-2">
+        <h2>DeadLine : </h2>
+        <h2 style="color: red">{{task?.tranchePayment?.deadline | date: 'dd/MM/yyyy'}}</h2>
+      </div>
+      <div class="p-d-flex p-mb-2 p-mr-2 p-jc-center ">
+        <button pButton type="button" label="Pay" class="p-button-success" (click)="payTranche()"></button>
+      </div>
+    </div>
+
+  </div>
+  <div class="p-col-2">
+
+
+  </div>
+
+</div>
+

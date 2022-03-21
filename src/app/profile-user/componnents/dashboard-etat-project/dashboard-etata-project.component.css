@@ -1,0 +1,32 @@
+.custom-marker {
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+p-card:hover {background-color: #f4f4f4;}
+
+i:hover{
+  color: blue;
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+i{
+  -webkit-filter: grayscale(0) blur(0px);
+  filter: grayscale(0) blur(0px);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.4s ease;
+}
+i:active {
+  color: green;
+  transition: all 0.1s ease;
+}
+
+

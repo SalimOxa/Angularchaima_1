@@ -1,0 +1,17 @@
+tr:hover {background-color: #f4f4f4;}
+.fa-trash-alt{
+  color: red;
+  -webkit-filter: grayscale(0) blur(0px);
+  filter: grayscale(0) blur(0px);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.3s ease;
+
+}
+.fa-trash-alt:hover{
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+#icon-delete{
+  font-size:40px;
+}

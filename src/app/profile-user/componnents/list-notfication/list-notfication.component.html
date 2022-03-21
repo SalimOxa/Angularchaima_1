@@ -1,0 +1,40 @@
+<div *ngIf="lisNotification.length!==0"
+     class="search-results listComment"
+     infiniteScroll
+     [infiniteScrollDistance]="2"
+     [infiniteScrollThrottle]="50"
+     (scrolled)="onScrollDown($event)"
+     (scrolledUp)="onScrollUp($event)"
+     [scrollWindow]="false">
+  <div >
+    <h2 >Notifications</h2>
+    <hr>
+  </div>
+
+
+  <div *ngFor="let notification of lisNotification; let i=index" class="notification-message"
+       [ngClass]="{'Notification_Not_Showed': notification.isShowed == true}"
+       (click)="viewNotification(notification,$event)">
+    <hr>
+    <div><b>Person: </b><i class="comment"  style="color: blue" [innerHtml]=" notification.name"></i></div>
+    <div><b>Action: </b><i class="comment" [innerHtml]=" notification.message"></i></div>
+    <div><i class="comment" style="color: blue"  [innerHtml]="notification.createdDate | date:'dd/MM/yyyy HH:mm'"></i></div>
+
+    <hr>
+  </div>
+</div>
+<div  class="p-d-flex p-jc-center " *ngIf="showSpinner">
+  <div class="sp sp-3balls"></div>
+
+</div>
+
+<div class="p-d-flex p-jc-center  empty_list" *ngIf="lisNotification.length===0">
+  <div class="p-mb-2">
+    <i class="fas fa-bell-slash fa-3x	"></i>
+  </div>
+  <div class="p-mb-2 p-ml-2 ">
+    <h3>No Notifications Yet :(</h3>
+
+  </div>
+</div>
+

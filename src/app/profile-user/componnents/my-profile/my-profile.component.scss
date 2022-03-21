@@ -1,0 +1,370 @@
+@font-face {
+  font-family: tomy-light;
+  src: url("../../../../assets/fonts/MADE TOMMY Light_PERSONAL USE.otf");
+}
+
+@font-face {
+  font-family: medium;
+  src: url("../../../../assets/fonts/MADE TOMMY Medium_PERSONAL USE.otf");
+}
+
+@font-face {
+  font-family: tommy-bold;
+  src: url("../../../../assets/fonts/MADE TOMMY Bold_PERSONAL USE.otf");
+}
+
+:host ::ng-deep.p-button {
+  background: #5b2178;
+  -webkit-filter: grayscale(0) blur(0px);
+  filter: grayscale(0) blur(0px);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.4s ease;
+
+}
+
+:host ::ng-deep.p-button:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  background: #e5c431;
+
+}
+
+.panel-size {
+  width: 100%;
+}
+
+tr:hover {
+  background-color: #f4f4f4;
+}
+
+i:hover {
+  color: #e8a036;
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+i {
+  -webkit-filter: grayscale(0) blur(0px);
+  filter: grayscale(0) blur(0px);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.4s ease;
+  font-size: 2vw;
+}
+
+i:active {
+  color: green;
+  transition: all 0.1s ease;
+}
+
+label {
+  font-size: 1.3vw;
+
+  font-family: tomy-light;
+}
+
+.profile {
+  color: #5b2178;
+  font-size: 1.5vw;
+  font-family: medium;
+
+}
+
+.image-profile {
+  width: 2.6041666666666665vw;
+  height: 2.6041666666666665vw;
+}
+
+.fa-edit {
+  color: #5b2178;
+}
+
+:host ::ng-deep.p-panel .p-panel-title {
+  font-size: 1.8vw;
+}
+
+:host ::ng-deep.p-panel .p-panel-header {
+  padding: 0.4rem;
+  padding-left: 1.5rem;
+  background: #5b2178;
+  color: white;
+  font-family: tommy-bold;
+  letter-spacing: 0.1vw;
+  font-size: 1.8vw;
+
+}
+
+:host ::ng-deep.p-panel .p-panel-header .p-panel-header-icon {
+  color: white;
+}
+
+:host ::ng-deep.p-panel .p-panel-header .p-panel-header-icon:hover {
+  color: #5b2178;
+  background-color: white;
+}
+
+:host ::ng-deep.p-breadcrumb ul {
+  color: #000000;
+  font-size: 1.2vw;
+  font-family: tommy-medium;
+}
+
+:host ::ng-deep.p-breadcrumb ul li.p-breadcrumb-chevron {
+  margin: 0 .5rem;
+  color: #000000;
+  font-size: 1.2vw;
+}
+
+:host ::ng-deep.p-breadcrumb ul li .p-menuitem-link .p-menuitem-icon {
+  color: #000000;
+  font-size: 1.2vw;
+}
+
+:host ::ng-deep.p-dialog {
+  width: 30vw;
+}
+
+:host ::ng-deep.p-dialog .p-dialog-header .p-dialog-title {
+  font-weight: 500;
+  font-size: 1.5vw;
+  color: white;
+  margin-left: 0.2vw;
+}
+
+:host ::ng-deep.p-dialog .p-dialog-header {
+  border-bottom: 0;
+  background: #5b2178;
+
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  padding: 0.8vw;
+}
+
+:host ::ng-deep.p-dialog .p-dialog-header .p-dialog-header-icon:enabled {
+  color: #ffffff;
+}
+
+:host ::ng-deep.p-dialog .p-dialog-header .p-dialog-header-icon:enabled:hover {
+  color: #5b2178;
+  background-color: white;
+}
+
+.icon-profile {
+  width: 30px;
+}
+
+h2 {
+  font-size: 1.2vw;
+}
+
+.editUserName {
+  display: none;
+  font-size: 1.5vw;
+}
+
+.userName:hover .editUserName {
+  display: block;
+}
+
+.userName:active .editUserName {
+  display: block;
+}
+
+.email {
+  font-size: 1.3vw;
+  font-family: tomy-light;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-change-password {
+  background-image: url('../../../../assets/images/icon-backoffice/liste project icons/change-password.png');
+  width: 150px;
+  height: 50px;
+  border: 0px;
+  cursor: pointer;
+}
+
+.btn-change-password:hover {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 992px) {
+  :host ::ng-deep {
+    .p-hi ahme please send me your email and description of the projectbreadcrumb ul {
+      color: #000000;
+      font-size: 2vw;
+      font-family: tommy-medium;
+    }
+
+    .p-breadcrumb ul li.p-breadcrumb-chevron {
+      margin: 0 .5rem;
+      color: #000000;
+      font-size: 1vw;
+    }
+
+    .p-breadcrumb ul li .p-menuitem-link .p-menuitem-icon {
+      color: #000000;
+      font-size: 2vw;
+    }
+  }
+  :host ::ng-deep.p-breadcrumb ul li.p-breadcrumb-chevron {
+    margin: 0 .5rem;
+    font-size: 2vw;
+  }
+  :host ::ng-deep.p-breadcrumb ul li .p-menuitem-link .p-menuitem-icon {
+    font-size: 2vw;
+  }
+  label {
+    font-size: 3vw;
+  }
+  .profile {
+    font-size: 4vw;
+  }
+  i {
+    font-size: 4vw;
+  }
+  :host ::ng-deep.p-panel .p-panel-header {
+    font-size: 4vw;
+  }
+  :host ::ng-deep.p-panel .p-panel-title {
+    font-size: 4vw;
+  }
+
+  :host ::ng-deep.p-dialog {
+    width: 60vw;
+  }
+  :host ::ng-deep.p-dialog .p-dialog-header .p-dialog-title {
+    font-size: 3vw;
+
+  }
+
+  h2 {
+    font-size: 2.5vw;
+  }
+  .image-profile {
+    width: 6vw;
+    height: 6vw;
+  }
+  .editUserName {
+
+    font-size: 3.5vw;
+  }
+  .email {
+    font-size: 3vw;
+    width: 550px;
+
+  }
+
+
+}
+
+@media screen and (max-width: 500px) {
+  :host ::ng-deep {
+    .p-breadcrumb ul {
+      color: #000000;
+      font-size: 4vw;
+      font-family: tommy-medium;
+    }
+
+    .p-breadcrumb ul li.p-breadcrumb-chevron {
+      margin: 0 .5rem;
+      color: #000000;
+      font-size: 3vw;
+    }
+
+    .p-breadcrumb ul li .p-menuitem-link .p-menuitem-icon {
+      color: #000000;
+      font-size: 4vw;
+    }
+  }
+
+
+  :host ::ng-deep.p-dialog {
+    width: 90vw;
+  }
+  :host ::ng-deep.p-dialog .p-dialog-header .p-dialog-title {
+    font-size: 6vw;
+
+  }
+
+  h2 {
+    font-size: 5vw;
+  }
+  :host ::ng-deep.p-breadcrumb ul li .p-menuitem-link .p-menuitem-icon {
+    font-size: 4vw;
+  }
+  label {
+    font-size: 3.5vw;
+  }
+  .profile {
+    font-size: 4vw;
+  }
+  i {
+    font-size: 4vw;
+  }
+  .image-profile {
+    width: 8vw;
+    height: 8vw;
+  }
+  .email {
+    font-size: 3.5vw;
+    font-family: tomy-light;
+    white-space: nowrap;
+    width: 223px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+}
+
+$cWhite: white;
+$cBlack: black;
+
+
+.spinner {
+  justify-content: center;
+  align-items: center;
+
+  & div {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: $cBlack;
+    animation: sk-bouncedelay 1.4s infinite;
+  }
+
+  & .bounce1 {
+    animation-delay: -0.32s;
+  }
+
+  & .bounce2 {
+    animation-delay: -0.16s;
+  }
+}
+
+@keyframes sk-bouncedelay {
+  0% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+
+  80% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}

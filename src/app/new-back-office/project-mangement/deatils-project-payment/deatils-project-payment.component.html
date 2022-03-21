@@ -1,0 +1,230 @@
+<p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true"><p
+  style="color: white"> Loading... </p></ngx-spinner>
+
+
+<p-toast></p-toast>
+<div class="p-shadow-3 p-grid">
+
+  <p-panel class="p-d-flex p-mt-4 p-mb-2 ">
+    <ng-template pTemplate="header">
+      NAME PROJECT :{{project.name}}
+    </ng-template>
+
+    <div class="p-d-flex p-jc-center " *ngIf="project.totalPayment">
+
+      <div id="root" class="p-grid ">
+
+        <div class="" style="display: inline-flex">
+          <div class="c-dashboardInfo  p-col-3">
+            <div class="wrap">
+              <h4 class="heading heading5 hind-font medium-font-weight c-dashboardInfo__title"><a>
+                Project price <i class="pi pi-money-bill"></i></a>
+              </h4><span
+              class="hind-font caption-12 c-dashboardInfo__count">{{project.totalPayment}} {{project.currencyCode}}</span>
+              <button class=" btn-update-price  p-ml-5" (click)="showPoupuUpdatePrice()"><span>Update Price</span>
+              </button>
+
+            </div>
+          </div>
+          <div class="c-dashboardInfo  p-col-12 p-md-6 p-lg-3 p-sm-6 ">
+            <div class="wrap">
+              <h4 class="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">Rest Payment <i
+                class="pi pi-money-bill"> </i></h4><span
+              class="hind-font caption-12 c-dashboardInfo__count">{{project.restPayment}} {{project.currencyCode}}</span><span
+              class="hind-font caption-12 c-dashboardInfo__subInfo">Last installment:{{lastInstallment}} {{project.currencyCode}}</span>
+            </div>
+          </div>
+          <div class="c-dashboardInfo  p-col-12 p-md-6 p-lg-3 p-sm-6">
+            <div class="wrap">
+              <h4 class="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">Nbr Of Installments </h4>
+              <span class="hind-font caption-12 c-dashboardInfo__count">{{nbrInvoices}}</span>
+            </div>
+          </div>
+          <div class="c-dashboardInfo  p-col-12 p-md-6 p-lg-3 p-sm-6">
+            <div class="wrap">
+              <h4 class="heading heading5 hind-font medium-font-weight c-dashboardInfo__title">Total payment
+                <svg
+                  class="MuiSvgIcon-root-19" focusable="false" viewBox="0 0 24 24" aria-hidden="true"
+                  role="presentation">
+                  <path fill="none" d="M0 0h24v24H0z"></path>
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z">
+                  </path>
+                </svg>
+              </h4>
+              <span class="hind-font caption-12 c-dashboardInfo__count">{{totalPayment}}%</span>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="p-d-flex" *ngIf="!project.totalPayment">
+      <div class="p-mr-6  p-col-12">
+        <div>
+          <a class="text space">
+            please enter the price
+          </a>
+          <input type="text" pInputText maxlength="50" [(ngModel)]="price">
+
+        </div>
+        <p-button class="p-ml-6 btn" label="valid" icon="pi pi-check" iconPos="right"
+                  (click)="setPriceProject()"></p-button>
+      </div>
+    </div>
+
+  </p-panel>
+  <p-panel class="p-d-flex p-mt-4" [toggleable]="true" *ngIf="project.totalPayment">
+    <ng-template pTemplate="header">
+      LIST TRANCHES
+    </ng-template>
+
+    <div class="card" *ngIf="listTranches">
+      <p-table [columns]="cols" [value]="listTranches" styleClass="p-datatable-responsive-demo">
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th style="width: 15vw">NAME</th>
+            <th>DEADLINE</th>
+            <th>DESCRIPTION TRANCHE</th>
+            <th>Price</th>
+            <th>Etat</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-tranche let-columns="columns">
+          <tr>
+            <td><span class="p-column-title">Name :</span><h5 class="desc-tab">{{tranche.name}}</h5></td>
+            <td><span class="p-column-title">Deadline :</span>
+              <div class="desc-tab ">{{tranche.deadline | date: 'dd/MM/yyyy'}} </div>
+            </td>
+
+            <td><span class="p-column-title">Description :</span>
+              <div class="desc-tab ">{{tranche.description}} </div>
+            </td>
+
+            <td><span class="p-column-title">Price :</span>
+              <div class="desc-tab ">{{tranche.price}} </div>
+            </td>
+
+            <td>
+              <button *ngIf="tranche.etatPayement===null" (click)="payInstallment(tranche)" label="pay cash" pButton
+                      type="button" icon="pi pi-money-bill" iconPos="right"></button>
+              <img *ngIf="tranche.etatPayement!==null" src="assets/images/icon-backoffice/liste project icons/oeil.png "
+                   class="p-d-flex p-mt-4" (click)=" showFacturePayment(tranche.id,tranche.name)">
+
+              <p-dialog header={{currentName}} [(visible)]="displayBasic" [resizable]="true"
+                        [style]="{width: '800px',height:'100%'}">
+
+
+                <pdf-viewer [src]="host+'/downloadFileOfTranchePayment/'+currentId"
+
+                            [style]="{width: '100%', height: '800px',display:'block'}">
+
+                </pdf-viewer>
+
+                <ng-template pTemplate="footer">
+
+                </ng-template>
+              </p-dialog>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+      <div class="p-d-flex  p-jc-center" style="width: 100%" *ngIf="listTranches.length===0">
+        <h1> No tranche for the moment</h1>
+      </div>
+
+    </div>
+    <div class="p-d-flex p-mb-2 p-mt-2 p-jc-end">
+      <button class="btn-update-price" pButton type="button" label="NEW TRANCHE"
+              (click)="showPoupuNewTranche()"></button>
+    </div>
+
+  </p-panel>
+
+</div>
+
+
+<p-dialog header="New Tranche" [(visible)]="displayNewTranchePoupup">
+
+
+  <div class="p-d-flex  p-flex-column p-mt-3 p-jc-center ">
+    <div class="p-inputgroup  p-mb-3 " [style]="{width: '100%'}">
+      <span class="p-inputgroup-addon "><i class="fas fa-scroll"></i></span>
+      <input
+        type="text" pInputText placeholder="name"
+        [style]="{width: '100%'}" [(ngModel)]="tranche.name">
+    </div>
+    <div class="p-d-flex">
+      <div class="p-inputgroup  p-mb-3 " [style]="{width: '100%'}">
+        <span class="p-inputgroup-addon "><i class="far fa-clock"></i></span>
+        <p-calendar [(ngModel)]="tranche.deadline" [showIcon]="true" placeholder="DeadLine"
+                    [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030"
+                    [style]="{width: '100%'}"></p-calendar>
+
+      </div>
+      <div class="p-inputgroup  p-mb-3 " [style]="{width: '100%'}">
+        <span class="p-inputgroup-addon "><i class="fas fa-dollar-sign"></i></span>
+        <input
+          type="text" pInputText placeholder="price"
+          [style]="{width: '100%'}" [(ngModel)]="tranche.price">
+      </div>
+    </div>
+
+
+    <h3 class="p-mb-2">Describe your Tranche :</h3>
+    <textarea class="p-mb-3" [(ngModel)]="tranche.description" placeholder="Description" [rows]="10" [cols]="30"
+              pInputTextarea autoResize="autoResize"></textarea>
+
+
+  </div>
+  <div class="p-d-flex p-jc-center p-mt-6 ">
+    <button (click)="addNewTranche()" pButton type="button" class="p-button">Add Tranche</button>
+  </div>
+</p-dialog>
+
+<p-dialog header="New Price" [(visible)]="displayPoupupUpdatePrice">
+
+
+  <div class="p-d-flex  p-flex-column p-mt-3 p-jc-center ">
+    <div class="p-inputgroup p-shadow-6 p-mb-3 " [style]="{width: '100%'}">
+
+      <span class="p-inputgroup-addon "><i class="fas fa-dollar-sign"></i></span>
+      <input
+        type="text" pInputText placeholder="price"
+        [style]="{width: '100%'}" [(ngModel)]="updatePrice">
+    </div>
+
+  </div>
+  <div class="p-d-flex p-jc-center p-mt-4 ">
+    <button (click)="  UpdatePriceProject()" label="Update Price" pButton type="button" icon="fas fa-cash-register"
+            iconPos="left"></button>
+  </div>
+</p-dialog>
+<p-dialog header="Pay Installment" [(visible)]="showPayInstallment">
+
+
+  <div class="p-d-flex p-jc-center  p-flex-column p-mt-3  ">
+    <div class="p-d-flex p-jc-center">
+      <h1>Are you sure to pay this installment ?</h1>
+    </div>
+
+
+    <div class="p-d-flex p-jc-center p-mb-4">
+
+      <h1 style="color: green;font-weight: bold;">{{updatePrice}} {{tranche.currencyCode}}</h1>
+    </div>
+
+
+  </div>
+  <div class="p-d-flex p-jc-center ">
+    <button (click)="checkoutTranche()" label="Checkout" pButton type="button" icon="pi pi-shopping-cart"
+            iconPos="left"></button>
+
+  </div>
+</p-dialog>

@@ -1,0 +1,19 @@
+<div *ngIf="task">
+  <div class="p-grid">
+    <div class="p-col-12 p-md-11 p-lg-11 p-sm-11   ">
+     <h1 class=" p-col-12 p-md-12 p-lg-12 p-sm-12 "> Response :</h1>
+
+    <textarea class="textinput p-col-12 p-md-12 p-lg-12 p-sm-10 p-mb-3 p-ml-lg-5 p-ml-md-5" rows="10" cols="80" pInputTextarea [(ngModel)]="comment.comment"></textarea>
+
+
+  <div class="p-d-flex p-jc-end p-ml-lg-6 p-ml-md-6  ">
+    <button pButton type="button"  iconPos="left" (click)="addCommentToTask()"><label>Send</label></button>
+
+  </div>
+
+
+</div>
+  </div>
+
+
+</div>

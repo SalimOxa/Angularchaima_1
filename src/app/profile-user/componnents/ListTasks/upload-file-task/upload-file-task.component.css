@@ -1,0 +1,41 @@
+@font-face {
+  font-family: medium;
+  src: url("../../../../../assets/fonts/MADE TOMMY Medium_PERSONAL USE.otf");
+}
+@font-face {
+  font-family: light;
+  src: url("../../../../../assets/fonts/MADE TOMMY Light_PERSONAL USE.otf");
+}
+
+h1 {
+  font-size: 150%;
+  font-family: medium;
+}
+
+.input-file {
+  display: none;
+  width: 100%;
+}
+.label-file {
+  cursor: pointer;
+
+}
+.statement{
+  position: relative;
+  left:20%;
+  width: 60%;
+height: 100%;
+}
+.btn-plus-save{
+  position: relative;
+  left:62%;
+width: 20%;
+}
+img{
+  width: 30%;
+  height: 10vw;
+}
+h3{
+font-family: light;
+  font-size: 100%;
+}

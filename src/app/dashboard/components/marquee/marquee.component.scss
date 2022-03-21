@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100i,400i|Quicksand:400,500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Syncopate:700&display=swap');
+
+
+.marquee {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 170px;
+  background-color: #13072c;
+  z-index: -1;
+margin-top: -37px;
+  span {
+    margin-top: -37px;
+    font-family: 'Syncopate', sans-serif;
+    color: white;
+    opacity: 0.2;
+    font-size: 18em;
+    text-transform: uppercase;
+    display: inline-block;
+    animation: marquee-animation 57s linear infinite;
+
+    &:hover {
+cursor: default    }
+  }
+}
+
+@keyframes marquee-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
+
+
+
+
+@media screen and (max-width: 1366px) {
+  .marquee {
+
+    height: 100px;
+
+    margin-top: 0px;
+
+    span {
+      margin-top: -15px;
+
+      font-size: 10em;
+
+
+    }
+
+  }
+}
+@media screen and (max-width: 758px) {
+  .marquee {
+
+    height: 60px;
+
+    margin-top: 0px;
+
+    span {
+      margin-top: -15px;
+
+      font-size: 6em;
+
+
+    }
+  }
+}
+
+
+

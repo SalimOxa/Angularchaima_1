@@ -1,0 +1,10 @@
+
+@font-face {
+  font-family: medium;
+  src: url("../../../../../assets/fonts/MADE TOMMY Medium_PERSONAL USE.otf");
+}
+
+h1 {
+  font-size: 150%;
+  font-family: medium;
+}

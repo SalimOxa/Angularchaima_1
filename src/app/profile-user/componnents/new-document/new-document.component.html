@@ -1,0 +1,74 @@
+<p-toast key="toast"></p-toast>
+<div class="p-shadow-3">
+
+  <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
+
+</div>
+<div class="p-shadow-6 p-mt-6">
+  <p-panel header="New Document" [toggleable]="true">
+
+    <form [formGroup]=" formNewDocument">
+      <div class="p-fluid p-formgrid p-grid">
+        <div class="p-field p-col-12 p-lg-6 p-md-12 p-sm-12">
+
+          <input type="text" pInputText pTooltip="Enter your username" placeholder="Document Numero" formControlName="projectname" maxlength="50"
+                 [(ngModel)]="documentUser.numero">
+          <div *ngIf="f.projectname.touched && f.projectname.invalid" class=" p-d-flex p-jc-center p-mt-2 ">
+            <p-message [styleClass]="'fill-parent'" severity="error"*ngIf="f.projectname.errors?.required"text="invalid"></p-message>
+          </div>
+        </div>
+
+        <div class="p-field p-col-12 p-lg-6 p-md-12 p-sm-12">
+          <p-calendar [(ngModel)]="documentUser.expirationDate" [showIcon]="true" placeholder="Expiration Date" formControlName="calendar"
+                      [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030"></p-calendar>
+          <div *ngIf="f.calendar.touched && f.calendar.invalid" class=" p-d-flex p-jc-center p-mt-2 ">
+            <p-message [styleClass]="'fill-parent'" severity="error"*ngIf="f.calendar.errors?.required"text="invalid"></p-message>
+          </div>
+        </div>
+
+      </div>
+      <div class="p-fluid p-formgrid p-grid">
+        <div class="p-field p-col-12 p-lg-6 p-md-12 p-sm-12">
+
+           <div *ngIf="!selectedFile">
+          <label pButton for="fileSS"  class=" p-button btn-upload" > upload </label>
+          <input id="fileSS" class="input-file" type="file" (change)="onSelectedfile($event)" accept="application/pdf"
+                 >
+
+           </div>
+
+          <div *ngIf="selectedFile"class=" btn-touched ">
+           <strong><a class=" p-d-flex p-jc-center label-touched ">{{selectedFiles[0].name}}</a></strong>
+            <button (click)= "onTouched()" class="p-button-danger" pButton type="button" label="annuler"></button>
+
+        </div>
+        </div>
+        <div class="p-field p-col-12 p-lg-6 p-md-12 p-sm-12">
+          <p-dropdown [(ngModel)]="documentUser.documentType" [options]="listDocuments" placeholder="Document Type" optionLabel="name" formControlName="service"
+                      [showClear]="true"></p-dropdown>
+          <div *ngIf="f.service.touched && f.service.invalid" class=" p-d-flex p-jc-center p-mt-2 ">
+            <p-message [styleClass]="'fill-parent'" severity="error"*ngIf="f.service.errors?.required"text="invalid"></p-message>
+          </div>
+
+
+        </div>
+      </div>
+    </form>
+
+
+    <div class="p-d-flex p-jc-end">
+      <div class="p-mr-2" >
+        <button  pButton type="button"  [disabled]="!isDisabledCreateDoc" label="Create Document" (click)="createDocument()"></button>
+      </div>
+      <div class="p-mr-2">
+        <button (click)="cancel()" class="p-button-danger" pButton type="button" label="Cancel"></button>
+      </div>
+
+    </div>
+  </p-panel>
+</div>
+
+
+
+
+

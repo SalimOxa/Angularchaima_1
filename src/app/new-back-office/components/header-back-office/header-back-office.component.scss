@@ -1,0 +1,323 @@
+@font-face {
+  font-family: tommy-light;
+  src: url("../../../../assets/fonts/MADE TOMMY Light_PERSONAL USE.otf") ;
+}
+
+@font-face {
+  font-family: medium;
+  src: url("../../../../assets/fonts/MADE TOMMY Medium_PERSONAL USE.otf");
+}
+
+@font-face {
+  font-family: tommy-bold;
+  src: url("../../../../assets/fonts/MADE TOMMY Bold_PERSONAL USE.otf");
+}
+
+
+// Colors
+$page-background-color: #FFFFFF;
+$gradient-color-1: #e8a036;
+$gradient-color-2: #f8de52;
+.ng-header {
+  height: 70px;
+  background-color: #5b2178;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, .6);
+  width: 100%;
+}
+
+.icon {
+  line-height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  float: right;
+  margin-right: 5px;
+  margin-top: 15px;
+  display: block;
+}
+
+.icon:active {
+  color: #e5c431;
+}
+
+.icon:hover {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+h1 {
+  color: white;
+  margin-left: 10px;
+
+}
+
+.fa-fw {
+  width: 50px;
+}
+
+.right {
+  float: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.left {
+  float: left;
+}
+
+.user-name {
+  font-size: 17px;
+  padding: 5px;
+}
+
+.p-badge {
+  background-color: red;
+}
+
+.icon_overlayPanel {
+  padding-right: 3%;
+
+}
+
+.Notification_Not_Showed {
+  background-color: #d7e6ff;
+}
+
+.notification-message:hover {
+  background-color: #d7e6ff;
+  cursor: pointer;
+
+}
+
+.logo {
+  margin-left: 30px;
+  margin-top: 14px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.vl {
+  margin-left: 8.2vw;
+  height: 70px;
+
+}
+
+.role {
+  margin-left: 0.1vw;
+  color: gold;
+  font-family: tommy-bold;
+  letter-spacing: 0.05vw;
+  font-size: 40px;
+  margin-top: 10px;
+  background: -webkit-linear-gradient(left, $gradient-color-1, $gradient-color-2, $gradient-color-1);
+  background-size: 1600px 200px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation-duration: 3s;
+  animation-name: animationgradienttitle;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  display: block;
+  text-transform: uppercase;
+}
+
+
+.user-name {
+  margin-top: 16px;
+}
+
+.icon-username {
+  line-height: 50px;
+  font-size: 17px;
+  padding: 5px;
+  cursor: pointer;
+  float: right;
+  margin-right: 5px;
+  margin-top: 3px;
+  color: white;
+  display: block;
+  font-family: medium;
+
+}
+
+.icon-username:active {
+  color: #f3ca00;
+  font-size: 18px;
+}
+
+
+:host ::ng-deep.p-overlaypanel {
+  background-color: #e9f3f7;
+  border-radius: 10px;
+  width: 50vw;
+}
+
+
+//chips
+
+
+$md-chip-height: 32px;
+$md-chip-color: #e0e0e0;
+$themecolor: #1579b3;
+
+.md-chip {
+  display: inline-block;
+  background: $md-chip-color;
+  padding: 0 12px;
+  border-radius: 32px;
+  font-size: 13px;
+  margin-right: 5%;
+
+  &.md-chip-hover:hover {
+    background: #ccc;
+  }
+}
+
+.md-chip-clickable {
+  cursor: pointer;
+}
+
+.md-chip, .md-chip-icon {
+  height: $md-chip-height;
+  line-height: $md-chip-height;
+}
+
+.md-chip-icon {
+  display: block;
+  float: left;
+  background: #009587;
+  width: $md-chip-height;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  margin: 0 8px 0 -12px;
+}
+
+.md-chip-remove {
+  display: inline-block;
+  background: #aaa;
+  border: 0;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  padding: 0;
+  margin: 0 -4px 0 4px;
+  cursor: pointer;
+  font: inherit;
+  line-height: 20px;
+
+  &:after {
+    color: $md-chip-color;
+    content: 'x';
+  }
+
+  &:hover {
+    background: #999;
+  }
+
+  &:active {
+    background: #777;
+  }
+}
+
+.md-chips {
+  padding: 12px 0;
+
+  .md-chip {
+    margin: 0 5px 3px 0;
+  }
+}
+
+.md-chip-raised {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label {
+
+}
+
+
+input[type="checkbox"]:checked + label {
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+  background-color: $themecolor;
+  color: white;
+  border-color: #fc6c27;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+//Spinnerr
+
+
+.wrapper {
+  // margin: 30px;
+  //padding: 30px;
+  background: #e9f3f7;
+  width: 300px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper-cell {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+// Animation
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0
+  }
+  100% {
+    background-position: 468px 0
+  }
+}
+
+.animated-background {
+  animation-duration: 1.25s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: #F6F6F6;
+  background: linear-gradient(to right, #eeeeee 8%, #dadada 18%, #d2d1d1 33%);
+  background-size: 800px 104px;
+  height: 96px;
+  position: relative;
+}
+
+// Page Elements
+.image {
+  height: 60px;
+  width: 60px;
+  @extend .animated-background;
+}
+
+.text {
+  margin-left: 20px
+}
+
+.text-line {
+  height: 10px;
+  width: 230px;
+  //  background: #F6F6F6;
+  margin: 4px 0;
+  @extend .animated-background;
+}
+
+
+

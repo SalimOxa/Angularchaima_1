@@ -1,0 +1,61 @@
+<div  class=" ng-header">
+  <p-toast position="bottom-center" key="bc"></p-toast>
+  <div class="left">
+    <div class="p-d-flex">
+      <img class="logo"  src="../../../../assets/images/logo/logo2.png" [routerLink]="['/profile/myProfile']"alt="logo"/>
+      <img class="vl"  src="../../../../assets/images/icon-backoffice/barre.png" />
+      <h1 class="role"> USER PROFILE </h1>
+    </div>
+  </div>
+
+
+
+  <div class="right" >
+    <div class="icon-menu-responsif">
+      <i class="fas fa-bars" style="color: white" (click)="visibleSidebar1 = true"></i>
+
+    </div>
+
+    <div class="icon">
+      <a (click)="logout()"><img src="../../../../assets/images/icon-backoffice/header/logout.png">
+      </a>
+    </div>
+    <div class="icon">
+      <a ><img src="../../../../assets/images/icon-backoffice/header/setting.png"></a>
+    </div>
+    <div class=" icon notfication p-d-flex ">
+         <span class="p-overlay-badge "
+               (click)="op.toggle($event);clicked()">
+    <img src="../../../../assets/images/icon-backoffice/header/notfication.png">
+    <span *ngIf="numberNewNotfication!==0" class="p-badge">{{numberNewNotfication}}</span>
+
+</span>
+    </div>
+    <img class="user-name" src="../../../../assets/images/icon-backoffice/header/profile.png">
+
+    <div class="icon-username" *ngIf="user" (click)="goProfile()">
+        <span >{{currentUser.username}}</span>
+    </div>
+  </div>
+</div>
+
+<p-overlayPanel  #op [showCloseIcon]="false"   >
+
+<app-list-notfication (moreNotfication)='moreNotfication($event)' (closeListComment)='closeListComment($event)' [lisNotification]="lisNotification" [op]="op"></app-list-notfication>
+
+</p-overlayPanel>
+
+
+<p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
+  <div class="logo-sidebar p-mb-6">
+    <div class="p-d-flex ">
+      <img class="logo"  src="../../../../assets/images/logo/logo2.png" alt="logo"/>
+
+    </div>
+  </div>
+  <p-panelMenu  [model]="items" [style]="{ width: '100%'  }">
+
+  </p-panelMenu>
+
+</p-sidebar>
+<!---button type="button" pButton pRipple (click)="showBottomCenter()" label="Bottom Center" class="p-button-success"></button---->

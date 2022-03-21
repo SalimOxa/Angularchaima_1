@@ -1,0 +1,521 @@
+<div class="p-shadow-9">
+  <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
+
+</div>
+<div class="p-d-flex p-mt-6 p-shadow-3">
+
+  <p-panel>
+    <ng-template pTemplate="header" *ngIf="user.roles[0]==='MASTER'">
+      My List Admin
+    </ng-template>
+    <ng-template pTemplate="header" *ngIf="user.roles[0]==='ADMIN'">
+      My List Customer
+    </ng-template>
+    <div class="card" *ngIf="listUsers">
+
+      <p-table #dt1 [value]="listUsers" dataKey="id"
+               [rows]="5" [showCurrentPageReport]="true" [rowsPerPageOptions]="[3,5,10]"
+               [lazy]="true" [loading]="loading"
+               [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+               [globalFilterFields]="['firstName','username','email','role','phone','enabledAccount','activated']">
+        <ng-template pTemplate="caption">
+          <div class="p-d-flex">
+            <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash"
+                    (click)="clear(dt1)"></button>
+
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+          <tr>
+            <th>
+              <div class="p-d-flex p-jc-between p-ai-center">
+                FirstName
+                <p-columnFilter type="text" field="firstName" display="menu"></p-columnFilter>
+              </div>
+            </th>
+            <th>
+              <div class="p-d-flex p-jc-between p-ai-center">
+                Name
+                <p-columnFilter type="text" field="username" display="menu"></p-columnFilter>
+              </div>
+            </th>
+            <th style="width: 20vw">
+              <div class="p-d-flex p-jc-between p-ai-center">
+                Email
+                <p-columnFilter type="text" field="email" display="menu"></p-columnFilter>
+              </div>
+            </th>
+            <th>
+              <div *ngIf="user.roles[0]==='MASTER'" class="p-d-flex p-jc-between p-ai-center">
+                users
+                <p-columnFilter type="text" field="role" display="menu"></p-columnFilter>
+              </div>
+              <div *ngIf="user.roles[0]==='ADMIN'" class="p-d-flex p-jc-between p-ai-center">
+                Projects
+                <p-columnFilter type="text" field="role" display="menu"></p-columnFilter>
+              </div>
+            </th>
+
+            <th>
+              <div class="p-d-flex p-jc-between p-ai-center">
+                Phone
+                <p-columnFilter type="text" field="phone" display="menu"></p-columnFilter>
+              </div>
+            </th>
+            <th *ngIf="user.roles[0]==='MASTER'">
+              <div class="p-d-flex p-jc-between p-ai-center">
+                Activated
+                <p-columnFilter type="boolean" field="activated" display="menu"></p-columnFilter>
+
+              </div>
+            </th>
+            <th *ngIf="user.roles[0]==='ADMIN'">
+              <div class="p-d-flex p-jc-between p-ai-center">
+                list Documents
+                <p-columnFilter type="boolean" field="activated" display="menu"></p-columnFilter>
+
+              </div>
+            </th>
+            <th>
+              <div class="p-d-flex p-jc-between p-ai-center">
+                Enabled
+                <p-columnFilter type="boolean" field="enabledAccount" display="menu"></p-columnFilter>
+
+              </div>
+            </th>
+
+            <th>
+              <div class="p-d-flex p-jc-between p-ai-center">
+                Delete
+              </div>
+            </th>
+
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-customer>
+          <tr>
+            <td>
+              {{customer.firstName}}
+            </td>
+            <td>
+              <span class="image-text">{{customer.username}}</span>
+            </td>
+            <td>
+              <span class="image-text">{{customer.email}}</span>
+            </td>
+
+            <td>
+              <span *ngIf="user.roles[0]==='MASTER'" class="image-text" (click)="showDialogUsers(customer)">
+                 <img class="hoverImage" src="assets/images/icon-backoffice/liste project icons/oeil.png">
+              </span>
+              <span *ngIf="user.roles[0]==='ADMIN'" class="image-text" (click)="showProjects(customer)">
+                 <img class="hoverImage" src="assets/images/icon-backoffice/liste project icons/oeil.png ">
+              </span>
+
+            </td>
+            <td>
+              <div class="p-d-flex p-ml-3">
+
+                <img *ngIf="customer.phoneNumber===null"
+                     src="assets/images/state/no-phone.png">
+              </div>
+              {{ customer.phoneNumber }}
+            </td>
+            <td *ngIf="user.roles[0]==='ADMIN'">
+
+              <img src="assets/images/icon-backoffice/liste project icons/oeil.png "
+                   (click)="showDocuments(customer)">
+
+            </td>
+            <td *ngIf="user.roles[0]==='MASTER'">
+              <img *ngIf="!customer.activated"
+                   src="assets/images/state/no-activated.png">
+              <img *ngIf="customer.activated"
+                   src="assets/images/state/activated.png">
+            </td>
+
+            <td>
+              <img class="hoverImage" *ngIf="!customer.enabledAccount"
+                   src="assets/images/state/no-activated.png">
+              <img *ngIf="customer.enabledAccount"
+                   src="assets/images/state/enabled-green.png">
+            </td>
+
+            <td>
+
+              <img class="hoverImage" src="assets/images/icon-backoffice/liste project icons/corbeille.png"
+                   *ngIf="user.roles[0]==='MASTER'"
+                   (click)="showDialog(customer.id)">
+              <img class="hoverImage" src="assets/images/icon-backoffice/liste project icons/corbeille.png"
+                   *ngIf="user.roles[0]==='ADMIN'"
+                   (click)="showDialogDeleteUserByAdmin(customer.id)">
+
+            </td>
+
+
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+            <td colspan="7">No customers found.</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+
+  </p-panel>
+
+</div>
+<p-dialog header="Enable Account " [(visible)]="displayEnable">
+  <div class="p-d-flex ">
+    <div class="p-mr-2 p-mt-3">
+      <i class="pi pi-info-circle " style="font-size: 1.2vw"></i>
+    </div>
+    <div>
+      <h3> Do you want to enable this Compte?</h3>
+    </div>
+  </div>
+
+  <div class="p-d-flex p-jc-end p-mt-4">
+    <div>
+      <button (click)="enabledUser()" pButton pRipple type="button" icon="pi pi-check" class="p-mr-2"></button>
+
+    </div>
+    <div>
+      <button (click)="displayEnable=false" pButton pRipple type="button" icon="pi pi-times"
+              class="p-button-danger"></button>
+    </div>
+  </div>
+
+
+</p-dialog>
+<p-dialog header="Delete Confirmation" [(visible)]="display">
+  <div class="p-d-flex ">
+    <div class="p-mr-2 p-mt-3">
+      <i class="pi pi-info-circle " style="font-size: 1.2vw"></i>
+    </div>
+    <div>
+      <h3>D Do you want to delete this User?</h3>
+    </div>
+  </div>
+  <div class="p-d-flex p-jc-end p-mt-4">
+    <div>
+
+      <button
+        (click)="deleteUser()"
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-check"
+        class="p-mr-2"
+      ></button>
+
+    </div>
+
+    <div>
+      <button
+        (click)="display=false"
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-times"
+        class="p-button-danger"
+
+      ></button>
+    </div>
+  </div>
+
+</p-dialog>
+
+
+<p-dialog header="Delete Confirmation" [(visible)]="popupdeleteUser">
+  <div class="p-d-flex ">
+    <div class="p-mr-2 p-mt-3">
+      <i class="pi pi-info-circle " style="font-size: 1.2vw"></i>
+    </div>
+    <div>
+      <h3> Do you want to delete this User?
+      </h3>
+    </div>
+  </div>
+  <div class="p-d-flex p-jc-end p-mt-4">
+    <div>
+
+      <button
+        (click)="deleteUserByAdmin()"
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-check"
+        class="p-mr-2"
+      ></button>
+
+    </div>
+
+    <div>
+      <button
+        (click)="popupdeleteUser=false"
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-times"
+        class="p-button-danger"
+
+      ></button>
+    </div>
+  </div>
+
+</p-dialog>
+
+
+<p-dialog header=" list Users" [(visible)]="displayUsers" [style]="{width: '80vw'}">
+
+
+  <div class="card" *ngIf="listAdmins">
+
+    <p-table #dt1 [value]="listAdmins" dataKey="id"
+             [rows]="5" [showCurrentPageReport]="true" [rowsPerPageOptions]="[3,5,10]"
+             [lazy]="true" [loading]="loading"
+             [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+             [globalFilterFields]="['firstName','username','email','role','phone']">
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash"
+                  (click)="clear(dt1)"></button>
+
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>
+            <div class="p-d-flex p-jc-between p-ai-center">
+              FirstName
+              <p-columnFilter type="text" field="firstName" display="menu"></p-columnFilter>
+            </div>
+          </th>
+          <th>
+            <div class="p-d-flex p-jc-between p-ai-center">
+              User Name
+              <p-columnFilter type="text" field="username" display="menu"></p-columnFilter>
+            </div>
+          </th>
+          <th style="width: 20rem">
+            <div class="p-d-flex p-jc-between p-ai-center">
+              Email
+              <p-columnFilter type="text" field="email" display="menu"></p-columnFilter>
+            </div>
+          </th>
+          <th>
+            <div class="p-d-flex p-jc-between p-ai-center">
+              Projects
+              <p-columnFilter type="text" field="role" display="menu"></p-columnFilter>
+            </div>
+          </th>
+          <th>
+            <div class="p-d-flex p-jc-between p-ai-center">
+              Phone Number
+              <p-columnFilter type="text" field="phone" display="menu"></p-columnFilter>
+            </div>
+          </th>
+          <th>
+            <div class="p-d-flex p-jc-between p-ai-center">
+              list Documents
+            </div>
+          </th>
+          <th>
+            <div class="p-d-flex p-jc-between p-ai-center">
+              Is Enabled
+            </div>
+          </th>
+          <th>
+            <div class="p-d-flex p-jc-between p-ai-center">
+              Delete
+            </div>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-customer>
+        <tr>
+          <td>
+            {{customer.firstName}}
+          </td>
+          <td>
+            <span class="image-text">{{customer.username}}</span>
+          </td>
+          <td>
+            <span class="image-text">{{customer.email}}</span>
+          </td>
+
+          <td>
+            <img src="assets/images/icon-backoffice/liste project icons/oeil.png "
+                 (click)="showProjects(customer)">
+          </td>
+          <td>
+            <div class="p-d-flex p-ml-6">
+              <img *ngIf="customer.phoneNumber===null"
+                   src="assets/images/state/no-phone.png">
+
+            </div>
+            {{ customer.phoneNumber }}
+          </td>
+          <td>
+            <img src="assets/images/icon-backoffice/liste project icons/oeil.png "
+                 (click)="showDocuments(customer)">
+          <td>
+            <img class="hoverImage" *ngIf="!customer.enabledAccount"
+                 src="assets/images/state/no-activated.png">
+            <img *ngIf="customer.enabledAccount"
+                 src="assets/images/state/enabled-green.png">
+          </td>
+          <td>
+            <img class="hoverImage" src="assets/images/icon-backoffice/liste project icons/corbeille.png"
+                 (click)="  showDialogDeleteUserByAdmin(customer.id)">
+          </td>
+
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="7">No customers found.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <div class="p-d-flex p-jc-end p-mt-4">
+
+
+  </div>
+
+</p-dialog>
+
+
+<p-dialog header="List Projects" [(visible)]="displayProjects" [style]="{width: '70vw'}">
+  <div class="p-d-flex p-mt-4 p-shadow-3">
+    <p-panel>
+      <ng-template pTemplate="header">
+        List Projects
+      </ng-template>
+      <div class="card" *ngIf="listProject">
+
+
+        <p-table
+          [value]="listProject"
+          [paginator]="true"
+          [rows]="rows"
+          [showCurrentPageReport]="true"
+          [(first)]="first"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+          [rowsPerPageOptions]="[5, 7, 25]"
+          [lazy]="true" [loading]="loading"
+
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Name Project</th>
+              <th>Description</th>
+              <th style="width:20em">Creation Date</th>
+              <th>Update</th>
+              <th>Delete</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-project>
+            <tr>
+              <td>{{ project.name }}</td>
+              <td>{{ project.description }}</td>
+              <td>{{ project.createdDate | date: 'dd/MM/yyyy' }}</td>
+              <td>
+
+                <img (click)="goDetail(project.id)" src="assets/images/state/task.png">
+
+              </td>
+              <td>
+
+                <img src="assets/images/icon-backoffice/liste project icons/corbeille.png"
+                     (click)="deleteProject(project.id)">
+              </td>
+
+            </tr>
+
+          </ng-template>
+        </p-table>
+      </div>
+
+    </p-panel>
+  </div>
+</p-dialog>
+
+
+<p-dialog header="List Documents" [(visible)]="displayDocuments" [style]="{width: '70vw'}">
+  <div class="p-d-flex p-mt-4 p-shadow-3">
+    <p-panel class="p-d-flex p-mt-4" [toggleable]="true">
+      <ng-template pTemplate="header">
+        LIST DOCUMENTS
+      </ng-template>
+      <div class="card" *ngIf="listDocuments">
+        <p-table [columns]="cols" [value]="listDocuments" styleClass="p-datatable-responsive-demo">
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th *ngFor="let col of columns">
+                {{col.header}}
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-document let-columns="columns">
+            <tr>
+              <td><span class="p-column-title">NUMERO :</span><h5 class="desc-tab">{{document.numero}}</h5></td>
+              <td><span class="p-column-title title-date-ex">DATE EXPIRATION :</span>
+                <div class="desc-tab ">{{document.expirationDate | date: 'dd/MM/yyyy'}} </div>
+              </td>
+              <td><span class="p-column-title">TYPE :</span>
+                <div class="desc-tab ">{{document.documentType}}</div>
+              </td>
+              <td>
+
+                <span class="p-column-title title-document">document :</span>
+
+
+                <div class="icon-statement-tab ">
+
+                  <img src="assets/images/icon-backoffice/liste project icons/oeil.png " class=" icon-tab "
+                       (click)=" showBasicDialog(document.id)">
+
+                </div>
+
+
+                <p-dialog header={{document.documentType}} [(visible)]="displayBasic"
+                          [style]="{width: '800px', height: '2000px'}">
+
+
+                  <pdf-viewer [src]="host+'/getFilDocument/'+currentId"
+
+                              [style]="{width: '100%', height: '100%',display:'block'}">
+
+                  </pdf-viewer>
+
+                  <ng-template pTemplate="footer">
+
+                  </ng-template>
+                </p-dialog>
+
+              </td>
+
+
+            </tr>
+          </ng-template>
+        </p-table>
+
+
+      </div>
+      <div class="p-d-flex  p-jc-center" style="width: 100%" *ngIf="listDocuments && listDocuments.length===0">
+        <h1> You have no document for the moment</h1>
+      </div>
+
+
+    </p-panel>
+  </div>
+</p-dialog>
+
+
+
+

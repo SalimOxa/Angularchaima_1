@@ -1,0 +1,158 @@
+<div id="body">
+
+  <div id="chat-circle" class="btn btn-raised" (click)="displayChat()">
+    <p-badge *ngIf="numberIsNotSowed !==0" class="chat-messages" value={{numberIsNotSowed}} severity="danger"></p-badge>
+
+    <div id="chat-overlay"></div>
+    <i class="fab fa-facebook-messenger" style="font-size:30px"></i>
+  </div>
+
+  <div class="chat-box">
+    <div class="chat-box-header ">
+      <i class="fas fa-comment-alt p-ml-2" aria-hidden="true"></i>  {{nameReceiver}}
+
+      <span class="chat-box-toggle"><i class="	fas fa-times" (click)="closeChat()"></i></span>
+    </div>
+
+    <div
+      #scrollMe
+      class="search-results chat-box-body"
+      infiniteScroll
+      [infiniteScrollDistance]="2"
+      [infiniteScrollThrottle]="50"
+      (scrolled)="onScrollDown($event)"
+      (scrolledUp)="onScrollUp($event)"
+      [scrollWindow]="false">
+      <div class="p-d-flex p-jc-center " *ngIf="showSpinner">
+        <p-progressSpinner [style]="{width: '50px', height: '50px'}" styleClass="custom-spinner" strokeWidth="8"
+                           fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+      </div>
+      <div class="chat-logs">
+        <div class="messages" *ngFor="let message of greetings">
+          <div class="message" [class.customer]="message.senderName===senderMessage.firstName">
+            <div class="txtMessage">{{message.senderName}} : {{message.message}}</div>
+          </div>
+          <div class="time">
+            {{message.date| date:'dd/MM/yyyy HH:mm:ss'}}
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="chat-input">
+      <textarea id="chat-input" placeholder="Send a message..." [(ngModel)]="newmessage"
+                (keyup.enter)="sendMessage()"></textarea>
+
+      <button class="chat-submit"><i class="fa fa-paper-plane" (click)="sendMessage()"></i></button>
+
+    </div>
+
+  </div>
+
+
+</div>
+<!------------------div class="center">
+  <div class="contacts">
+    <i class="fas fa-bars fa-2x"></i>
+    <h2>
+      Contacts
+    </h2>
+    <div class="contact">
+      <div class="pic rogers"></div>
+      <div class="badge">
+        14
+      </div>
+      <div class="name">
+        Steve Rogers
+      </div>
+      <div class="message">
+        That is America's ass 🇺🇸🍑
+      </div>
+    </div>
+    <div class="contact">
+      <div class="pic stark"></div>
+      <div class="name">
+        Tony Stark
+      </div>
+      <div class="message">
+        Uh, he's from space, he came here to steal a necklace from a wizard.
+      </div>
+    </div>
+    <div class="contact">
+      <div class="pic banner"></div>
+      <div class="badge">
+        1
+      </div>
+      <div class="name">
+        Bruce Banner
+      </div>
+      <div class="message">
+        There's an Ant-Man *and* a Spider-Man?
+      </div>
+    </div>
+    <div class="contact">
+      <div class="pic thor"></div>
+      <div class="name">
+        Thor Odinson
+      </div>
+      <div class="badge">
+        3
+      </div>
+      <div class="message">
+        I like this one
+      </div>
+    </div>
+    <div class="contact">
+      <div class="pic danvers"></div>
+      <div class="badge">
+        2
+      </div>
+      <div class="name">
+        Carol Danvers
+      </div>
+      <div class="message">
+        Hey Peter Parker, you got something for me?
+      </div>
+    </div>
+  </div>
+  <div class="chat">
+    <div class="contact bar">
+      <div class="pic stark"></div>
+      <div class="name">
+        Tony Stark
+      </div>
+      <div class="seen">
+        Today at 12:56
+      </div>
+    </div>
+    <div class="messages" id="chat">
+      <div class="time">
+        Today at 11:41
+      </div>
+      <div class="message parker">
+        Hey, man! What's up, Mr Stark? 👋
+      </div>
+      <div class="message stark">
+        Kid, where'd you come from?
+      </div>
+      <div class="message parker">
+        Field trip! 🤣
+      </div>
+      <div class="message parker">
+        Uh, what is this guy's problem, Mr. Stark? 🤔
+      </div>
+      <div class="message stark">
+        Uh, he's from space, he came here to steal a necklace from a wizard.
+      </div>
+      <div class="message stark">
+        <div class="typing typing-1"></div>
+        <div class="typing typing-2"></div>
+        <div class="typing typing-3"></div>
+      </div>
+    </div>
+    <div class="input">
+      <i class="fas fa-camera"></i><i class="far fa-laugh-beam"></i><input placeholder="Type your message here!" type="text" /><i class="fas fa-microphone"></i>
+    </div>
+  </div>
+</div---->

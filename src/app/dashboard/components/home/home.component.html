@@ -1,0 +1,119 @@
+<div class="p-col p-grid">
+  <nav class="header_change  " [class.minimized]="header_variable">
+    <div class="logo-img  p-col-fixed  p-col-12 p-md-1 p-lg-1 ">
+      <img src="../../../../assets/images/logo/logo2.png" alt="logo"/>
+    </div>
+    <ul class="  p-col-12 p-md-4 p-lg-4 p-mr-3 header " [class.header-arab]="selectedLang==='AR'">
+      <li class=" borderYtoX "><span class=" p-ml-3 " (click)="toHome()" [routerLink]="['home']"><label
+        class=" border-label ">{{ 'HEADER.HOME' | translate }}</label></span></li>
+      <li class="  borderYtoX"><span class=" p-ml-3 " (click)="toAbout()" [routerLink]="['about']"><label
+        class=" border-label ">{{ 'HEADER.ABOUT' | translate }}</label></span></li>
+      <li class="  borderYtoX"><span class="  p-ml-3" (click)="toWorks()" [routerLink]="['works']"><label
+        class=" border-label ">{{ 'HEADER.WORKS' | translate }}</label></span></li>
+      <li class="  borderYtoX"><span class=" p-ml-3" (click)="toService()" [routerLink]="['services']"><label
+        class=" border-label ">{{ 'HEADER.SERVICES' | translate }}</label></span></li>
+      <li class="  borderYtoX"><span class=" p-ml-3 " (click)="toPartner()" [routerLink]="['partner']"><label
+        class=" border-label ">{{ 'HEADER.PARTNER' | translate }}</label></span></li>
+      <li class="  borderYtoX"><span class=" p-ml-3 " (click)="toContact()" [routerLink]="['contact']"><label
+        class=" border-label ">{{ 'HEADER.CONTACT' | translate }}</label></span></li>
+    </ul>
+
+    <div class=" header-right p-col-12 p-md-3 p-lg-3   ">
+
+      <p-dropdown class="  p-mr-lg-1  drop-languge  " [options]="languges" [(ngModel)]="selectedLang"
+                  (onChange)="changeLanguage()" [placeholder]="selectedLang"></p-dropdown>
+
+
+      <button [style]="{height: '1.6vw',width:'1.6vw'}" pButton pRipple type="button" icon="fa fa-user"
+              class="p-button-rounded  btn-login " (click)="login()"></button>
+
+    </div>
+
+  </nav>
+</div>
+
+
+<section class="sec1 " (click)="hideSidebar()">
+
+  <div class="p-col-fixed   ">
+    <img class="banner__logo" src="../../../../assets/images/logo/logo2.png" alt="logo"/>
+  </div>
+  <label for="menu-control" class="hamburger">
+    <i class="hamburger__icon"></i>
+    <i class="hamburger__icon"></i>
+    <i class="hamburger__icon"></i>
+  </label>
+  <div>
+
+    <img *ngIf="selectedLang!=='AR'" data-aos="fade-up-right" data-aos-duration="3000" class="element"
+         src="../../../../assets/images/home/elemnet2.png"/>
+    <img *ngIf="selectedLang==='AR'" data-aos="fade-up-left" data-aos-duration="3000" class="element-right"
+         src="../../../../assets/images/home/forme_element.png"/>
+  </div>
+  <div class="titles" [class.title-arab]="selectedLang==='AR'">
+    <h1 class="title1">RACINE</h1>
+    <h1 class=" title2">{{ 'DASHBOARD-HOME-PAGE.TITLE2' | translate }}</h1>
+    <h3 class=" title3">{{ 'DASHBOARD-HOME-PAGE.TITLE3' | translate }}</h3>
+
+    <button [routerLink]="['/dashboard/about']"
+            class=" bottom-left-button lp__btn lp__btn_ml lp__cta_btn lp__solid_white_btn">
+      {{ 'DASHBOARD-HOME-PAGE.Button' | translate }}</button>
+  </div>
+
+
+</section>
+
+<div class="banner">
+
+  <input type="checkbox" (change)="displayIconBars($event)" id="menu-control" class="menu-control">
+  <aside class="sidebar">
+    <div class=" p-col-fixed   ">
+      <img class="banner__logo" src="../../../../assets/images/logo/logo2.png" alt="logo"/>
+    </div>
+    <nav class="sidebar__menu">
+      <a class="  borderYtoX " [class.fa-arab]="selectedLang==='AR'"> <i class="fa fa-home   "> </i> <span
+        (click)="toHome()" [routerLink]="['home']"> <label
+        class=" border-label "> {{ 'HEADER.HOME' | translate }}</label></span></a>
+      <a class="  borderYtoX" [class.fa-arab]="selectedLang==='AR'"> <i class="fas fa-pencil-alt fa"></i> <span
+        (click)="toAbout()" routerLink="about" routerLinkActive="active"> <label
+        class=" border-label p-ml-2 ">{{ 'HEADER.ABOUT' | translate }}</label></span></a>
+      <a class="  borderYtoX" [class.fa-arab]="selectedLang==='AR'"> <i class="fa fa-calendar  "></i><span
+        (click)="toWorks()" [routerLink]="['works']"> <label
+        class=" border-label "> {{ 'HEADER.WORKS' | translate }}</label></span></a>
+      <a class="  borderYtoX" [class.fa-arab]="selectedLang==='AR'"> <i class="fa fa-cogs  "> </i><span
+        (click)="toService()" [routerLink]="['services']"> <label
+        class=" border-label "> {{ 'HEADER.SERVICES' | translate }}</label></span></a>
+      <a class=" borderYtoX" [class.fa-arab]="selectedLang==='AR'"> <i class="far fa-handshake"></i><span
+        (click)="toPartner()" [routerLink]="['partner']">  <label
+        class=" border-label "> {{ 'HEADER.PARTNER' | translate }}</label></span></a>
+      <a class=" borderYtoX" [class.fa-arab]="selectedLang==='AR'"> <i class="fas fa-phone"></i><span
+        (click)="toContact()" [routerLink]="['contact']">  <label
+        class=" border-label "> {{ 'HEADER.CONTACT' | translate }}</label></span></a>
+      <a class=" borderYtoX" [class.fa-arab]="selectedLang==='AR'"> <i class="fas fa-sign-in-alt"></i><span
+        (click)="login()"> <label class=" border-label "> {{ 'HEADER.LOGIN' | translate }}</label></span></a>
+      <a class=" borderYtoX">
+        <p-dropdown [class.dropdown-arab]="selectedLang==='AR'" [options]="languges" [(ngModel)]="selectedLang"
+                    (onChange)="changeLanguage()" placeholder="Select a Languge" [showClear]="true"
+                    class="dropdown"></p-dropdown>
+      </a>
+
+    </nav>
+
+
+  </aside>
+
+
+</div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+
+
+
+
+
+

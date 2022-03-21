@@ -1,0 +1,19 @@
+
+
+
+.ng-footer {
+  height: 50px;
+  background-color: #2d5394;
+  position:absolute;
+  bottom:0;
+  width:100%;
+
+}
+.ng-footer div {
+  text-align: center;
+  padding: 10px;
+  color:white;
+}
+
+
+

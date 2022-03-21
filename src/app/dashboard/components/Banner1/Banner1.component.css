@@ -1,0 +1,99 @@
+@font-face {
+  font-family: tommy;
+  src: url("../../../../assets/fonts/MADE TOMMY Bold_PERSONAL USE.otf") format('truetype');
+}
+
+#facts_and_figures {
+  background: url('../../../../assets/images/home/midle4k.jpg');
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 450px;
+
+}
+
+.container {
+  text-align: center;
+  font-family: tommy;
+  font-size: 3em;
+  letter-spacing: 0.4px;
+}
+
+
+.title1 {
+  margin-top: -8%;
+  font-size: 1.5em;
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.1);
+
+
+}
+
+.title-arab {
+  font-family: GE_SS;
+  direction: rtl;
+  letter-spacing: 0px;
+
+}
+
+
+.title2 {
+  font-size: 3em;
+  background: linear-gradient(to top, #e8a036 0%, #e3ac23 25%, #f8de52 75%, #e5aa38 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 3%;
+}
+
+
+@media screen and (max-width: 1366px) {
+  .title2 {
+    margin-top: 5%;
+    font-size: 2.2em;
+
+  }
+
+  .title1 {
+    font-size: 0.99em;
+  }
+
+  #facts_and_figures {
+
+    height: 350px;
+
+
+  }
+
+
+}
+
+@media screen and (max-width: 758px) {
+  .title2 {
+    margin-top: 10%;
+    font-size: 1em;
+
+  }
+
+  .title1 {
+    font-size: 0.6em;
+    margin-top: 3%;
+
+  }
+
+  #facts_and_figures {
+
+    height: 250px;
+
+
+  }
+
+}
+
+
+

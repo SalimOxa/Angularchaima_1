@@ -1,0 +1,98 @@
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+
+<p-toast key="toast"></p-toast>
+<div class="p-shadow-3">
+
+  <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
+
+</div>
+<div class="p-shadow-6 p-mt-6">
+  <p-panel header="New Project" [toggleable]="true">
+
+    <form [formGroup]="formNewProject">
+      <div class="p-fluid p-formgrid p-grid">
+        <div class="p-field p-col-12 p-lg-6 p-md-12 p-sm-12">
+
+          <input type="text" pInputText pTooltip="Enter your username" placeholder="Project Name" formControlName="projectname" maxlength="50"
+                 [(ngModel)]="project.name">
+          <div *ngIf="f.projectname.touched && f.projectname.invalid" class=" p-d-flex p-jc-center p-mt-2 ">
+            <p-message [styleClass]="'fill-parent'" severity="error"*ngIf="f.projectname.errors?.required"text="invalid"></p-message>
+          </div>
+        </div>
+
+        <div class="p-field p-col-12 p-lg-6 p-md-12 p-sm-12">
+          <p-calendar [(ngModel)]="project.createdDate" [showIcon]="true" placeholder="Start Date" formControlName="calendar"
+                      [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030"></p-calendar>
+          <div *ngIf="f.calendar.touched && f.calendar.invalid" class=" p-d-flex p-jc-center p-mt-2 ">
+            <p-message [styleClass]="'fill-parent'" severity="error"*ngIf="f.calendar.errors?.required"text="invalid"></p-message>
+          </div>
+        </div>
+
+      </div>
+      <div class="p-fluid p-formgrid p-grid">
+        <div class="p-field p-col-12 p-lg-6 p-md-12 p-sm-12">
+
+      <textarea placeholder=" Description" style="width: 100%" [rows]="8"   pInputTextarea
+                [(ngModel)]="project.description"formControlName="description"  maxlength="1000"></textarea>
+          <div *ngIf="f.description.touched && f.description.invalid" class=" p-d-flex p-jc-center p-mt-2 ">
+            <p-message [styleClass]="'fill-parent'" severity="error"*ngIf="f.description.errors?.required"text="invalid"></p-message>
+          </div>
+        </div>
+
+        <div class="p-field p-col-12 p-lg-6 p-md-12 p-sm-12">
+          <p-dropdown [(ngModel)]="serviceList" (onChange)="displayPoupup()" [options]="services" placeholder="Select a service" optionLabel="name" formControlName="service"
+                      [showClear]="true"></p-dropdown>
+          <div *ngIf="f.service.touched && f.service.invalid" class=" p-d-flex p-jc-center p-mt-2 ">
+            <p-message [styleClass]="'fill-parent'" severity="error"*ngIf="f.service.errors?.required"text="invalid"></p-message>
+          </div>
+
+
+        </div>
+        <div class="p-field p-col-12 p-lg-6 p-md-12 p-sm-12">
+          <p-dropdown [(ngModel)]="countries"  (onChange)="addCurrency()" [options]="listCountires" optionLabel="currencyCode"  placeholder="Select a currency" formControlName="currency"
+                      [showClear]="true"></p-dropdown>
+          <div *ngIf="f.currency.touched && f.currency.invalid" class=" p-d-flex p-jc-center p-mt-2 ">
+            <p-message [styleClass]="'fill-parent'" severity="error"*ngIf="f.currency.errors?.required"text="invalid"></p-message>
+          </div>
+
+
+
+        </div>
+      </div>
+    </form>
+
+
+      <div class="p-d-flex p-jc-end">
+        <div class="p-mr-2" >
+          <button  pButton type="button"   [disabled]="!isDisabledStartProject"(click)="startProject()"label="Start Project"></button>
+        </div>
+        <div class="p-mr-2">
+          <button (click)="cancel()" class="p-button-danger" pButton type="button" label="Cancel"></button>
+        </div>
+
+      </div>
+  </p-panel>
+</div>
+
+<p-dialog header="Confirmation dialogue" [(visible)]="display">
+  <div class="p-d-flex">
+    <div class="p-mr-2 p-mt-3">
+      <i class="fas fa-info-circle fa-2x"></i>
+    </div>
+    <div class="p-ml-2 "> <h3>To start a project you must download the statement of work</h3>
+
+    </div>
+  </div>
+
+
+  <div class="p-fluid p-formgrid p-grid  p-mt-6" >
+
+    <h3 class="p-field p-col"> {{serviceList.appDefaultStatementOfWork?.fileName}}</h3>
+
+    <button class="p-field p-col  p-mt-2" (click)="  download(serviceList.id,serviceList.appDefaultStatementOfWork?.fileName)" pButton type="button" label="Download"></button>
+
+  </div>
+</p-dialog>
+
+
+

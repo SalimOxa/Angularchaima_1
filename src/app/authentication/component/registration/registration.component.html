@@ -1,0 +1,619 @@
+<app-top-bar-authentication></app-top-bar-authentication>
+<div class="p-grid background">
+  <div class="p-d-flex p-jc-center container ">
+    <div class="p-d-flex  p-flex-column p-jc-center"
+         style="min-width:40%">
+
+      <p-card *ngIf="selectLang!=='AR'"
+              data-aos="fade-up"
+              data-aos-easing="ease-out-cubic"
+              data-aos-delay="300"
+              data-aos-duration="1000">
+        <div class="p-fluid" *ngIf="isLogin">
+          <header>
+            <div class="p-d-flex p-jc-center p-mt-2 ">
+              <img style="width: 200px" src="assets/images/logo/racineGcc.png">
+            </div>
+            <p-progressSpinner class="p-d-flex p-jc-center p-mb-2" *ngIf="chargement"></p-progressSpinner>
+          </header>
+          <div class="p-d-flex p-jc-center p-mb-4 ">
+            <p-message *ngIf="errorLogin" severity="error" text="Login and / or password are incorrect"></p-message>
+          </div>
+          <div class="p-d-flex p-jc-center p-mb-4 ">
+            <p-message *ngIf="enabledAccount" severity="error" text="account temporarily disabled"></p-message>
+          </div>
+          <div class="p-d-flex p-jc-center p-mb-4 ">
+            <p-message *ngIf="desactivateAccount" severity="error"
+                       text="your account is deactivated !Please active your account"></p-message>
+          </div>
+          <div *ngIf="incorrectLogin" class="p-d-flex p-jc-center p-mb-4">
+            <p-message [styleClass]="'fill-parent'" severity="error" text="{{ 'HOME.VALIDATE-LOGIN' | translate }}"
+                       [style]="{width: '100%'}"></p-message>
+          </div>
+
+          <div *ngIf="allField" class="p-d-flex p-jc-center p-mb-2">
+            <p-message [styleClass]="'fill-parent'" severity="error" text="{{ 'HOME.VALIDATE-ALL-FIELDS' | translate }}"
+            ></p-message>
+          </div>
+
+          <form [formGroup]="formLogin">
+
+            <div class="p-d-flex p-jc-center ">
+              <div class="p-inputgroup p-shadow-6 p-mb-3 " [style]="{width: '80%'}">
+
+                <span class="p-inputgroup-addon "><i class="fas fa-user-edit"></i></span>
+                <input type="text" pInputText placeholder="{{ 'HOME.TITLE1' | translate }}" [style]="{width: '100%'}"
+                       [(ngModel)]="loginRequest.username" formControlName="username" maxlength="10">
+              </div>
+            </div>
+            <div *ngIf="fLogin.username.touched && fLogin.username.invalid" class=" p-d-flex p-jc-center p-mb-2 ">
+              <p-message [styleClass]="'fill-parent'" severity="error" *ngIf="fLogin.username.errors?.required"
+                         text="{{ 'HOME.VALIDATE-USERNAME' | translate }}"></p-message>
+            </div>
+            <div class="p-d-flex p-jc-center ">
+              <div class="p-inputgroup p-shadow-6 p-mb-3 " [style]="{width: '80%'}">
+                <span class="p-inputgroup-addon "><i class="fas fa-lock"></i></span>
+                <p-password placeholder="{{ 'HOME.PASSWORD' | translate }}" [toggleMask]="true"
+                            [(ngModel)]="loginRequest.password" formControlName="password"
+                            class=" password"></p-password>
+              </div>
+            </div>
+            <div *ngIf="fLogin.password.touched && fLogin.password.invalid"
+                 class="ng-dirty p-d-flex p-jc-center p-mb-2 ">
+              <p-message [styleClass]="'fill-parent'" severity="error" *ngIf="fLogin.password.errors?.required"
+                         text="{{ 'HOME.VALIDATE-PASSWORD' | translate }}"></p-message>
+            </div>
+
+
+            <div class="p-d-flex p-jc-center">
+              <button
+                pButton
+                type="submit"
+                label="{{ 'HOME.TITLE1' | translate }}"
+                class="p-button-rounded p-button p-button-info p-mb-3 " [style]="{width: '80%'}"
+                (click)="logIn()"
+              >
+              </button>
+            </div>
+          </form>
+          <div class="p-d-flex p-jc-center footer">
+            <span>
+              {{ 'HOME.ALREADY-NOT-HAVE-ACCOUNT' | translate }}          <a
+              style="color: blue"
+              class="p-text-bold p-mb-3"
+              (click)="switchToRegister()"
+
+            >
+            {{ 'HOME.TITLE2' | translate }}
+            </a
+            >
+          </span>
+          </div>
+        </div>
+
+        <div class="p-fluid" *ngIf="!isLogin">
+          <header>
+
+            <h2 class="p-d-flex p-jc-center p-mb-2">{{ 'HOME.TITLE2' | translate }}</h2>
+            <p-progressSpinner class="p-d-flex p-jc-center p-mb-2" *ngIf="chargement"></p-progressSpinner>
+
+            <div class="p-d-flex p-jc-center p-mb-2">
+              <p-message [styleClass]="'fill-parent'" severity="error" text="{{errorMessages}}" *ngIf="errorMessages"
+                         [style]="{width: '100%'}"></p-message>
+            </div>
+            <div *ngIf="userExist" class="p-d-flex p-jc-center p-mb-2">
+              <p-message [styleClass]="'fill-parent'" severity="error"
+                         text="{{ 'HOME.VALIDATE-EMAIL-EXIST' | translate }}"
+                         [style]="{width: '100%'}"></p-message>
+            </div>
+            <div *ngIf="internetConnection" class="p-d-flex p-jc-center p-mb-2">
+              <p-message [styleClass]="'fill-parent'" severity="error" text="No internet connection"
+                         [style]="{width: '100%'}"></p-message>
+            </div>
+            <div *ngIf="allField" class="p-d-flex p-jc-center p-mb-4">
+              <p-message [styleClass]="'fill-parent'" severity="error"
+                         text="{{ 'HOME.VALIDATE-ALL-FIELDS' | translate }}"
+                         [style]="{width: '100%'}"></p-message>
+            </div>
+
+
+          </header>
+
+
+          <form [formGroup]="form">
+
+            <div class="p-d-flex p-jc-center ">
+              <div class="p-inputgroup p-shadow-6 p-mb-3 " [style]="{width: '80%'}">
+                <span class="p-inputgroup-addon "><i class="fas fa-user-edit"></i></span>
+                <input type="text" pInputText placeholder="{{ 'HOME.USERNAME' | translate }}" [style]="{width: '100%'}"
+                       [(ngModel)]="userDto.username " formControlName="username" maxlength="10">
+
+              </div>
+            </div>
+            <div *ngIf="f.username.touched && f.username.invalid" class="p-d-flex p-jc-center p-mb-2 ">
+
+              <p-message [styleClass]="'fill-parent'" severity="error" *ngIf="f.username.errors?.required"
+                         text="{{ 'HOME.VALIDATE-USERNAME' | translate }}"></p-message>
+
+            </div>
+
+            <div class="p-d-flex p-jc-center ">
+              <div class="p-inputgroup p-shadow-6 p-mb-3 " [style]="{width: '80%'}">
+                <span class="p-inputgroup-addon "><i class="fas fa-user-tie"></i></span>
+                <input pInputText placeholder="{{ 'HOME.FIRST-NAME' | translate }}" [style]="{width: '100%'}"
+                       [(ngModel)]="userDto.firstName" formControlName="firstname" maxlength="10">
+              </div>
+            </div>
+            <div *ngIf="f.firstname.touched && f.firstname.invalid"
+                 class="ng-dirty ng-invalid p-d-flex p-jc-center p-mb-2 ">
+
+              <p-message [styleClass]="'fill-parent'" severity="error" *ngIf="f.firstname.errors?.required"
+                         text="{{ 'HOME.VALIDATE-FIRSTNAME' | translate }}"></p-message>
+
+            </div>
+            <div class="p-mb-3 p-d-flex p-jc-center">
+              <h3 class="p-mr-3">{{ 'HOME.COMPANY' | translate }} </h3>
+              <p-checkbox class="p-mr-3" formControlName="checkcompany"
+                          (onChange)="checkedCompany($event)"></p-checkbox>
+
+            </div>
+
+            <div *ngIf="isCompany">
+              <div class="p-d-flex p-jc-center ">
+                <div class="p-inputgroup p-shadow-6 p-mb-3 " [style]="{width: '80%'}">
+                  <span class="p-inputgroup-addon "><i class="fas fa-building"></i></span>
+                  <input pInputText placeholder="{{ 'HOME.COMPANY' | translate }}" [style]="{width: '100%'}"
+                         [(ngModel)]="userDto.company" formControlName="company" maxlength="20">
+                </div>
+              </div>
+              <div *ngIf="f.company.touched && f.company.invalid"
+                   class="ng-dirty ng-invalid p-d-flex p-jc-center p-mb-2 ">
+
+                <p-message [styleClass]="'fill-parent'" severity="error" *ngIf="f.company.errors?.required"
+                           text="{{ 'HOME.VALIDATE-COMPANY' | translate }}"></p-message>
+
+              </div>
+            </div>
+            <!--input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places"
+                   (onAddressChange)="handleAddressChange($event)"/-->
+
+            <div class="p-d-flex p-jc-center p-ml-3 ">
+              <div class="p-inputgroup p-shadow-6 p-mb-3 " [style]="{width: '80%'}">
+                <span class="p-inputgroup-addon "><i class="fas fa-birthday-cake"></i></span>
+                <p-calendar
+                  (onSelect)="selectAge()"
+                  [showIcon]="true" placeholder="{{ 'HOME.BIRTHDAY' | translate }}" [style]="{width: '100%'}"
+                  [(ngModel)]="userDto.birthday" class="password " formControlName="birthday"
+                  [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030"></p-calendar>
+              </div>
+              <div class="p-d-flex p-ml-2">
+                <i class="fas fa-question-circle " (click)="op.toggle($event)"></i>
+              </div>
+
+            </div>
+            <div *ngIf="f.birthday.touched && f.birthday.invalid " class=" p-d-flex p-jc-center p-mb-2 ">
+              <p-message [styleClass]="'fill-parent'" severity="error" *ngIf="f.birthday.errors?.required"
+                         text="{{ 'HOME.VALIDATE-BIRTHDAY' | translate }}"></p-message>
+
+            </div>
+            <div *ngIf="invalidAge " class=" p-d-flex p-jc-center p-mb-2 ">
+              <p-message [styleClass]="'fill-parent'" severity="error"
+                         text="{{ 'HOME.VALIDATE-BIRTHDAY-AGE' | translate }}"></p-message>
+            </div>
+
+            <div class="p-d-flex p-jc-center ">
+              <div class="p-inputgroup p-shadow-6 p-mb-3" [style]="{width: '80%'}">
+                <span class="p-inputgroup-addon "><i class="fas fa-at"></i></span>
+                <input type="text" pInputText placeholder="{{ 'HOME.EMAIL' | translate }}" [style]="{width: '100%'}"
+                       [(ngModel)]="userDto.email" formControlName="email">
+              </div>
+            </div>
+            <div *ngIf="f.email.touched && f.email.invalid" class="ng-dirty p-d-flex p-jc-center p-mb-2 ">
+              <p-message [styleClass]="'fill-parent'" severity="error" *ngIf="f.email.errors?.required"
+                         text="{{ 'HOME.VALIDATE-EMAIL' | translate }}"></p-message>
+              <div *ngIf="f.email.errors?.email">{{ 'HOME.VALIDATE-EMAIL-VALID' | translate }}</div>
+            </div>
+            <div class="p-d-flex p-jc-center ">
+              <div class="p-inputgroup p-shadow-6 p-mb-3 " [style]="{width: '80%'}">
+                <span class="p-inputgroup-addon "><i class="fas fa-lock"></i></span>
+                <p-password placeholder="{{ 'HOME.PASSWORD-REGISISTER' | translate }}" [toggleMask]="true"
+                            [(ngModel)]="userDto.password" formControlName="password" class="password ">
+                </p-password>
+              </div>
+            </div>
+            <div *ngIf="f.password.touched && f.password.invalid" class="ng-dirty p-d-flex p-jc-center p-mb-2 ">
+              <p-message [styleClass]="'fill-parent'" severity="error" *ngIf="f.password.errors?.required"
+                         text="{{ 'HOME.VALIDATE-PASSWORD' | translate }}"></p-message>
+            </div>
+
+
+            <div class="p-d-flex p-jc-center ">
+              <div class="p-inputgroup p-shadow-6 p-mb-3 " [style]="{width: '80%'}">
+                <span class="p-inputgroup-addon "><i class="fas fa-retweet"></i></span>
+                <p-password placeholder="{{ 'HOME.RETYPE-PASSWORD-REGISISTER' | translate }}" [toggleMask]="true"
+                            [(ngModel)]="retypePassword" formControlName="retypePassword" class="password ">
+                </p-password>
+              </div>
+            </div>
+            <div *ngIf="f.retypePassword.touched && f.retypePassword.invalid"
+                 class="ng-dirty p-d-flex p-jc-center p-mb-2 ">
+              <p-message [styleClass]="'fill-parent'" severity="error" *ngIf="f.retypePassword.errors?.required"
+                         text="{{ 'HOME.VALIDATE-RETYPE-PASSWORD' | translate }}"></p-message>
+            </div>
+
+            <div *ngIf="InvalidRetypePassword" class="ng-dirty p-d-flex p-jc-center p-mb-2 ">
+              <p-message [styleClass]="'fill-parent'" severity="error"
+                         text="{{ 'HOME.VALIDATE-INCORRECT-RETYPE-PASSWORD' | translate }}"></p-message>
+            </div>
+            <div class="p-d-flex p-jc-center">
+
+              <input type="text"
+                     ng2TelInput
+                     pInputText
+                     [(ngModel)]="telephoneNumber"
+                     [ng2TelInputOptions]="{initialCountry: 'qa'}"
+                     (hasError)="hasError($event)"
+                     (ng2TelOutput)="getNumber($event)"
+                     (intlTelInputObject)="telInputObject($event)"
+                     (countryChange)="onCountryChange($event)"
+                     formControlName="phone"
+              />
+
+            </div>
+
+
+            <div class="p-d-flex p-jc-center ">
+              <button
+                pButton
+                type="submit"
+                label="{{ 'HOME.CREATE-ACCOUNT' | translate }}"
+                class="p-button-rounded p-button p-button-info p-mt-3 p-mb-3  "
+                [style]="{width: '80%'}" (click)="register()"
+              >
+              </button>
+            </div>
+          </form>
+          <div class="p-d-flex p-jc-center footer">
+            <span>
+              {{ 'HOME.ALREADY-HAVE-ACCOUNT' | translate }}
+              <a
+                style="color: blue"
+                class="p-text-bold p-mb-3"
+                (click)="switchToRegister()"
+              >
+              &nbsp;
+                {{ "HOME.TITLE1" | translate }}
+              </a
+              >
+          </span>
+          </div>
+
+        </div>
+
+      </p-card>
+
+
+      <p-card
+        *ngIf="selectLang==='AR'"
+        data-aos="fade-up"
+        data-aos-easing="ease-out-cubic"
+        data-aos-delay="300"
+        data-aos-duration="1000">
+        <div class="p-fluid" *ngIf="isLogin ">
+          <header>
+
+            <div class="p-d-flex p-jc-center p-mt-2 ">
+              <img style="width: 200px" src="assets/images/logo/racineGcc.png">
+            </div>
+            <p-progressSpinner class="p-d-flex p-jc-center p-mb-2" *ngIf="chargement"></p-progressSpinner>
+
+
+          </header>
+          <div class="p-d-flex p-jc-center p-mb-4 ">
+            <p-message *ngIf="errorLogin" severity="error" text="Login and / or password are incorrect"></p-message>
+          </div>
+          <div class="p-d-flex p-jc-center p-mb-4 ">
+            <p-message *ngIf="enabledAccount" severity="error" text="account temporarily disabled"></p-message>
+          </div>
+          <div class="p-d-flex p-jc-center p-mb-4 ">
+            <p-message *ngIf="desactivateAccount" severity="error"
+                       text="your account is deactivated !Please active your account"></p-message>
+          </div>
+          <div *ngIf="incorrectLogin" class="p-d-flex p-jc-center p-mb-4">
+            <p-message [styleClass]="'fill-parent'" severity="error" text="{{ 'HOME.VALIDATE-LOGIN' | translate }}"
+                       [style]="{width: '100%'}"></p-message>
+          </div>
+
+          <div *ngIf="allField" class="p-d-flex p-jc-center p-mb-2">
+            <p-message [styleClass]="'fill-parent'" severity="error" text="{{ 'HOME.VALIDATE-ALL-FIELDS' | translate }}"
+            ></p-message>
+          </div>
+
+          <form style="direction: rtl" [formGroup]="formLogin">
+
+            <div class="p-d-flex p-jc-center ">
+              <div class="p-inputgroup p-shadow-6 p-mb-3 " [style]="{width: '80%'}">
+
+                <span class="p-inputgroup-addon p-inputgroup-addon-arabic "><i class="fas fa-user-edit"></i></span>
+                <input type="text" [class.content-text-arab]="selectLang==='AR'" pInputText
+                       placeholder="{{ 'HOME.TITLE1' | translate }}" [style]="{width: '100%'}"
+                       [(ngModel)]="loginRequest.username" formControlName="username" maxlength="10">
+              </div>
+            </div>
+            <div *ngIf="fLogin.username.touched && fLogin.username.invalid" class=" p-d-flex p-jc-center p-mb-2 ">
+              <p-message [styleClass]="'fill-parent'" severity="error" *ngIf="fLogin.username.errors?.required"
+                         text="{{ 'HOME.VALIDATE-USERNAME' | translate }}"></p-message>
+            </div>
+            <div class="p-d-flex p-jc-center ">
+              <div class="p-inputgroup p-shadow-6 p-mb-3 " [style]="{width: '80%'}">
+                <span class="p-inputgroup-addon p-inputgroup-addon-arabic "><i class="fas fa-lock"></i></span>
+                <p-password placeholder="{{ 'HOME.PASSWORD' | translate }}" [toggleMask]="true"
+                            [(ngModel)]="loginRequest.password" formControlName="password" class="password"
+                            [class.content-text-arab]="selectLang==='AR'"></p-password>
+              </div>
+            </div>
+            <div *ngIf="fLogin.password.touched && fLogin.password.invalid"
+                 class="ng-dirty p-d-flex p-jc-center p-mb-2 ">
+              <p-message [styleClass]="'fill-parent'" severity="error" *ngIf="fLogin.password.errors?.required"
+                         text="{{ 'HOME.VALIDATE-PASSWORD' | translate }}"></p-message>
+            </div>
+
+
+            <div class="p-d-flex p-jc-center">
+              <button
+                pButton
+                type="submit"
+                [class.content-text-arab]="selectLang==='AR'"
+                label="{{ 'HOME.TITLE1' | translate }}"
+                class="p-button-rounded p-button p-button-info p-mb-3 " [style]="{width: '80%'}"
+                (click)="logIn()"
+              >
+              </button>
+            </div>
+          </form>
+          <div class="p-d-flex p-jc-center footer" [class.content-text-arab]="selectLang==='AR'">
+            <span>
+
+              {{ 'HOME.ALREADY-NOT-HAVE-ACCOUNT' | translate }}          <a
+              style="color: blue"
+              [class.content-text-arab]="selectLang==='AR'"
+              class="p-text-bold p-mb-3"
+              (click)="switchToRegister()"
+
+            >
+            {{ 'HOME.TITLE2' | translate }}
+            </a
+            >
+          </span>
+          </div>
+        </div>
+
+        <div class="p-fluid" *ngIf="!isLogin">
+          <header>
+
+            <h2 class="p-d-flex p-jc-center p-mb-2"
+                [class.title-h2-arab]="selectLang==='AR'">{{ 'HOME.TITLE2' | translate }}</h2>
+            <p-progressSpinner class="p-d-flex p-jc-center p-mb-2" *ngIf="chargement"></p-progressSpinner>
+
+            <div class="p-d-flex p-jc-center p-mb-2">
+              <p-message [styleClass]="'fill-parent'" severity="error" text="{{errorMessages}}" *ngIf="errorMessages"
+                         [style]="{width: '100%'}"></p-message>
+            </div>
+            <div *ngIf="userExist" class="p-d-flex p-jc-center p-mb-2">
+              <p-message [styleClass]="'fill-parent'" severity="error"
+                         text="{{ 'HOME.VALIDATE-EMAIL-EXIST' | translate }}"
+                         [style]="{width: '100%'}"></p-message>
+            </div>
+            <div *ngIf="internetConnection" class="p-d-flex p-jc-center p-mb-2">
+              <p-message [styleClass]="'fill-parent'" severity="error" text="No Internet Connection"
+                         [style]="{width: '100%'}"></p-message>
+            </div>
+            <div *ngIf="allField" class="p-d-flex p-jc-center p-mb-4">
+              <p-message [styleClass]="'fill-parent'" severity="error"
+                         text="{{ 'HOME.VALIDATE-ALL-FIELDS' | translate }}"
+                         [style]="{width: '100%'}"></p-message>
+            </div>
+
+
+          </header>
+
+
+          <form style="direction: rtl" [formGroup]="form">
+
+            <div class="p-d-flex p-jc-center ">
+              <div class="p-inputgroup p-shadow-6 p-mb-3 " [style]="{width: '80%'}">
+                <span class="p-inputgroup-addon p-inputgroup-addon-arabic "><i class="fas fa-user-edit"></i></span>
+                <input type="text" [class.content-text-arab]="selectLang==='AR'" pInputText
+                       placeholder="{{ 'HOME.USERNAME' | translate }}" [style]="{width: '100%'}"
+                       [(ngModel)]="userDto.username " formControlName="username" maxlength="10">
+
+              </div>
+            </div>
+            <div *ngIf="f.username.touched && f.username.invalid" class="p-d-flex p-jc-center p-mb-2 ">
+
+              <p-message [styleClass]="'fill-parent'" severity="error" *ngIf="f.username.errors?.required"
+                         text="{{ 'HOME.VALIDATE-USERNAME' | translate }}"></p-message>
+
+            </div>
+
+            <div class="p-d-flex p-jc-center ">
+              <div class="p-inputgroup p-shadow-6 p-mb-3 " [style]="{width: '80%'}">
+                <span class="p-inputgroup-addon p-inputgroup-addon-arabic "><i class="fas fa-user-check"></i></span>
+                <input pInputText [class.content-text-arab]="selectLang==='AR'"
+                       placeholder="{{ 'HOME.FIRST-NAME' | translate }}" [style]="{width: '100%'}"
+                       [(ngModel)]="userDto.firstName" formControlName="firstname" maxlength="10">
+              </div>
+            </div>
+            <div *ngIf="f.firstname.touched && f.firstname.invalid"
+                 class="ng-dirty ng-invalid p-d-flex p-jc-center p-mb-2 ">
+
+              <p-message [styleClass]="'fill-parent'" severity="error" *ngIf="f.firstname.errors?.required"
+                         text="{{ 'HOME.VALIDATE-FIRSTNAME' | translate }}"></p-message>
+
+            </div>
+            <div class="p-mb-3 p-d-flex p-jc-center">
+              <h3 class="p-mr-3" [class.content-text-arab]="selectLang==='AR'">{{ 'HOME.COMPANY' | translate }} </h3>
+              <p-checkbox class="p-mr-3" formControlName="checkcompany"
+                          (onChange)="checkedCompany($event)"></p-checkbox>
+
+            </div>
+
+            <div *ngIf="isCompany">
+              <div class="p-d-flex p-jc-center ">
+                <div class="p-inputgroup p-shadow-6 p-mb-3 " [style]="{width: '80%'}">
+                  <span class="p-inputgroup-addon p-inputgroup-addon-arabic "><i class="fas fa-building"></i></span>
+                  <input pInputText [class.content-text-arab]="selectLang==='AR'"
+                         placeholder="{{ 'HOME.COMPANY' | translate }}" [style]="{width: '100%'}"
+                         [(ngModel)]="userDto.company" formControlName="company" maxlength="20">
+                </div>
+              </div>
+              <div *ngIf="f.company.touched && f.company.invalid"
+                   class="ng-dirty ng-invalid p-d-flex p-jc-center p-mb-2 ">
+
+                <p-message [styleClass]="'fill-parent'" severity="error" *ngIf="f.company.errors?.required"
+                           text="{{ 'HOME.VALIDATE-COMPANY' | translate }}"></p-message>
+
+              </div>
+            </div>
+            <div class="p-d-flex p-jc-center  ">
+              <div class="p-inputgroup p-shadow-6 p-mb-3 " [style]="{width: '77%'}">
+                <span class="p-inputgroup-addon p-inputgroup-addon-arabic "><i class="fas fa-birthday-cake"></i></span>
+                <p-calendar
+                  (onSelect)="selectAge()"
+                  [class.content-text-arab]="selectLang==='AR'"
+                  [showIcon]="true" placeholder="{{ 'HOME.BIRTHDAY' | translate }}" [style]="{width: '100%'}"
+                  [(ngModel)]="userDto.birthday" class="password " formControlName="birthday"
+                  [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030"></p-calendar>
+              </div>
+              <div class="p-d-flex">
+                <i class="fas fa-question-circle " (click)="op.toggle($event)"></i>
+              </div>
+
+            </div>
+            <div *ngIf="f.birthday.touched && f.birthday.invalid " class=" p-d-flex p-jc-center p-mb-2 ">
+              <p-message [styleClass]="'fill-parent'" severity="error" *ngIf="f.birthday.errors?.required"
+                         text="{{ 'HOME.VALIDATE-BIRTHDAY' | translate }}"></p-message>
+
+            </div>
+            <div *ngIf="invalidAge " class=" p-d-flex p-jc-center p-mb-2 ">
+              <p-message [styleClass]="'fill-parent'" severity="error"
+                         text="{{ 'HOME.VALIDATE-BIRTHDAY-AGE' | translate }}"></p-message>
+            </div>
+
+            <div class="p-d-flex p-jc-center ">
+              <div class="p-inputgroup p-shadow-6 p-mb-3" [style]="{width: '80%'}">
+                <span class="p-inputgroup-addon p-inputgroup-addon-arabic "><i class="fas fa-at"></i></span>
+                <input type="text" [class.content-text-arab]="selectLang==='AR'" pInputText
+                       placeholder="{{ 'HOME.EMAIL' | translate }}" [style]="{width: '100%'}"
+                       [(ngModel)]="userDto.email" formControlName="email">
+              </div>
+            </div>
+            <div *ngIf="f.email.touched && f.email.invalid" class="ng-dirty p-d-flex p-jc-center p-mb-2 ">
+              <p-message [styleClass]="'fill-parent'" severity="error" *ngIf="f.email.errors?.required"
+                         text="{{ 'HOME.VALIDATE-EMAIL' | translate }}"></p-message>
+              <div *ngIf="f.email.errors?.email">{{ 'HOME.VALIDATE-EMAIL-VALID' | translate }}</div>
+            </div>
+            <div class="p-d-flex p-jc-center ">
+              <div class="p-inputgroup p-shadow-6 p-mb-3 " [style]="{width: '80%'}">
+                <span class="p-inputgroup-addon p-inputgroup-addon-arabic "><i class="fas fa-lock"></i></span>
+                <p-password placeholder="{{ 'HOME.PASSWORD-REGISISTER' | translate }}" [toggleMask]="true"
+                            [(ngModel)]="userDto.password" formControlName="password" class="password ">
+                </p-password>
+              </div>
+            </div>
+            <div *ngIf="f.password.touched && f.password.invalid" class="ng-dirty p-d-flex p-jc-center p-mb-2 ">
+              <p-message [styleClass]="'fill-parent'" severity="error" *ngIf="f.password.errors?.required"
+                         text="{{ 'HOME.VALIDATE-PASSWORD' | translate }}"></p-message>
+            </div>
+            <div class="p-d-flex p-jc-center ">
+              <div class="p-inputgroup p-shadow-6 p-mb-3 " [style]="{width: '80%'}">
+                <span class="p-inputgroup-addon "><i class="fas fa-retweet"></i></span>
+                <p-password placeholder="{{ 'HOME.RETYPE-PASSWORD-REGISISTER' | translate }}" [toggleMask]="true"
+                            [(ngModel)]="retypePassword" formControlName="retypePassword" class="password ">
+                </p-password>
+              </div>
+            </div>
+            <div *ngIf="f.retypePassword.touched && f.retypePassword.invalid"
+                 class="ng-dirty p-d-flex p-jc-center p-mb-2 ">
+              <p-message [styleClass]="'fill-parent'" severity="error" *ngIf="f.retypePassword.errors?.required"
+                         text="{{ 'HOME.VALIDATE-RETYPE-PASSWORD' | translate }}"></p-message>
+            </div>
+
+            <div *ngIf="InvalidRetypePassword" class="ng-dirty p-d-flex p-jc-center p-mb-2 ">
+              <p-message [styleClass]="'fill-parent'" severity="error"
+                         text="{{ 'HOME.VALIDATE-INCORRECT-RETYPE-PASSWORD' | translate }}"></p-message>
+            </div>
+            <div style="direction: ltr" class="p-d-flex p-jc-center">
+
+              <input type="text"
+                     ng2TelInput
+                     pInputText
+                     [(ngModel)]="telephoneNumber"
+                     [ng2TelInputOptions]="{initialCountry: 'qa'}"
+                     (hasError)="hasError($event)"
+                     (ng2TelOutput)="getNumber($event)"
+                     (intlTelInputObject)="telInputObject($event)"
+                     (countryChange)="onCountryChange($event)"
+                     formControlName="phone"
+              />
+
+            </div>
+
+
+            <div class="p-d-flex p-jc-center ">
+              <button
+                pButton
+                type="submit"
+                [class.content-text-arab]="selectLang==='AR'"
+                label="{{ 'HOME.CREATE-ACCOUNT' | translate }}"
+                class="p-button-rounded p-button p-button-info  p-mt-3 p-mb-3  "
+                [style]="{width: '80%'}" (click)="register()"
+              >
+              </button>
+            </div>
+          </form>
+          <div class="p-d-flex p-jc-center footer" [class.content-text-arab]="selectLang==='AR'">
+            <span>
+              {{ 'HOME.ALREADY-HAVE-ACCOUNT' | translate }}
+              <a
+                style="color: blue"
+                class="p-text-bold p-mb-3"
+                [class.content-text-arab]="selectLang==='AR'"
+                (click)="switchToRegister()"
+              >
+              &nbsp;
+                {{ "HOME.TITLE1" | translate }}
+              </a
+              >
+          </span>
+          </div>
+
+        </div>
+
+      </p-card>
+
+
+    </div>
+  </div>
+
+</div>
+
+
+<div id='stars'></div>
+<div id='stars2'></div>
+<div id='stars3'></div>
+<p-overlayPanel #op [style]="{width: '400px'}">
+  <ng-template pTemplate>
+    <div class="p-d-flex p-flex-column">
+      <div class="p-mb-2">
+        <p>
+          {{ "HOME.BIRTHDAY-QUESTION" | translate }}
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </ng-template>
+</p-overlayPanel>

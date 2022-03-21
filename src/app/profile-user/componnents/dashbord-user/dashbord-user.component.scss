@@ -1,0 +1,41 @@
+@font-face {
+  font-family: medium;
+  src: url("../../../../assets/fonts/MADE TOMMY Medium_PERSONAL USE.otf");
+}
+.background {
+  background-color: #f8f9fa	;
+  min-height: 100vh;
+
+}
+label{
+  font-family: medium;
+}
+
+:host ::ng-deep.p-panelmenu .p-panelmenu-header > a {
+  color: #000000;
+  font-family:medium ;
+}
+
+:host ::ng-deep.pi {
+  font-size: 1.5rem;
+}
+.menu{
+  display: block;
+  min-height: 91.5vh;
+}
+.content{
+  min-height: 91.5vh;
+
+}
+
+@media screen and (max-width: 992px) {
+  .menu{
+    display: none;
+  }
+}
+@media screen and (max-width: 756px) {
+  .menu{
+    display: none;
+  }
+
+}

@@ -1,0 +1,15 @@
+h2{
+  font-size: 1.4vw;
+}
+
+@media screen and (max-width: 960px) {
+  h2{
+    font-size: 2.2vw;
+  }
+
+}
+@media screen and (max-width: 767px) {
+  h2{
+    font-size: 5vw;
+  }
+}

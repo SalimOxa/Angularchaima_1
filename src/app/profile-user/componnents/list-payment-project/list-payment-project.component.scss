@@ -1,0 +1,354 @@
+@font-face {
+  font-family: Americana;
+  src: url("../../../../assets/fonts/Americanatest.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: light;
+  src: url("../../../../assets/fonts/MADE TOMMY Light_PERSONAL USE.otf");
+}
+
+@font-face {
+  font-family: tommy-medium;
+  src: url("../../../../assets/fonts/MADE TOMMY Medium_PERSONAL USE.otf");
+}
+
+.input-file {
+  display: none;
+}
+
+.label-file {
+  cursor: pointer;
+
+}
+
+.btn-new-project {
+  background-image: url('../../../../assets/images/icon-backoffice/liste project icons/new project.png');
+  width: 150px;
+  height: 50px;
+  border: 0px;
+
+  cursor: pointer;
+
+}
+
+:host ::ng-deep.p-panel .p-panel-header .p-panel-header-icon:enabled:hover {
+  color: #4c198b;
+  background-color: white;
+}
+
+:host ::ng-deep.p-panel .p-panel-header .p-panel-header-icon {
+
+  color: white;
+}
+
+:host ::ng-deep.p-panel .p-panel-title {
+  font-size: 1.8vw;
+}
+
+:host ::ng-deep.p-panel .p-panel-header {
+  padding: 0.4rem;
+  padding-left: 1.5rem;
+  background: #5b2178;
+  color: white;
+  font-family: tommy-bold;
+  letter-spacing: 0.1vw;
+  font-size: 1.8vw;
+
+}
+
+
+:host ::ng-deep.p-panel .p-panel-content {
+  padding-top: 20px;
+}
+
+:host ::ng-deep.p-datatable .p-datatable-thead > tr > th {
+  text-align: left;
+  padding: 1rem;
+  border: solid #000000;
+  border-width: 0 0 1px;
+  font-weight: 500;
+  color: #000000de;
+  background: rgba(147, 147, 147, 0.12);
+}
+
+:host ::ng-deep.p-dialog .p-dialog-header .p-dialog-title {
+  font-weight: 500;
+  font-size: 1.5vw;
+  color: white;
+  margin-left: 0.2vw;
+}
+
+:host ::ng-deep.p-dialog .p-dialog-header {
+  border-bottom: 0;
+  background: #4c198b;
+
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  padding: 0.8vw;
+}
+
+:host ::ng-deep.p-dialog .p-dialog-header .p-dialog-header-icon:enabled {
+  color: #ffffff;
+}
+
+:host ::ng-deep.p-dialog .p-dialog-header .p-dialog-header-icon:enabled:hover {
+  color: #4c198b;
+  background-color: white;
+}
+
+th {
+  font-family: tommy-medium;
+  font-size: 1vw;
+  letter-spacing: 0.05vw;
+  border: solid #000000;
+
+}
+
+td {
+  font-size: 1vw;
+
+  img {
+    cursor: pointer;
+  }
+}
+
+.fa-user-clock {
+  font-size: 1.6vw;
+}
+
+tr:hover {
+  background-color: #f4f4f4;
+}
+
+.icon-delete {
+  font-size: 2vw;
+}
+
+
+tr:hover {
+  background-color: #f4f4f4;
+}
+
+:host ::ng-deep.ng2-pdf-viewer-container {
+  left: 0px;
+}
+
+h1 {
+  font-size: 1.5vw;
+}
+
+:host ::ng-deep.p-breadcrumb {
+  background: #fff;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+:host ::ng-deep {
+  .p-breadcrumb ul {
+    color: #000000;
+    font-size: 1.2vw;
+    font-family: tommy-medium;
+  }
+
+  .p-breadcrumb ul li.p-breadcrumb-chevron {
+    margin: 0 .5rem;
+    color: #000000;
+    font-size: 1.2vw;
+  }
+
+  .p-breadcrumb ul li .p-menuitem-link .p-menuitem-icon {
+    color: #000000;
+    font-size: 1.2vw;
+  }
+}
+
+.btn-chekout {
+  background-image: url('../../../../assets/images/icon-backoffice/liste project icons/check-out.png');
+  width: 150px;
+  height: 50px;
+  border: 0px;
+  cursor: pointer;
+}
+
+.btn-chekout:hover {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 992px) {
+  :host ::ng-deep {
+    .p-breadcrumb ul {
+      color: #000000;
+      font-size: 3vw;
+      font-family: tommy-medium;
+    }
+
+    .p-breadcrumb ul li.p-breadcrumb-chevron {
+      margin: 0 .5rem;
+      color: #000000;
+      font-size: 2vw;
+    }
+
+    .p-breadcrumb ul li .p-menuitem-link .p-menuitem-icon {
+      color: #000000;
+      font-size: 3vw;
+    }
+  }
+
+
+  th {
+    font-family: Americana;
+    font-size: 2.5vw;
+
+  }
+  td {
+    font-size: 2vw;
+  }
+  :host ::ng-deep.p-button.p-button-icon-only.p-button-rounded {
+    border-radius: 50%;
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+  :host ::ng-deep.pi {
+    font-size: 1.5rem;
+  }
+  :host ::ng-deep.p-panel .p-panel-header {
+    font-size: 4vw;
+  }
+  .fa-user-clock {
+    font-size: 3vw;
+  }
+  h1 {
+    font-size: 3vw;
+  }
+  .title-admin {
+    padding-left: 10%;
+
+  }
+  .desc-tab {
+    font-size: 80%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  :host ::ng-deep {
+    .p-breadcrumb ul {
+      color: #000000;
+      font-size: 4vw;
+      font-family: tommy-medium;
+    }
+
+    .p-breadcrumb ul li.p-breadcrumb-chevron {
+      margin: 0 .5rem;
+      color: #000000;
+      font-size: 3vw;
+    }
+
+    .p-breadcrumb ul li .p-menuitem-link .p-menuitem-icon {
+      color: #000000;
+      font-size: 4vw;
+    }
+  }
+  th {
+    font-family: Americana;
+    font-size: 3vw;
+
+
+  }
+  td {
+    font-size: 1.5vw;
+  }
+  .fa-eye {
+    font-size: 2vw;
+  }
+  .icon-delete {
+    font-size: 2.5vw;
+  }
+  :host ::ng-deep.p-button.p-button-icon-only.p-button-rounded {
+    border-radius: 50%;
+    height: 1rem;
+    width: 1rem;
+  }
+  :host ::ng-deep.pi {
+    font-size: 0.8rem;
+  }
+
+
+}
+
+:host ::ng-deep {
+  .p-datatable-responsive-demo .p-datatable-tbody > tr > td .p-column-title {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 766px) {
+
+  .fa-user-clock {
+    margin-top: 10%;
+    font-size: 5.5vw;
+  }
+  :host ::ng-deep {
+    .p-datatable {
+      &.p-datatable-responsive-demo {
+        .p-datatable-thead > tr > th,
+        .p-datatable-tfoot > tr > td {
+          display: none !important;
+        }
+
+        .p-datatable-tbody > tr > td {
+          text-align: left;
+          display: block;
+          width: 100%;
+          float: left;
+          clear: left;
+          border-bottom: 2px solid var(--surface-d);
+          font-size: 4vw;
+
+          .p-column-title {
+            padding: .4rem;
+            min-width: 39.5%;
+            display: inline-block;
+            margin: -.4em 2em -.4em -.4rem;
+            font-weight: bold;
+            color: #4B0082;
+          }
+
+          .desc-tab {
+            position: relative;
+            left: 40%;
+            margin-top: -6%;
+            width: 60%;
+          }
+
+          .icon-tab {
+            position: relative;
+            left: -7%;
+          }
+
+          .icon-statement-tab {
+            position: relative;
+            left: 40%;
+            margin-top: -8%;
+            width: 20%;
+            padding-top: 1%;
+            padding-bottom: 1%;
+
+          }
+
+          &:last-child {
+            border-bottom: 5px solid #4B0082;
+          }
+        }
+      }
+    }
+  }
+  h1 {
+    font-size: 5vw;
+  }
+}

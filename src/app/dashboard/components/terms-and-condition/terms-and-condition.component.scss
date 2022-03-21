@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;700&display=swap');
+
+
+@font-face {
+  font-family: GE_SS_LIGHT;
+  src: url("../../../../assets/fonts/GE_SS_Two_Light-1.otf");
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #242836;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333541;
+}
+.background{
+  background-color: black;
+  height: 100%;
+  margin-bottom: -5%;
+}
+
+.title-mobile {
+  font-size: 18px;
+  color: #fff;
+  font-family: Arial;
+  cursor: pointer;
+  padding-top: 30px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #6D6F79;
+  font-family: Arial;
+  cursor: pointer;
+}
+
+a:hover {
+  font-size: 16px;
+  color: #9598a7;
+}
+
+
+.card {
+  height : 100%;
+  width: 100%;
+  border-radius: 30px;
+  background-color: #333541;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 5%}
+
+.card .primary-heading {
+  text-align: center;
+  font-family: josefin sans;
+  color: white;
+  padding-top: 50px ;
+  font-size: 4em;
+}
+
+.paragraph {
+  font-family: josefin sans;
+  color: rgb(179, 179, 179);
+  margin-left: 50px;
+  margin-right: 25px;
+  padding-top: 50px;
+  font-size: 1.5em;
+  line-height: 1.3em;
+  font-weight: 500;
+}
+
+.bold {
+  font-weight: 700;
+  color: white;
+}
+
+.footer-heading {
+  text-align: center;
+  font-family: josefin sans;
+  color: white;
+  font-size: 2em;
+  line-height: 35px;
+}
+.description-arab{
+  font-family:GE_SS_LIGHT;
+  direction: rtl;
+
+
+}
+@font-face {
+  font-family: GE_SS;
+  src: url("../../../../assets/fonts/GE_SS_Two_Bold.otf");
+}
+.title-arab {
+  font-family: GE_SS;
+  direction: rtl;
+  letter-spacing: 0px;
+
+}
+
+@media only screen and (max-width: 1218px) {
+  .card {
+    height : 100%;
+    width: 1000px;
+    border-radius: 30px;
+    background-color: #333541;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (max-width: 1012px) {
+  .card {
+
+    height : 100%;
+    width: 800px;
+    border-radius: 30px;
+    background-color: #333541;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (max-width: 832px) {
+  .card {
+
+    height : 100%;
+    width: 95vw;
+    border-radius: 30px;
+    background-color: #333541;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .card .primary-heading {
+    font-size: 3.5em;
+  }
+
+  .footer-heading {
+    font-size: 1.5em;
+  }
+}
+
+@media only screen and (max-width: 626px) {
+  .card {
+
+    height : 100%;
+    width: 450px;
+    border-radius: 30px;
+    background-color: #333541;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .header-mobile {
+    display: block;
+  }
+
+  .main-header {
+    display: none;
+  }
+
+  .card .primary-heading {
+    font-size: 3em;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .card {
+
+    height : 100%;
+    width: 350px;
+    border-radius: 30px;
+    background-color: #333541;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .card .primary-heading {
+    font-size: 2em;
+  }
+}
+
+@media only screen and (max-width: 365px) {
+  .card {
+
+    height : 6700px;
+    width: 290px;
+    border-radius: 30px;
+    background-color: #333541;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card .primary-heading {
+    font-size: 2em;
+  }
+}
+
+#button {
+  display: inline-block;
+  background-color: #111;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  transition: all .2s ease-in-out 0s;
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+i{
+  background: linear-gradient(to top, #e8a036 0%,#e3ac23 25%,#f8de52 75%, #e5aa38 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2rem;
+
+}
+#button::after {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+
+}
+
+#button.show {
+  opacity: 1;
+  visibility: visible;
+}

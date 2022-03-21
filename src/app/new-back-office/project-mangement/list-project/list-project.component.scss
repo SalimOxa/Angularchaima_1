@@ -1,0 +1,287 @@
+@font-face {
+  font-family: Americana;
+  src: url("../../../../assets/fonts/Americanatest.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: light;
+  src: url("../../../../assets/fonts/MADE TOMMY Light_PERSONAL USE.otf");
+}
+
+@font-face {
+  font-family: tommy-medium;
+  src: url("../../../../assets/fonts/MADE TOMMY Medium_PERSONAL USE.otf");
+}
+
+.input-file {
+  display: none;
+}
+
+.label-file {
+  cursor: pointer;
+
+}
+
+.btn-new-project {
+  background-image: url('../../../../assets/images/icon-backoffice/liste project icons/new project.png');
+  width: 150px;
+  height: 50px;
+  border: 0px;
+
+  cursor: pointer;
+
+}
+
+:host ::ng-deep.p-panel .p-panel-header .p-panel-header-icon:enabled:hover {
+  color: #4c198b;
+  background-color: white;
+}
+
+:host ::ng-deep.p-panel .p-panel-header .p-panel-header-icon {
+
+  color: white;
+}
+
+:host ::ng-deep.p-panel .p-panel-title {
+  font-size: 1.8vw;
+}
+
+:host ::ng-deep.p-panel .p-panel-header {
+  padding: 0.4rem;
+  padding-left: 1.5rem;
+  background: #5b2178;
+  color: white;
+  font-family: tommy-bold;
+  letter-spacing: 0.1vw;
+  font-size: 1.8vw;
+
+}
+
+
+:host ::ng-deep.p-panel .p-panel-content {
+  padding-top: 20px;
+}
+
+:host ::ng-deep.p-datatable .p-datatable-thead > tr > th {
+  text-align: left;
+  padding: 1rem;
+  border: solid #000000;
+  border-width: 0 0 1px;
+  font-weight: 500;
+  color: #000000de;
+  background: rgba(147, 147, 147, 0.12);
+}
+
+:host ::ng-deep.p-dialog .p-dialog-header .p-dialog-title {
+  font-weight: 500;
+  font-size: 1.5vw;
+  color: white;
+  margin-left: 0.2vw;
+}
+
+:host ::ng-deep.p-dialog .p-dialog-header .p-dialog-header-icon:enabled {
+  color: #ffffff;
+}
+
+:host ::ng-deep.p-dialog .p-dialog-header .p-dialog-header-icon:enabled:hover {
+  color: #4c198b;
+  background-color: white;
+}
+
+th {
+  font-family: tommy-medium;
+  font-size: 1vw;
+  letter-spacing: 0.05vw;
+  border: solid #000000;
+
+}
+
+td {
+
+
+  img {
+    cursor: pointer;
+    width: 2.5vw;
+  }
+
+  img:hover {
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+
+}
+
+
+tr:hover {
+  background-color: #f4f4f4;
+}
+
+
+tr:hover {
+  background-color: #f4f4f4;
+}
+
+:host ::ng-deep.ng2-pdf-viewer-container {
+  left: 0px;
+}
+
+h1 {
+  font-size: 1.5vw;
+}
+
+:host ::ng-deep.p-breadcrumb {
+  background: #fff;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+:host ::ng-deep {
+  .p-breadcrumb ul {
+    color: #000000;
+    font-size: 1.2vw;
+    font-family: tommy-medium;
+  }
+
+  .p-breadcrumb ul li.p-breadcrumb-chevron {
+    margin: 0 .5rem;
+    color: #000000;
+    font-size: 1.2vw;
+  }
+
+  .p-breadcrumb ul li .p-menuitem-link .p-menuitem-icon {
+    color: #000000;
+    font-size: 1.2vw;
+  }
+}
+
+/**************dialog******************/
+
+:host ::ng-deep.p-dialog .p-dialog-header .p-dialog-title {
+  font-weight: 500;
+  font-size: 1.5vw;
+  color: white;
+  margin-left: 0.2vw;
+}
+
+:host ::ng-deep.p-dialog .p-dialog-header {
+  border-bottom: 0;
+  background: #5b2178;
+
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  padding: 0.8vw;
+}
+
+:host ::ng-deep.p-dialog {
+  width: 50vw;
+
+  .p-dialog-header {
+    .p-dialog-header-icon:enabled {
+      color: #ffffff;
+    }
+
+    .p-dialog-header-icon:enabled:hover {
+      color: #5b2178;
+      background-color: white;
+    }
+  }
+}
+
+
+tr:hover {
+  background-color: #f4f4f4;
+}
+
+.fa-trash-alt {
+  color: red;
+  -webkit-filter: grayscale(0) blur(0px);
+  filter: grayscale(0) blur(0px);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.3s ease;
+
+}
+
+.fa-trash-alt:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.icon-delete {
+  font-size: 2.2vw;
+}
+
+
+.fa-minus-circle {
+  color: red;
+  -webkit-filter: grayscale(0) blur(0px);
+  filter: grayscale(0) blur(0px);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.3s ease;
+}
+
+.fa-minus-circle:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+#icon-update {
+  -webkit-filter: grayscale(0) blur(0px);
+  filter: grayscale(0) blur(0px);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.3s ease;
+  font-size: 43px;
+  margin-left: 10%;
+  color: green;
+  cursor: pointer;
+
+}
+
+#icon-update:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+
+.p-button-outlined {
+  margin-right: 10px;
+}
+
+.search {
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.p-inputtext {
+  font-size: 0.6vw;
+  padding: 0.5rem;
+}
+
+.fa-search {
+  color: #4c198b;
+  -webkit-filter: grayscale(0) blur(0px);
+  filter: grayscale(0) blur(0px);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.3s ease;
+
+}
+
+.fa-search:hover {
+  color: darkgreen;
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+:host ::ng-deep.p-datatable .p-datatable-tbody > tr > td {
+  text-align: center;
+  border: solid #e4e4e4;
+  border-width: 0 0 1px;
+  padding: 1rem;
+}

@@ -1,0 +1,202 @@
+{
+  "HOME": {
+    "TITLE1": "Login",
+    "TITLE2": "Register",
+    "SELECT": "Language",
+    "USERNAME": "User Name*",
+    "FIRST-NAME": "First Name*",
+
+    "COMPANY": "Company",
+    "BIRTHDAY": "Birthday*",
+    "BIRTHDAY-QUESTION": " Providing your birthday helps make sure you get the right RacineGcc experience for your age.(The minimum age for managing a private account on Racine GCC is 18 years old).",
+
+    "EMAIL": "Email*",
+    "PASSWORD": "Password",
+    "PASSWORD-REGISISTER": "Password*",
+    "RETYPE-PASSWORD-REGISISTER": "Retype Password*",
+
+    "CREATE-ACCOUNT": "Create Account",
+    "ALREADY-HAVE-ACCOUNT": "Already have an account!",
+    "ALREADY-NOT-HAVE-ACCOUNT": "You don't have an account? then",
+    "VALIDATE-USERNAME": "Username is required",
+    "VALIDATE-FIRSTNAME": "Firstname is required.",
+    "VALIDATE-BIRTHDAY": "Birthday is required.",
+    "VALIDATE-COMPANY": "Company is required.",
+    "VALIDATE-BIRTHDAY-AGE": "You Must at Least be 18 Years of Age.",
+    "VALIDATE-EMAIL": "Email is required.",
+    "VALIDATE-EMAIL-VALID": "Please, enter valid email address.",
+    "VALIDATE-EMAIL-EXIST": "the user email is  already exists.",
+    "VALIDATE-LOGIN": "Login and / or password are incorrect",
+    "VALIDATE-ALL-FIELDS": "please complete all fields before registering",
+
+    "VALIDATE-PASSWORD": "Password is required.",
+    "VALIDATE-RETYPE-PASSWORD": "Retype Password is required.",
+    "VALIDATE-INCORRECT-RETYPE-PASSWORD": "Incorrect Retype Password .",
+    "HOME-NAME": "Racine GCC.",
+    "HOME-NAME-2": "Digital Agency Based in Qatar",
+    "BUTTON_READ-MORE": " Read more >"
+  },
+  "ABOUT": {
+    "TITLE1": "About",
+    "TITLE2": "More than a degital agency",
+    "PARAGRAPH": "Racine Qatar is a leading SEO, web & mobile development company in Qatar offering affordable websites for professional or commercial purpose and online marketing solutions for businesses and professionals. Racine Qatar is specialized in branding & logo , online marketing solutions, ecommerce websites and applications, SEO services. We worked with businesses throughout Qatar. Established in 2020, we proudly help you to become leading brands and businesses on the web with excellent professionalism. We are trusted to be a digital agency now we are offering the best web & mobile development and SEO & social media services in Qatar."
+
+  },
+  "SERVICES": {
+    "TITLE1": "Services.",
+    "TITLE2": "Work with you not for you",
+    "TITLE1-PAR1": "Digital Strategy",
+    "TITLE1-PAR2": "Advanced Web development",
+    "TITLE1-PAR3": "E-commerce Websites development",
+    "TITLE1-PAR4": "Social Media",
+    "TITLE1-PAR5": "Brand Identity",
+    "TITLE1-PAR6": "SEO Optimization",
+    "PARAGHRAPH1": "Digital strategy focuses on using technology to improve business performance, whether that means creating new products or reimagining current processes. It specifies the direction an organization will take to create new competitive advantages with technology, as well as the tactics it will use to achieve these changes.",
+    "PARAGHRAPH2": "Web development is the work involved in developing a Web site for the Internet (World Wide Web) or an intranet (a private network).Web development can range from developing a simple single static page of plain text to complex web applications, electronic businesses, and social network services",
+    "PARAGHRAPH3": "Create & Manage an Online community of local stores by Building a Multi-Vendor Marketplace. Customize Your App/Website as per Your Preference and Brand Guidelines with our Platform. All-in-one Suite. Build Any Marketplace. 24*7 Premium Support.",
+    "PARAGHRAPH4": "Social media customer service is the practice of using social tools to resolve customer questions or concerns. Social customer support is highly effective because it allows customers to reach your team on the platforms they already use.",
+    "PARAGHRAPH5": "A brand identity is a set of tools or elements used by a company to create a brand image. A brand image is a customers’ perception of the brand consisting of various associations related to it and memories about interacting with it",
+    "PARAGHRAPH6": "Understand consumer behaviour in uncertain times. Discover weekly search insights from the Google Trends tool. Marketing Trends. Global Marketing Insights. Marketing Tools. Marketing Resources. Local Marketing Insights."
+  },
+
+  "ONESERVICE": {
+    "BUTTON": "SEND REQUEST"
+  },
+  "CONTACT": {
+    "TITLE1": "CONTACT US",
+    "TITLE2": "Our teams are here to help..",
+    "USERNAME": "YOUR NAME",
+    "PRENOM": "FIRST NAME",
+    "EMAIL": "YOUR E-MAIL",
+    "SUBJECT": "Your-Subject",
+    "Message": "YOUR MESSAGE",
+    "Headquarters": "Headquarters",
+    "Headquarters-TEXT": "Almuntazah Commercial Complex Block 2, 2nd floor, Office 2 Doha, Qatar",
+    "Email": "Email",
+    "Email-TEXT": "contact@racinegcc.com",
+    "Phone": "Phone",
+    "Phone-number": "+97450315815",
+    "BUTTON-SEND": "send"
+  },
+  "FOOTER": {
+    "A PROPOS": "About RACINEGCC",
+    "PARAGRAPHE-APROPOS": "racine Qatar is a leading SEO, web & mobile development company in Qatar offering affordable websites for professional or commercial purpose and online marketing solutions for businesses and professionals. Racine Qatar is specialized in branding & logo , online marketing solutions, ecommerce websites and applications, SEO services. We worked with businesses throughout Qatar. Established in 2020, we proudly help you to become leading brands and businesses on the web with excellent professionalism. social media services in Qatar.",
+    "PHONE": "Phone:",
+    "EMAIL": "E-mail :",
+    "Address": "Adress:",
+    "RESEAUX SOCIAUX": "Follow us on our social networks:",
+    "SERVICES": "Services ",
+    "CONTACT-NOUS": " Who are we",
+    "INFORMATIONS": "Information and legal notices",
+    "Address-TEXT": "Almuntazah Commercial Complex Block 2, Office 2 Doha, Qatar",
+    "RIGHT-RESERVED": "2022 © Racine, All rights reserved."
+  },
+  "HEADER": {
+    "HOME": "Home",
+    "ABOUT": " About",
+    "SERVICES": "Services",
+    "WORKS": "Works",
+    "CONTACT": "Contact",
+    "PARTNER": "Partners",
+    "SLEGON": "Racine GCC",
+    "LOGIN": "Login"
+  },
+
+  "HOME-PAGE": {
+    "TITLE1": "WebDev",
+    "TITLE2": "Android-app-development",
+    "TITLE3": "DegitalStrategy",
+    "PARAGHRAPH1": "Racine is a leading web development company in Qatar.Get your professional website now.",
+    "PARAGHRAPH2": "We develop advanced mobile apps in both platforms iOS & Android, we bring your ideas to life.",
+    "PARAGHRAPH3": "We extand your visibility in Qatar and worldwide."
+  },
+  "DASHBOARD-HOME-PAGE": {
+    "TITLE2": "BRANDING AGENCY",
+    "TITLE3": "BASED IN QATAR",
+    "Button": "READ MORE"
+
+  },
+
+  "ABOUT-PAGE": {
+    "PARAGHRAPH": "Racine Qatar is a leading SEO, web & mobile development company in Qatar offering affordable websites for professional or commercial purpose and online marketing solutions for businesses and professionals. Racine Qatar is specialized in branding & logo , online marketing solutions, ecommerce websites and applications, SEO services. We worked with businesses throughout Qatar. Established in 2020, we proudly help you to become leading brands and businesses on the web with excellent professionalism. We are trusted to be a digital agency now we are offering the best web & mobile development and SEO & social media services in Qatar.",
+    "IMAGE1T1": "TEAM WORK",
+    "IMAGE1T2": "PHILOSOPHIE",
+    "IMAGE1T3": "OFFICE",
+
+    "TITLE1": "ABOUT",
+    "TITLE2": "Our philosophy",
+    "TITLE3": "How we work",
+    "PARAGHRAPH1": "Bringing unlocked me an striking ye perceive. Mr by wound hours oh happy.Bringing unlocked me an striking ye perceive. Mr by wound hours oh happy.Me in resolution pianoforte continuing we. Most my no spot felt by no. He he in forfeited furniture sweetness he arranging.",
+    "PARAGHRAPH1-2": "Me tedious so to behaved written account ferrars moments.Bringing unlocked me an striking ye perceive. Mr by wound hours oh happy. Me in resolution pianoforte continuing we. Most my no spot felt by no. He he in forfeited furniture sweetness he arranging. Me tedious so to behaved written account ferrars moments.",
+    "PARAGHRAPH2": " Bringing unlocked me an striking ye perceive. Mr by wound hours oh happy.wound hours oh happy.",
+    "PARAGHRAPH3": "Bringing unlocked me an striking ye perceive. Mr by wound hours oh happy.wound hours oh happy.",
+    "BUTTON-MORE": "MORE"
+  },
+
+  "MIDDLE-1": {
+    "TITLE1": "Create a Superb Business",
+    "TITLE2": "Website Today !"
+
+  },
+  "MIDDLE-2": {
+    "TITLE1": "Racine GCC",
+    "TITLE2": "THE BEST BRANDING AGENCY"
+
+  },
+  "WORKS": {
+    "TITLE1": "WHO WE ARE",
+    "TITLE2": "OUR PHILOSOPHIY",
+    "TITLE3": "HOW WE WORK",
+    "PARAGHRAPH1": "We offer our handcrafted promotion service packages customized for your specific business needs and goals depending on the field. You get an all-in-one solution that can include extra services ranging from custom logo design to mobile and web development solutions.",
+    "PARAGHRAPH2": "We believe technology is a wonderful tool that can change the world for the better – it should give people a voice and help creators find their audience, not help sell your data to the highest bidder.",
+    "PARAGHRAPH3": "Little by choosing a tight team. Big by its ambitions. Because behind its permanent quest for the Holy Grail, our agency is always chasing the sublime."
+  },
+  "SERVICES": {
+    "TITLE": "SERVICES",
+    "BUTTON": "SEE MORE"
+
+  },
+  "PARTNERS": {
+    "TITLE": "PARTNERSHIPS"
+  },
+  "SUCCESS REGISTRATION": {
+    "TITLE1": "successful registration",
+    "TEXT1": "We send a confirmation link to",
+    "BUTTON": "Confirm by phone?",
+    "TEXT2":  "Already have an account!",
+    "LINK":  "Log in"
+  },
+  "CONFIRM-BY-PHONE": {
+    "TITLE1": "Confirm By Phone",
+    "TEXT1": "Please choose your country and enter your phone number",
+    "BUTTON": "Go",
+    "TEXT2":  "Already have an account!",
+    "LINK":  "Login",
+    "VALID_NUMBER": "is not a valid phone number",
+    "COMPTE_UNLOCK ": "unlock account",
+    " PRESSING_BUTTON": "please press login to connect to your account",
+    " CONFIRMATION_CODE": "your confirmation code is invalid  please enter a valid code",
+    "COMPTE_LOCK ": "verrouiller le compte ",
+    "CLOSE":"close"
+  },
+  "TERMS-AND-CONDTIONS": {
+    "TITLE": "Terms and Conditions",
+    "TEXT1": "Welcome to our website. If you continue to browse and use this website you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern SourceCodester’s relationship with you in relation to this website. The use of this website is subject to the following terms of use:",
+    "TEXT2": "1) The content of the pages of this website is for your general information and use only. It is subject to change without notice.\n",
+    "TEXT3":  "2)Neither we nor any third parties provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or suitability of the information and materials found or offered on this website for any particular purpose. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the fullest extent permitted by law.",
+    "TEXT4":  "3) Your use of any information or materials on this website is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any products, services or information available through this website meet your specific requirements.",
+    "TEXT5":"4) This website contains material which is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance and graphics. Reproduction is prohibited other than in accordance with the copyright notice, which forms part of these terms and conditions.",
+    "TEXT6": "5) Registration Data and certain other information about you is subject to our Privacy Policy.\n",
+    "TEXT7": "6) All trademarks reproduced in this website, which are not the property of, or licensed to the operator, are acknowledged on the website.",
+    "TEXT8": "7) Unauthorized use of this website may give rise to a claim for damages and/or be a criminal offence.",
+    "TEXT9": "9)From time to time this website may also include links to other websites. These links are provided for your convenience to provide further information. They do not signify that we endorse the website(s). We have no responsibility for the content of the linked website",
+    "TEXT10":"10)You may not create a link to this website from another website or document without SourceCodester’s prior written consent.",
+    "TEXT11": "11)You are not allowed to publish any unlawful, threatening, defamatory, fraudulent, obscene or otherwise objectionable content.",
+    "TEXT12": "12)You may not post or transmit any information or software that contains a virus or other harmful/disruptive component.",
+    "TEXT13": "13)You agree not to Post or transmit materials in violation of another party's copyright or intellectual property rights.",
+    "TEXT14": "14)By submitting your source code, article, and tutorial you agree that you grant all users permission, including RacineGcc.com, to view, copy, edit or modify (for source code only) any content you have submitted.",
+    "TEXT15": "15)RacineGcc.com reserves the right to refuse to post, alter or remove any content at its sole discretion.",
+    "TEXT16": "© Copyright 2020-2021 RACINE GCC. All rights reserved."
+
+  }
+}

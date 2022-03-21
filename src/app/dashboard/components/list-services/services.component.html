@@ -1,0 +1,67 @@
+<div class="container p-grid p-mb-6" style="width: auto">
+  <div class="   p-col-12 p-lg-12 p-sm-12 p-md-12">
+    <h1 id="title-service" class="title-service " data-aos="fade-up"
+        data-aos-easing="ease-out-cubic"
+        data-aos-delay="300"
+        data-aos-duration="1000" [class.title-service-arabic]="selectLang==='AR'">{{ 'SERVICES.TITLE' | translate }}</h1>
+  </div>
+  <div class=" cross p-col-12 p-lg-2 p-sm-2 p-md-2">
+
+
+    <img class="golden-cross p-mb-4 circle" src="assets/images/elemenetAnimation/croixDoré.png ">
+    <img class="white-cross circle " src="assets/images/elemenetAnimation/elemnt1.png">
+  </div>
+  <div class="  cards  p-col-12 p-lg-8 p-sm-8 p-md-8" >
+    <div *ngIf="listServices" class="p-grid">
+
+
+
+      <div  class="p-col-12 p-lg-4 p-sm-12 p-md-6 " *ngFor="let service of listServices">
+
+        <div data-aos="fade-up" data-aos-duration="500" class="card p-ml-md-4 p-ml-lg-0 ">
+          <div class="image">
+            <img [src]="host+'/photoService/'+service.id"/>
+          </div>
+          <div class="details">
+            <div class="center">
+              <div class="content-card">
+                <h1 *ngIf="selectLang==='EN'"> {{  service.name }}</h1>
+                <h1 class="h1-arabic" *ngIf="selectLang==='AR'"> {{  service.nameArabic }}</h1>
+                <h1 *ngIf="selectLang==='FR'"> {{  service.nameFrensh }}</h1>
+
+                <p *ngIf="selectLang==='EN'">{{ service.description }}</p>
+                <p class="description-arabic" *ngIf="selectLang==='AR'">{{ service.descriptionArabic }}</p>
+                <p *ngIf="selectLang==='FR'">{{ service.descriptionFrensh }}</p>
+                <div (click)="goToSevice(service.id)" class="p-mt-6">
+                  <h2 *ngIf="selectLang==='EN'" >{{ 'SERVICES.BUTTON' | translate }} <i class='fas fa-caret-right '></i>
+                    <i class='fas fa-caret-right' ></i></h2>
+                </div>
+                <div  (click)="goToSevice(service.id)" >
+                  <h2 *ngIf="selectLang==='FR'" >{{ 'SERVICES.BUTTON' | translate }} <i class='fas fa-caret-right '></i>
+                    <i class='fas fa-caret-right' ></i></h2>
+                </div>
+                <div *ngIf="selectLang==='AR'" class="more"  (click)="goToSevice(service.id)" >
+                  <h2 class="h2-arab"  ><i class="fas fa-caret-left"></i>
+                    <i class="fas fa-caret-left"></i>  {{ 'SERVICES.BUTTON' | translate }}</h2>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+</div>
+  <div class=" cross p-col-12 p-lg-2 p-sm-2 p-md-2">
+
+
+    <!--img class="golden-cross p-mb-4 circle" src="assets/images/elemenetAnimation/croixDoré.png ">
+    <img class="white-cross circle " src="assets/images/elemenetAnimation/elemnt1.png"-->
+  </div>
+</div>

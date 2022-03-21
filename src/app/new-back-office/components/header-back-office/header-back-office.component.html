@@ -1,0 +1,156 @@
+<div class="ng-header">
+  <div class="left">
+    <div class="p-d-flex">
+      <img class="logo" src="../../../../assets/images/logo/logo2.png" alt="logo"/>
+      <img class="vl" src="../../../../assets/images/icon-backoffice/barre.png"/>
+      <h1 class="role"> {{nameUser}} </h1>
+    </div>
+  </div>
+  <div class="right">
+    <div class="icon">
+      <a (click)="logout()"><img src="../../../../assets/images/icon-backoffice/header/logout.png">
+      </a>
+    </div>
+    <div class="icon">
+      <a><img src="../../../../assets/images/icon-backoffice/header/setting.png"></a>
+    </div>
+
+    <div class=" icon notfication p-d-flex ">
+         <span class="p-overlay-badge "
+               (click)="op.toggle($event)" (click)="clickedNotification()">
+<img src="../../../../assets/images/icon-backoffice/header/notfication.png">
+           <span *ngIf="numberNewNotfication!==0" class="p-badge">{{numberNewNotfication}}</span>
+
+</span>
+
+
+    </div>
+    <img class="user-name" src="../../../../assets/images/icon-backoffice/header/profile.png">
+
+    <div class="icon-username" *ngIf="user" [routerLink]="['/new-back-office/dashboard/list-project']">
+      <span>{{user.name}}</span>
+    </div>
+  </div>
+</div>
+
+<p-overlayPanel #op [showCloseIcon]="false" [style]="{width: '350px'}">
+  <div class="wrapper" *ngIf="isLoding">
+    <div class="wrapper-cell">
+      <div class="image"></div>
+      <div class="text">
+        <div class="text-line"></div>
+        <div class="text-line"></div>
+        <div class="text-line"></div>
+        <div class="text-line"></div>
+      </div>
+    </div>
+    <div class="wrapper-cell">
+      <div class="image"></div>
+      <div class="text">
+        <div class="text-line"></div>
+        <div class="text-line"></div>
+        <div class="text-line"></div>
+        <div class="text-line"></div>
+      </div>
+    </div>
+    <div class="wrapper-cell">
+      <div class="image"></div>
+      <div class="text">
+        <div class="text-line"></div>
+        <div class="text-line"></div>
+        <div class="text-line"></div>
+        <div class="text-line"></div>
+      </div>
+    </div>
+    <div class="wrapper-cell">
+      <div class="image"></div>
+      <div class="text">
+        <div class="text-line"></div>
+        <div class="text-line"></div>
+        <div class="text-line"></div>
+        <div class="text-line"></div>
+      </div>
+    </div>
+    <div class="wrapper-cell">
+      <div class="image"></div>
+      <div class="text">
+        <div class="text-line"></div>
+        <div class="text-line"></div>
+        <div class="text-line"></div>
+        <div class="text-line"></div>
+      </div>
+    </div>
+    <div class="wrapper-cell">
+      <div class="image"></div>
+      <div class="text">
+        <div class="text-line"></div>
+        <div class="text-line"></div>
+        <div class="text-line"></div>
+        <div class="text-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template pTemplate>
+
+    <div style=" height: 500px;overflow-y: scroll" *ngIf="!isLoding">
+
+      <div>
+        <h2>Notifications</h2>
+        <input type="checkbox" name="foo" value="bar2" id="1">
+        <label for="1" class="md-chip md-chip-clickable md-chip-hover" (click)="getNotications()"> All</label>
+        <input type="checkbox" name="foo" value="bar2" id="2">
+        <label for="2" class="md-chip md-chip-clickable md-chip-hover" (click)="showUnreadNotification()">
+          Unread</label>
+        <input type="checkbox" name="foo" value="bar2" id="3" *ngIf="haveNotficationForClear">
+        <label for="3" class="md-chip md-chip-clickable md-chip-hover" (click)="showAllUnreadNotification()"
+               *ngIf="haveNotficationForClear"> Read
+          All</label>
+
+        <hr>
+      </div>
+
+      <div *ngFor="let notification of listNotification; let i=index" class="notification-message"
+           [ngClass]="{'Notification_Not_Showed': notification.isShowed == true}"
+           (click)="viewNotification(notification,op,$event)"
+      >
+        <div><i class="fas fa-child icon_overlayPanel"></i><b>Person: </b><i style="color: blue"
+                                                                             [innerHtml]=" notification.name"></i></div>
+        <div><i class="fas fa-location-arrow icon_overlayPanel"></i><b>Action: </b><i
+          [innerHtml]=" notification.message"></i></div>
+        <div><i class="far fa-clock icon_overlayPanel "></i><b><i>Created On: </i></b><i
+          [innerHtml]="notification.createdDate | date:'dd/MM/yyyy'"></i></div>
+        <div class="p-d-flex p-jc-end">
+          <div class="p-mr-1 p-mt-2">
+
+            <div>
+              <button (click)="approveUpdate(notification)" *ngIf="notification.approved===false">approve</button>
+            </div>
+
+          </div>
+          <div class="p-mr-2 p-mt-2">
+
+            <div>
+              <button *ngIf="notification.approved===false">annuler</button>
+            </div>
+
+          </div>
+          <div class="p-mr-2 p-mt-2">
+
+            <div><h5 style="color: green"
+                     *ngIf="notification.approved==true && notification.typeNotification=='has updated her profile'">
+              approvée</h5></div>
+
+          </div>
+        </div>
+
+
+        <hr>
+
+      </div>
+    </div>
+    <div *ngIf="listNotification.length===0 && isLoding===false">list notfication empty</div>
+
+  </ng-template>
+</p-overlayPanel>
+

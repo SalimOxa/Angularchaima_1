@@ -1,0 +1,51 @@
+<div class="p-grid background">
+  <div class="p-d-flex p-jc-center container ">
+    <div class="p-d-flex  p-flex-column p-jc-center" style="min-width:30%">
+      <p-card  class="p-shadow-6 "  [class.arab]="selectLang==='AR'" >
+        <div class="p-fluid" >
+          <header >
+            <i class="fas fa-check-circle p-d-flex p-jc-center  "></i>
+            <h2 class="p-d-flex p-jc-center p-mb-2 text1" [class.h2-arab]="selectLang==='AR'" >{{ 'SUCCESS REGISTRATION.TITLE1' | translate }}</h2>
+
+          </header>
+          <div class="p-d-flex p-jc-center ">
+            <h2 [class.text-arab]="selectLang==='AR'">{{ 'SUCCESS REGISTRATION.TEXT1' | translate }} :<strong style="color: blue">{{email}}</strong> </h2>
+
+          </div>
+
+          <div class="p-d-flex p-jc-center" >
+            <button
+              pButton
+              type="submit"
+              class="p-button-rounded p-button p-button-raised p-button-info p-mt-3 p-mb-3  p-button-info"
+              [style]="{width: 'auto'}"
+              (click)="confirmByPhone()">
+              <label [class.text-arab]="selectLang==='AR'">{{ 'SUCCESS REGISTRATION.BUTTON' | translate }}</label>
+            </button>
+          </div>
+          <div class="p-d-flex p-jc-center">
+      <span [class.text-arab]="selectLang==='AR'">
+     {{ 'SUCCESS REGISTRATION.TEXT2' | translate }}
+      <a
+        style="color: dodgerblue"
+        class="p-text-bold"
+        [routerLink]="['']"
+      >
+        &nbsp;{{ 'SUCCESS REGISTRATION.LINK' | translate }}</a
+      >
+    </span>
+          </div>
+        </div>
+      </p-card>
+
+
+
+    </div>
+  </div>
+
+</div>
+<div id='stars'></div>
+<div id='stars2'></div>
+<div id='stars3'></div>
+
+

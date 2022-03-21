@@ -1,0 +1,35 @@
+tr:hover {background-color: #f4f4f4;}
+.master {
+  font-weight: 700;
+  color: #FF5252;
+}
+
+.admin {
+  font-weight: 700;
+  color: #FFA726;
+}
+
+.instock {
+  font-weight: 700;
+  color: #66BB6A;
+}
+
+:host ::ng-deep .adminMasterRows {
+  background-color: rgba(0,0,0,.15) !important;
+}
+tr:hover {background-color: #f4f4f4;}
+.fa-trash-alt{
+  color: red;
+  -webkit-filter: grayscale(0) blur(0px);
+  filter: grayscale(0) blur(0px);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.3s ease;
+
+}
+.fa-trash-alt:hover{
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}#icon-delete{
+   font-size:40px;
+ }

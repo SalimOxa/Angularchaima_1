@@ -1,0 +1,370 @@
+@font-face {
+  font-family: tommy-light;
+  src: url("../../../../assets/fonts/MADE TOMMY Light_PERSONAL USE.otf") ;
+}
+
+@font-face {
+  font-family: medium;
+  src: url("../../../../assets/fonts/MADE TOMMY Medium_PERSONAL USE.otf");
+}
+@font-face {
+  font-family: tommy-bold;
+  src: url("../../../../assets/fonts/MADE TOMMY Bold_PERSONAL USE.otf");
+}
+// Colors
+$page-background-color: #FFFFFF;
+$gradient-color-1:#e8a036 ;
+$gradient-color-2: #f8de52;
+
+// Keyframes
+@keyframes animationgradienttitle {
+  0% {
+    background-position: 0 1600px;
+  }
+  100% {
+    background-position: 1600px 0;
+  }
+}
+:host ::ng-deep{
+.p-toast-summary {
+
+  color: gold;
+  font-family: tommy-bold;
+  letter-spacing: 0.05vw;
+
+  background: -webkit-linear-gradient(left, $gradient-color-1,$gradient-color-2 , $gradient-color-1);
+  background-size: 600px 200px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation-duration: 7s;
+  animation-name: animationgradienttitle;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+  .p-toast-message-icon {
+    color:#5b2178;
+  }
+}
+.ng-header {
+  height: 70px;
+  background-color:#5b2178;
+  box-shadow: 0px 0px 8px rgba(0,0,0,.6);
+  width: 100%;
+}
+.icon-menu-responsif {
+  line-height: 50px;
+  font-size: 35px;
+  cursor: pointer;
+  float: right;
+  margin-right: 10px;
+  margin-top: 8px;
+  display:none;
+}
+
+
+.icon {
+  line-height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  float: right;
+  margin-right: 5px;
+  margin-top: 15px;
+  display: block;
+}
+.icon:active{
+  color: #e5c431;
+}
+.icon:hover{
+  -webkit-transform:scale(1.05);
+  -moz-transform:scale(1.05);
+  -ms-transform:scale(1.05);
+  -o-transform:scale(1.05);
+  transform:scale(1.05);
+}
+.user-name {
+  margin-top: 16px;
+}
+.icon-username{
+  line-height: 50px;
+  font-size: 17px;
+  padding: 5px;
+  cursor: pointer;
+  float: right;
+  margin-right: 5px;
+  margin-top: 3px;
+  color: white;
+  display: block;
+  font-family: medium;
+
+}
+
+.icon-username:active{
+  color: #f3ca00;
+  font-size: 18px;
+}
+.notification{
+  display: block;
+}
+h1{
+  color: white;
+  margin-left: 10px;
+
+}
+
+.logo{
+  margin-left: 30px;
+  margin-top: 14px;
+  height: 50px;
+  cursor: pointer;
+}
+.role{
+  margin-left:0.1vw;
+  color: gold;
+  font-family: tommy-bold;
+  letter-spacing: 0.05vw;
+  font-size: 40px;
+  margin-top: 10px;
+  background: -webkit-linear-gradient(left, $gradient-color-1,$gradient-color-2 , $gradient-color-1);
+  background-size: 1600px 200px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation-duration: 3s;
+  animation-name: animationgradienttitle;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  display: block;
+
+
+}
+.vl {
+  margin-left:8.2vw;
+  height: 70px;
+
+}
+
+.right {
+  float: right;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.left {
+  float: left;
+}
+
+
+
+
+.p-badge{
+  background-color: red;
+}
+.icon_overlayPanel{
+  padding-right: 3%;
+
+}
+
+.Notification_Not_Showed{
+  background-color: #d7e6ff;
+}
+
+.notification-message{
+  margin-left: 1%;
+  margin-right: 3%;
+
+
+}
+
+.notification-message:hover{
+  background-color: rgba(191, 191, 191, 0.42);
+  cursor:pointer;
+  margin-left: 2%;
+
+}
+.pi-bell{
+  color: white;
+}
+.pi-bell:active{
+  color: black;
+}
+
+
+:host ::ng-deep.p-overlaypanel {
+ background-color: #e9f3f7;
+  border-radius:10px;
+  width: 30vw;
+}
+
+:host ::ng-deep.p-overlaypanel .p-overlaypanel-content {
+  padding: 1rem 0 1rem 1rem;
+}
+
+b{
+  color: #4c198b;
+  margin-left: 1%;
+  font-family: medium;
+}
+
+h2{
+  font-family: tommy-bold;
+}
+
+.comment{
+  font-family: tommy-light;
+
+}
+
+
+
+element {
+
+  z-index: 11006;
+
+}
+
+.p-sidebar-left {
+
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 20rem;
+
+}
+.p-sidebar {
+
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  transition: transform .3s;
+
+}  :host::ng-deep {
+     .p-sidebar {
+
+       background-color: rgba(0, 0, 0, 1);
+       color: white;
+       border: 0;
+       box-shadow: 0 11px 15px -7px #0003, 0 24px 38px 3px #00000024, 0 9px 46px 8px #0000001f;
+
+       .p-sidebar-mask.p-component-overlay {
+         background-color: rgba(0, 0, 0, 1);
+       }
+       .p-panelmenu .p-panelmenu-header:not(.p-highlight):not(.p-disabled) > a {
+          color: white;
+         background-color: rgba(0, 0, 0, 1);
+         font-family: tommy-light;
+        }
+       .p-panelmenu .p-panelmenu-header:not(.p-highlight):not(.p-disabled) > a:hover {
+         color: white;
+         background-color: rgba(0, 0, 0, 1);
+       }
+     }
+     .p-panelmenu .p-panelmenu-content {
+
+       background-color: rgba(0, 0, 0, 1);
+       color: white;
+     }
+     .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover {
+       background-color: whitesmoke;
+     }
+
+     .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link
+
+     {
+       color: white;
+       .p-menuitem-icon {
+       color: white;
+
+     }
+    .p-menuitem-text {
+       color: white;
+     }}
+   }
+:host ::ng-deep.p-toast-bottom-center {
+  bottom: 20px;
+  left:15%;
+  transform: translateX(-50%);
+box-shadow: none;
+
+  background-color: rgb(239, 239, 239);
+}
+
+@media screen and (max-width: 992px) {
+
+  .icon-menu-responsif {
+    display: block;
+  }
+  .user-name{
+    display: none;
+
+  }
+  .icon-username{
+    display: none;
+  }
+  .icon{
+    display: none;
+  }
+  .notification{
+    display: block;
+  }
+    .listComment{
+    height: 30rem;
+    overflow: scroll;
+
+  }
+  .listComment:hover{
+    overflow-y: scroll;
+  }
+  .role{
+    margin-top:20px;
+    font-size: 30px;
+
+  }
+  :host ::ng-deep.p-sidebar-header {
+
+    display: none;
+
+  }
+  :host ::ng-deep.p-overlaypanel {
+
+    width: 50vw;
+  }
+
+}
+@media screen and (max-width: 756px) {
+  .icon-menu-responsif {
+    display: block;
+  }
+  .user-name{
+    display: none;
+
+  }
+  .icon-username{
+    display: none;
+  }
+  .icon{
+    display: none;
+  }
+  .notification{
+    display: block;
+  }
+  .role{
+    margin-top: 27px;
+    font-size: 17px;
+    margin-left: -5px;
+
+  }
+  .logo{
+    margin-left: 10px;
+    margin-top: 20px;
+    height: 35px;
+
+  }
+  :host ::ng-deep.p-overlaypanel {
+
+    width: 80vw;
+  }
+
+}

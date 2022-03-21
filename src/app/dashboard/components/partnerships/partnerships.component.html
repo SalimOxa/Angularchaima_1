@@ -1,0 +1,44 @@
+<div class="container ">
+  <div class="p-col-12 p-md-8 p-lg-8 p-sm-8">
+    <h1 class="title-service " data-aos="fade-up"
+        data-aos-easing="ease-out-cubic"
+        data-aos-delay="300"
+        data-aos-duration="1000"
+        [class.title-service-arabic]="selectLang==='AR'">{{ 'PARTNERS.TITLE' | translate }}</h1>
+  </div>
+  <div class="  cards  p-col-12 p-lg-12 p-sm-12 p-md-12">
+    <div *ngIf="partnerList" class="p-grid ">
+
+      <div class="p-col-12 p-lg-3 p-md-6 p-sm-12 " *ngFor="let partner of partnerList">
+
+        <a class="event" data-aos="flip-left" data-aos-duration="1500">
+
+          <img src="data:image/png;base64,{{partner.data}}">
+          <div class="content">
+            <h3 *ngIf="selectLang==='EN'"> {{  partner.englishName }}</h3>
+            <h3 class="h1-arabic" *ngIf="selectLang==='AR'"> {{ partner.arabicName }}</h3>
+            <h3 *ngIf="selectLang==='FR'"> {{  partner.frenchName }}</h3>
+            <div class="rollover">
+              <p *ngIf="selectLang==='EN'">{{ partner.englishDescription }}</p>
+              <p class="description-arabic" *ngIf="selectLang==='AR'">{{ partner.arabicDescription }}</p>
+              <p *ngIf="selectLang==='FR'">{{ partner.frenchDescription }}</p>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+

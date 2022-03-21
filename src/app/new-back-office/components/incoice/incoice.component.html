@@ -1,0 +1,77 @@
+
+
+<div class="p-grid">
+
+  <div class="p-col-12" >
+
+
+  <body id="content" #content >
+  <header class="clearfix">
+    <div id="logo">
+      <img src="../../../../assets/images/logo/racineGcc.png">
+    </div>
+    <h1>REF:{{codeInvoice}}</h1>
+    <div id="company" class="clearfix">
+      <div>Racine Gcc</div>
+      <div>Complexe commercial <br />Almuntazah Bloc 2</div>
+      <div>+97450315815</div>
+      <div><a href="contact@racinegcc.com">contact@racinegcc.com</a></div>
+    </div>
+    <div id="project">
+      <div><span>PROJECT</span> {{project.name}}</div>
+      <div><span>CLIENT</span> {{project.nameCustomer}}</div>
+      <div><span>ADDRESS</span> 796 Silver Harbour, TX 79273, US</div>
+      <div><span>EMAIL</span> <a href="mailto:john@example.com">john@example.com</a></div>
+      <div><span>DATE</span> {{payement_date | date:'fullDate' }} </div>
+      <div><span>DUE DATE</span>{{tranche.deadline | date:'fullDate'}}</div>
+    </div>
+  </header>
+  <main>
+    <table>
+      <thead>
+      <tr>
+
+        <th>Part Payment N°</th>
+        <th>Payment Method</th>
+        <th >Price Project</th>
+        <th >Payment Amount</th>
+        <th>Remaining Amount</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="service">{{tranche.id}}</td>
+        <td class="desc">Species</td>
+        <td class="unit">{{project.totalPayment}} USD</td>
+        <td class="qty">{{tranche.price}} USD</td>
+        <td class="total">{{project.restPayment}} USD</td>
+      </tr>
+      <tr>
+        <td colspan="4">SUBTOTAL</td>
+        <td class="total">$5,200.00</td>
+      </tr>
+      <tr>
+        <td colspan="4">TAX 25%</td>
+        <td class="total">$1,300.00</td>
+      </tr>
+      <tr>
+        <td colspan="4" class="grand total">GRAND TOTAL</td>
+        <td class="grand total">$6,500.00</td>
+      </tr>
+      </tbody>
+    </table>
+    <div id="notices">
+      <div>NOTICE:</div>
+      <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+    </div>
+  </main>
+  <footer>
+    Invoice was created on a computer and is valid without the signature and seal.
+  </footer>
+
+  </body>
+  <div class=" p-mt-0 p-d-flex p-jc-end btn">
+  <p-button class="p-mr-3" (click)="checkoutTranche()">Pay</p-button>
+</div>
+</div>
+</div>

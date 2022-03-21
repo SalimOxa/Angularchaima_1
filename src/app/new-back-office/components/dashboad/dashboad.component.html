@@ -1,0 +1,23 @@
+<div class="background">
+<div class="p-grid">
+
+
+
+    <p-toast position="bottom-center" key="bc"></p-toast>
+    <app-header-back-office  style="width: 100%" ></app-header-back-office>
+
+
+  <div class="p-col-2 p-shadow-3">
+    <p-panelMenu class="p-col-2" [model]="items" >
+
+
+    </p-panelMenu>
+  </div>
+  <div class="p-col-10" >
+    <router-outlet  ></router-outlet>
+    <!----button type="button" pButton pRipple (click)="showBottomCenter()" label="Bottom Center" class="p-button-success"></button-->
+  </div>
+
+</div>
+</div>
+

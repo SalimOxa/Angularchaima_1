@@ -1,0 +1,87 @@
+<p-toast position="bottom-center"  key="toast"></p-toast>
+
+<div class="p-grid">
+  <section class="p-col-12 section_contact ">
+    <h1  [class.title-arab-contact]="selectLang==='AR'" data-aos="fade-down"
+        data-aos-duration="1000"> {{ 'CONTACT.TITLE1' | translate }}</h1>
+    <div class="p-grid" style="width: 100%" data-aos="fade-up"
+         data-aos-duration="1000">
+      <div class="p-col-12 p-lg-2 p-md-1 p-sm-1  ">
+      <img class="white-cross p-ml-6 " src="assets/images/elemenetAnimation/elemnt1.png">
+      <img class="golden-contouring-cross" src="assets/images/elemenetAnimation/croixContourDore.png">
+
+    </div>
+
+
+      <div class="p-col-12  p-md-12 p-lg-8 p-sm-12 content ">
+        <div class="  p-d-flex p-flex-column ">
+
+          <div class="p-grid">
+
+            <div class=" p-col-12 p-md-12 p-lg-6 p-sm-12 ">
+              <div class="floating-label">
+                <input class="floating-input" [(ngModel)]="contactForm.name"  type="text" placeholder=" " [class.text_arabic]="selectLang==='AR'">
+                <span class="highlight"></span>
+                <label [class.label_arabic]="selectLang==='AR'"> {{ 'CONTACT.USERNAME' | translate }}</label>
+              </div>
+            </div>
+
+
+            <div class=" p-col-12 p-md-12 p-lg-6  p-sm-12 ">
+              <div class="floating-label">
+                <input class="floating-input"   [(ngModel)]="contactForm.subject" type="text" placeholder=" " [class.text_arabic]="selectLang==='AR'">
+                <span class="highlight"></span>
+                <label [class.label_arabic]="selectLang==='AR'">{{ 'CONTACT.PRENOM' | translate }}</label>
+              </div>
+            </div>
+          </div>
+
+
+          <div>
+            <div class="floating-label">
+              <input class="floating-input" [(ngModel)]="contactForm.email" type="text" placeholder=" " [class.text_arabic]="selectLang==='AR'">
+              <span class="highlight"></span>
+              <label [class.label_arabic]="selectLang==='AR'">{{ 'CONTACT.EMAIL' | translate }}</label>
+            </div>
+          </div>
+          <div>
+            <div class="floating-label">
+              <textarea class="floating-input floating-textarea" [(ngModel)]="contactForm.message" placeholder=" " [class.text_arabic]="selectLang==='AR'"></textarea>
+              <span class="highlight"></span>
+              <label  [class.label_arabic]="selectLang==='AR'">{{ 'CONTACT.Message' | translate }} </label>
+            </div>
+          </div>
+          <div >
+
+            <div class="p-d-flex ">
+              <div *ngIf="selectLang!=='AR'">
+                <button class="button_EN_FR" (click)="sendmail()">
+                  {{ 'CONTACT.BUTTON-SEND' | translate }}
+                  <i class='fas fa-caret-right '></i>
+                  <i class='fas fa-caret-right'></i>
+                </button>
+              </div>
+              <div  *ngIf="selectLang==='AR'">
+                <button class=" button_EN_FR button-arabic"  (click)="sendmail()">
+                  <i class='fas fa-caret-left '></i>
+                  <i class='fas fa-caret-left'></i>
+                  إرسال
+                </button>
+              </div>
+            </div>
+
+
+
+
+          </div>
+        </div>
+
+      </div>
+      <div class=" p-col-12 p-lg-1 p-md-1 p-sm-1 Circle ">
+        <img class="img-Circle" src="assets/images/elemenetAnimation/cercleDore.png">
+      </div>
+    </div>
+
+  </section>
+
+</div>

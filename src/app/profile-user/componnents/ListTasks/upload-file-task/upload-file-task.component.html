@@ -1,0 +1,37 @@
+<div *ngIf="task">
+  <div class="p-d-flex p-jc-center">
+    <h1>Add Statement Of Work</h1>
+  </div>
+
+  <div class="p-grid">
+
+    <div class=" p-mt-2   p-col-12   ">
+      <div class="statement  p-mb-6  ">
+
+        <div class="p-mb-4  p-d-flex p-jc-center">
+          <img
+            src="../../../../assets/images/backOffice/statement.png"/>
+        </div>
+
+      </div>
+    </div>
+    <div class=" p-col p-flex ">
+      <div class="p-d-flex  p-ml-4 p-jc-center" *ngIf="!editPieceAttached ">
+        <label pButton for="file" class="label-file  ">Select Document</label>
+        <input id="file" class="input-file" type="file" (change)="onSelectedPiece($event)">
+
+      </div>
+      <div
+        class="p-d-flex  p-ml-4 p-jc-center "
+        *ngIf="editPieceAttached === true"
+      >
+        <button (click)="uploadFile()" pButton type="button" label="Save Document"
+                class="p-button-success"></button>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
+

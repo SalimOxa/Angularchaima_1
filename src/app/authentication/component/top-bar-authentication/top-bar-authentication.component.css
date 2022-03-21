@@ -1,0 +1,38 @@
+.container{
+  background-color:#190d25;
+  height:40px;
+  opacity: 0.97;
+}
+svg{
+  color: #ffffff;
+  width: 16px;
+  height: 16px;
+}
+
+
+@media  screen and (max-width: 600px) {
+  .container{
+    background-color:#190d25;
+    height:5vh;
+    opacity: 1;
+  }
+  svg{
+    color: white;
+    width: 16px;
+    height: 16px;
+  }
+
+}
+select{
+  background: linear-gradient(#c98215, #f8de52, #f8de52, #b77e09);
+  background-color: #f8de52;
+  border-radius: 5px;
+}
+
+select:hover{
+  cursor: pointer;
+}
+
+
+
+

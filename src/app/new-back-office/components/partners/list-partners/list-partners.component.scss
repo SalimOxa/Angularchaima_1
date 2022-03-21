@@ -1,0 +1,163 @@
+@font-face {
+  font-family: tommy-bold;
+  src: url('../../../../../assets/fonts/MADE TOMMY Bold_PERSONAL USE.otf');
+}
+
+@font-face {
+  font-family: tommy-medium;
+  src: url("../../../../../assets/fonts/MADE TOMMY Medium_PERSONAL USE.otf");
+}
+
+:host ::ng-deep.p-panel .p-panel-title {
+  font-size: 1.8vw;
+}
+
+:host ::ng-deep.p-panel .p-panel-header {
+  padding: 1rem;
+  background: #5b2178;
+  color: white;
+  font-family: tommy-bold;
+  letter-spacing: 0.1vw;
+  font-size: 1.8vw;
+
+}
+
+:host ::ng-deep.p-panel .p-panel-content {
+  padding-top: 40px;
+}
+
+:host ::ng-deep.p-panel .p-panel-header .p-panel-header-icon {
+  color: white;
+}
+
+:host ::ng-deep.p-panel .p-panel-header .p-panel-header-icon:hover {
+  color: #4c198b;
+  background-color: white;
+}
+
+
+:host ::ng-deep.p-breadcrumb {
+  background: #fff;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+:host ::ng-deep {
+  .p-breadcrumb ul {
+    color: #000000;
+    font-size: 1.2vw;
+    font-family: tommy-medium;
+  }
+
+  .p-breadcrumb ul li.p-breadcrumb-chevron {
+    margin: 0 .5rem;
+    color: #000000;
+    font-size: 1.2vw;
+  }
+
+  .p-breadcrumb ul li .p-menuitem-link .p-menuitem-icon {
+    color: #000000;
+    font-size: 1.2vw;
+  }
+}
+
+.fa-trash-alt {
+  color: red;
+  -webkit-filter: grayscale(0) blur(0px);
+  filter: grayscale(0) blur(0px);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.3s ease;
+
+}
+
+.fa-trash-alt:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+#icon-delete {
+  font-size: 30px;
+}
+
+img {
+  border-radius: 1vw;
+  box-shadow: rgba(0, 0, 0, 0.35) 0vw 0.16vw 0.41vw;
+  width: 6.25vw;
+  min-height: 6.25vw;
+  float: left;
+  margin: 0.16vw;
+
+}
+
+:host ::ng-deep.p-datatable .p-datatable-thead > tr > th {
+  text-align: left;
+  padding: 1rem;
+  border: solid #000000;
+  border-width: 0 0 1px;
+  font-weight: 500;
+  color: #000000de;
+  background: rgba(147, 147, 147, 0.12);
+  font-family: tommy-medium;
+  font-size: 1.2vw;
+  letter-spacing: 0.05vw;
+}
+
+td {
+  font-size: 1vw;
+
+  img {
+    cursor: pointer;
+  }
+}
+
+.fa-user-clock {
+  font-size: 1.6vw;
+}
+
+tr:hover {
+  background-color: #f4f4f4;
+}
+
+.icon-delete {
+  font-size: 2vw;
+}
+
+
+tr:hover {
+  background-color: #f4f4f4;
+}
+
+:host ::ng-deep.ng2-pdf-viewer-container {
+  left: 0px;
+}
+
+h1 {
+  font-size: 1.5vw;
+}
+
+:host ::ng-deep.p-dialog .p-dialog-header .p-dialog-title {
+  font-weight: 500;
+  font-size: 1.3vw;
+  color: white;
+  margin-left: 0.2vw;
+}
+
+:host ::ng-deep.p-dialog .p-dialog-header {
+  border-bottom: 0;
+  background: #4c198b;
+
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  padding: 0.8vw;
+}
+
+:host ::ng-deep.p-dialog .p-dialog-header .p-dialog-header-icon:enabled {
+  color: #ffffff;
+}
+
+:host ::ng-deep.p-dialog .p-dialog-header .p-dialog-header-icon:enabled:hover {
+  color: #4c198b;
+  background-color: white;
+}
